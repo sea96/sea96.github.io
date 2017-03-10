@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>最长公共子序列 | 清逸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="问题描述求两个字符串的最长公共子序列（Longest Common Subsequence ( LCS )）。
+算法分别记两个字符串为$S_1$和$S_2$，它们的最长公共子序列为$LCS(S_1,S_2)$。
+朴素的做法枚举出$S_1$所有的子序列和$S_2$比较，时间复杂度：$O(2^{|S_1|}|S_2|)$。
+动态规划的做法记$S_1$和$S_2$最后的字符分别是$S_1$和$S_2$，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最长公共子序列">
+<meta property="og:url" content="https://sea96.github.io/2017/02/27/最长公共子序列/index.html">
+<meta property="og:site_name" content="清逸">
+<meta property="og:description" content="问题描述求两个字符串的最长公共子序列（Longest Common Subsequence ( LCS )）。
+算法分别记两个字符串为$S_1$和$S_2$，它们的最长公共子序列为$LCS(S_1,S_2)$。
+朴素的做法枚举出$S_1$所有的子序列和$S_2$比较，时间复杂度：$O(2^{|S_1|}|S_2|)$。
+动态规划的做法记$S_1$和$S_2$最后的字符分别是$S_1$和$S_2$，">
+<meta property="og:updated_time" content="2017-02-28T05:09:41.759Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="最长公共子序列">
+<meta name="twitter:description" content="问题描述求两个字符串的最长公共子序列（Longest Common Subsequence ( LCS )）。
+算法分别记两个字符串为$S_1$和$S_2$，它们的最长公共子序列为$LCS(S_1,S_2)$。
+朴素的做法枚举出$S_1$所有的子序列和$S_2$比较，时间复杂度：$O(2^{|S_1|}|S_2|)$。
+动态规划的做法记$S_1$和$S_2$最后的字符分别是$S_1$和$S_2$，">
+  
+    <link rel="alternate" href="/atom.xml" title="清逸" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">清逸</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://sea96.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-最长公共子序列" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/27/最长公共子序列/" class="article-date">
+  <time datetime="2017-02-27T06:38:08.000Z" itemprop="datePublished">2017-02-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/算法总结/">算法总结</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      最长公共子序列
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>求两个字符串的最长公共子序列（Longest Common Subsequence ( LCS )）。</p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>分别记两个字符串为$S_1$和$S_2$，它们的最长公共子序列为$LCS(S_1,S_2)$。</p>
+<h3 id="朴素的做法"><a href="#朴素的做法" class="headerlink" title="朴素的做法"></a>朴素的做法</h3><p>枚举出$S_1$所有的子序列和$S_2$比较，时间复杂度：$O(2^{|S_1|}|S_2|)$。</p>
+<h3 id="动态规划的做法"><a href="#动态规划的做法" class="headerlink" title="动态规划的做法"></a>动态规划的做法</h3><p>记$S_1$和$S_2$最后的字符分别是$S_1$和$S_2$，即：$$S_1=S_1’+e_1$$ $$S_2=S_2’+e_2$$<br>有四种情况：</p>
+<ul>
+<li>$LCS$包含$e_1$ 不含$e_2$</li>
+<li>$LCS$包含$e_2$ 不含$e_1$</li>
+<li>$LCS$不含$e_1$，$e_2$</li>
+<li>$LCS$包含$e_1$，$e_2$</li>
+</ul>
+<p>对于第一种情况，$e_2$没有用处，$LCS(S_1,S_2)=LCS(S_1,S_2’)$。<br>对于第二种同理，$LCS(S_1,S_2)=LCS(S_1’,S_2)$<br>对于第三种同理，$LCS(S_1,S_2)=LCS(S_1’,S_2’)$<br>对于第四种同理，$LCS(S_1,S_2)=LCS(S_1’,S_2’)+e_1$<br>如果使用非递归的做法，要保存前缀串的$LCS$，可以用动态规划实现。定义$dp[i][j]$表示$S_1$的前$i$个字符和$S_2$的前$j$个字符的$LCS$的长度，状态转移方程：<br>$$dp[i][j]=max \left { dp[i-1][j],dp[i][j-1],dp[i-1][j-1]+1(S_1[i]=S_2[j]) \right }$$<br>如果要求得到一个最长公共子序列，用一个二维数组记录状态是从哪一个转移来的即可，递归打印。<br>时间复杂度：$O(|S_1||S_2|)$<br>如果用滚动数组优化，空间复杂度：$O(2|S_2|)$</p>
+<h3 id="转换为二维LIS的做法"><a href="#转换为二维LIS的做法" class="headerlink" title="转换为二维LIS的做法"></a>转换为二维LIS的做法</h3><h3 id="压位最长公共子序列"><a href="#压位最长公共子序列" class="headerlink" title="压位最长公共子序列"></a>压位最长公共子序列</h3><p>hdu 1159 N^2 WA<br><a href="https://wiki.icpc-camp.org/twsf/%E5%8E%8B%E4%BD%8D%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97.html" target="_blank" rel="external">压位最长公共子序列</a></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.csie.ntnu.edu.tw/~u91029/LongestCommonSubsequence.html#1" target="_blank" rel="external">演算法笔记 - Longest Common Subsequence</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sea96.github.io/2017/02/27/最长公共子序列/" data-id="cj035ctzy001b30uvz4e1nbyy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCS/">LCS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/28/Kattis-Curious-Cupid/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Kattis Curious Cupid
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/27/动态规划的各种类型/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">动态规划的各种类型</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ACM解题报告/">ACM解题报告</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法总结/">算法总结</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCS/">LCS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mo-s-Algorithm/">Mo's Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-tree/">binary tree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitmasks/">bitmasks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/combinatorics/">combinatorics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/constructive-algorithms/">constructive algorithms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structures/">data structures</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/expression-parsing/">expression parsing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graph/">graph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graphs/">graphs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/number-theory/">number theory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/optimization/">optimization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/probabilities/">probabilities</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/LCS/" style="font-size: 10px;">LCS</a> <a href="/tags/Mo-s-Algorithm/" style="font-size: 10px;">Mo's Algorithm</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/binary-search/" style="font-size: 20px;">binary search</a> <a href="/tags/binary-tree/" style="font-size: 10px;">binary tree</a> <a href="/tags/bitmasks/" style="font-size: 10px;">bitmasks</a> <a href="/tags/combinatorics/" style="font-size: 12.5px;">combinatorics</a> <a href="/tags/constructive-algorithms/" style="font-size: 17.5px;">constructive algorithms</a> <a href="/tags/data-structures/" style="font-size: 12.5px;">data structures</a> <a href="/tags/dp/" style="font-size: 15px;">dp</a> <a href="/tags/expression-parsing/" style="font-size: 10px;">expression parsing</a> <a href="/tags/graph/" style="font-size: 10px;">graph</a> <a href="/tags/graphs/" style="font-size: 10px;">graphs</a> <a href="/tags/greedy/" style="font-size: 15px;">greedy</a> <a href="/tags/math/" style="font-size: 20px;">math</a> <a href="/tags/number-theory/" style="font-size: 17.5px;">number theory</a> <a href="/tags/optimization/" style="font-size: 12.5px;">optimization</a> <a href="/tags/probabilities/" style="font-size: 10px;">probabilities</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/04/HackRank-Lena-Sort/">HackRank Lena Sort</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/03/Codeforces-468C-Hack-it/">Codeforces 468C Hack it!</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/02/Codeforces-493E-Vasya-and-Polynomial/">Codeforces 493E Vasya and Polynomial</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/02/Kattis-Boxes/">Kattis Boxes</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/01/Gym-101020K-Clash-Of-Snakes/">Gym 101020K Clash Of Snakes</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 清逸<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

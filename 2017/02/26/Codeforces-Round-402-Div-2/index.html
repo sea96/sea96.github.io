@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Codeforces Round #402 (Div.2) | 清逸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="A. Pupils Redistribution题意：有2组学生，问最少交换几次学生，使得2组的各类型学生的人数相等。题解：比赛时先是看错题以为DP，然后又想法有问题调不出来，结果最后时间A掉，题倒不难。记录第一组的每类学生缺多少人以及不要多少人（其实是相等的，否则输出-1），可以在交换中得到一个人以及送出一个人。
+B. Weird Rounding题意：给定一个数字$n(\leq 2\times">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Codeforces Round #402 (Div.2)">
+<meta property="og:url" content="https://sea96.github.io/2017/02/26/Codeforces-Round-402-Div-2/index.html">
+<meta property="og:site_name" content="清逸">
+<meta property="og:description" content="A. Pupils Redistribution题意：有2组学生，问最少交换几次学生，使得2组的各类型学生的人数相等。题解：比赛时先是看错题以为DP，然后又想法有问题调不出来，结果最后时间A掉，题倒不难。记录第一组的每类学生缺多少人以及不要多少人（其实是相等的，否则输出-1），可以在交换中得到一个人以及送出一个人。
+B. Weird Rounding题意：给定一个数字$n(\leq 2\times">
+<meta property="og:updated_time" content="2017-02-28T10:31:15.042Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Codeforces Round #402 (Div.2)">
+<meta name="twitter:description" content="A. Pupils Redistribution题意：有2组学生，问最少交换几次学生，使得2组的各类型学生的人数相等。题解：比赛时先是看错题以为DP，然后又想法有问题调不出来，结果最后时间A掉，题倒不难。记录第一组的每类学生缺多少人以及不要多少人（其实是相等的，否则输出-1），可以在交换中得到一个人以及送出一个人。
+B. Weird Rounding题意：给定一个数字$n(\leq 2\times">
+  
+    <link rel="alternate" href="/atom.xml" title="清逸" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">清逸</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://sea96.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Codeforces-Round-402-Div-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/26/Codeforces-Round-402-Div-2/" class="article-date">
+  <time datetime="2017-02-26T11:49:06.000Z" itemprop="datePublished">2017-02-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ACM解题报告/">ACM解题报告</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Codeforces Round #402 (Div.2)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="A-Pupils-Redistribution"><a href="#A-Pupils-Redistribution" class="headerlink" title="A. Pupils Redistribution"></a>A. Pupils Redistribution</h2><p>题意：有2组学生，问最少交换几次学生，使得2组的各类型学生的人数相等。<br>题解：比赛时先是看错题以为DP，然后又想法有问题调不出来，结果最后时间A掉，题倒不难。<br>记录第一组的每类学生缺多少人以及不要多少人（其实是相等的，否则输出-1），可以在交换中得到一个人以及送出一个人。</p>
+<h2 id="B-Weird-Rounding"><a href="#B-Weird-Rounding" class="headerlink" title="B. Weird Rounding"></a>B. Weird Rounding</h2><p>题意：给定一个数字$n(\leq 2\times 10^9)$，问最少删除多少个数位，使得剩余的能被$10^k(1\leq k\leq 9)$整除。<br>题解：贪心地从后往前扫即可。如果没有符合的，还要额外考虑0。</p>
+<h2 id="C-Dishonest-Sellers"><a href="#C-Dishonest-Sellers" class="headerlink" title="C. Dishonest Sellers"></a>C. Dishonest Sellers</h2><p>题意：有$n(\leq 2\times 10^5)$个商品，第$i$个商品当前价格为$a_i$，一周后的价格为$b_i$，必须至少现在买$k(\leq n)$个商品，问最小花费。<br>题解：按照$a_i-b_i$从小到大排序，前$k$个用$a_i$买，后面的用$min(a_i,b_i)$买即可。</p>
+<h2 id="D-String-Game"><a href="#D-String-Game" class="headerlink" title="D. String Game"></a>D. String Game</h2><p>题意：有两个字符串$t$和$p$$(1 ≤ |p| &lt; |t| ≤ 2\times 10^5)$，$t$按照一定顺序删除字符，直到和$p$相等或者子序列没有$p$，问最多能删除多少个字符。<br>题解：二分答案$k$，check删除前$k$个指定字符后子序列还有没有$p$，二分找到最大的$k$。<br><a href="http://codeforces.com/contest/779/submission/25042403" target="_blank" rel="external">code</a></p>
+<h2 id="E-Bitwise-Formula"><a href="#E-Bitwise-Formula" class="headerlink" title="E. Bitwise Formula"></a>E. Bitwise Formula</h2><p>题意：有$n(\leq 5\times 10^3)$个变量，每个变量用$m(\leq 10^3)$位的二进制表示，给出$n$个变量的递推式，问’?’取何值时，所有变量的和最大以及最小？如果有多个满足题意，’?’取最小值。<br>题解：常量不影响结果不考虑。由于相邻二进制的位运算互不影响，所以从高位到低位枚举’?’的二进制数’0’和’1’，根据所有由’?’决定的变量该位的’0’和’1’的数量和来选择答案。代码实现上处理好映射关系。<br><a href="http://codeforces.com/contest/779/submission/25069686" target="_blank" rel="external">code</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sea96.github.io/2017/02/26/Codeforces-Round-402-Div-2/" data-id="cj035ctxs000f30uvtep4jfo8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STL/">STL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/binary-search/">binary search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/expression-parsing/">expression parsing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sort/">sort</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/27/动态规划的各种类型/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          动态规划的各种类型
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/26/Codeforces-711E-ZS-and-The-Birthday-Paradox/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Codeforces 711E ZS and The Birthday Paradox</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ACM解题报告/">ACM解题报告</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法总结/">算法总结</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCS/">LCS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mo-s-Algorithm/">Mo's Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-tree/">binary tree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitmasks/">bitmasks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/combinatorics/">combinatorics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/constructive-algorithms/">constructive algorithms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structures/">data structures</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/expression-parsing/">expression parsing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graph/">graph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graphs/">graphs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/number-theory/">number theory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/optimization/">optimization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/probabilities/">probabilities</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/LCS/" style="font-size: 10px;">LCS</a> <a href="/tags/Mo-s-Algorithm/" style="font-size: 10px;">Mo's Algorithm</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/binary-search/" style="font-size: 20px;">binary search</a> <a href="/tags/binary-tree/" style="font-size: 10px;">binary tree</a> <a href="/tags/bitmasks/" style="font-size: 10px;">bitmasks</a> <a href="/tags/combinatorics/" style="font-size: 12.5px;">combinatorics</a> <a href="/tags/constructive-algorithms/" style="font-size: 17.5px;">constructive algorithms</a> <a href="/tags/data-structures/" style="font-size: 12.5px;">data structures</a> <a href="/tags/dp/" style="font-size: 15px;">dp</a> <a href="/tags/expression-parsing/" style="font-size: 10px;">expression parsing</a> <a href="/tags/graph/" style="font-size: 10px;">graph</a> <a href="/tags/graphs/" style="font-size: 10px;">graphs</a> <a href="/tags/greedy/" style="font-size: 15px;">greedy</a> <a href="/tags/math/" style="font-size: 20px;">math</a> <a href="/tags/number-theory/" style="font-size: 17.5px;">number theory</a> <a href="/tags/optimization/" style="font-size: 12.5px;">optimization</a> <a href="/tags/probabilities/" style="font-size: 10px;">probabilities</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/04/HackRank-Lena-Sort/">HackRank Lena Sort</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/03/Codeforces-468C-Hack-it/">Codeforces 468C Hack it!</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/02/Codeforces-493E-Vasya-and-Polynomial/">Codeforces 493E Vasya and Polynomial</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/02/Kattis-Boxes/">Kattis Boxes</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/01/Gym-101020K-Clash-Of-Snakes/">Gym 101020K Clash Of Snakes</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 清逸<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

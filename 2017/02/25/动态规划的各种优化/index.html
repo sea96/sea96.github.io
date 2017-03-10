@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>动态规划的各种优化 | 清逸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="用单调性优化动态规划
+单调性优化Vijos 1243 生产产品题意：产品的生产需要$m(\leq 10^5)$个步骤，每个步骤可以在$n(\leq 5)$个机器中任何一台完成，机器$i$完成第$j$个步骤的时间为$a_{i,j}$。把半成品从一台机器上搬到另一台机器上也需要一定的时间$k$，每台机器最多只能连续完成产品的$l(\leq 5*10^4)$个步骤，问最短需要多长时间。
+题解：朴素的动态">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态规划的各种优化">
+<meta property="og:url" content="https://sea96.github.io/2017/02/25/动态规划的各种优化/index.html">
+<meta property="og:site_name" content="清逸">
+<meta property="og:description" content="用单调性优化动态规划
+单调性优化Vijos 1243 生产产品题意：产品的生产需要$m(\leq 10^5)$个步骤，每个步骤可以在$n(\leq 5)$个机器中任何一台完成，机器$i$完成第$j$个步骤的时间为$a_{i,j}$。把半成品从一台机器上搬到另一台机器上也需要一定的时间$k$，每台机器最多只能连续完成产品的$l(\leq 5*10^4)$个步骤，问最短需要多长时间。
+题解：朴素的动态">
+<meta property="og:updated_time" content="2017-02-25T08:39:13.328Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="动态规划的各种优化">
+<meta name="twitter:description" content="用单调性优化动态规划
+单调性优化Vijos 1243 生产产品题意：产品的生产需要$m(\leq 10^5)$个步骤，每个步骤可以在$n(\leq 5)$个机器中任何一台完成，机器$i$完成第$j$个步骤的时间为$a_{i,j}$。把半成品从一台机器上搬到另一台机器上也需要一定的时间$k$，每台机器最多只能连续完成产品的$l(\leq 5*10^4)$个步骤，问最短需要多长时间。
+题解：朴素的动态">
+  
+    <link rel="alternate" href="/atom.xml" title="清逸" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">清逸</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://sea96.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-动态规划的各种优化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/25/动态规划的各种优化/" class="article-date">
+  <time datetime="2017-02-25T07:03:05.000Z" itemprop="datePublished">2017-02-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/算法总结/">算法总结</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      动态规划的各种优化
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://wenku.baidu.com/view/ef259400bed5b9f3f90f1c3a.html" target="_blank" rel="external">用单调性优化动态规划</a></p>
+<h2 id="单调性优化"><a href="#单调性优化" class="headerlink" title="单调性优化"></a>单调性优化</h2><h3 id="Vijos-1243-生产产品"><a href="#Vijos-1243-生产产品" class="headerlink" title="Vijos 1243 生产产品"></a>Vijos 1243 生产产品</h3><p>题意：产品的生产需要$m(\leq 10^5)$个步骤，每个步骤可以在$n(\leq 5)$个机器中任何一台完成，机器$i$完成第$j$个步骤的时间为$a_{i,j}$。把半成品从一台机器上搬到另一台机器上也需要一定的时间$k$，每台机器最多只能连续完成产品的$l(\leq 5*10^4)$个步骤，问最短需要多长时间。</p>
+<p>题解：朴素的动态规划的算法：定义$dp[i][j]$表示前i个步骤，最后一段步骤用第$j$个机器完成，$sum[i][j]$表示前$i$个步骤用第$j$个机器完成的时间。状态转移方程：<br>$$dp[i][j]=min\left { dp[t][p]+(sum[i][j]-sum[t][j])+k \right },(j\neq p,i-t\leq l)$$<br>时间复杂度：$O(n^2ml)$。<br>把方程式变形得：<br>$$dp[i][j]=min\left { dp[t][p]-sum[t][j] \right }+sum[i][j]+k,(j\neq p,i-t\leq l)$$<br>发现括号内的式子是根据$t$决定的（枚举$p$和$j$），所以可以用单调队列维护一个单调递增的序列进行优化，时间复杂度：$O(n^2m)$。<br><a href="http://paste.ubuntu.com/24063482/" target="_blank" rel="external">code</a></p>
+<h3 id="POJ-3017-Cut-the-Sequence"><a href="#POJ-3017-Cut-the-Sequence" class="headerlink" title="POJ 3017 Cut the Sequence"></a>POJ 3017 Cut the Sequence</h3><p>题意：给定一个有$n$个非负整数的数列$a(a_i\leq 10^5)$，要求将其划分为若干个部分，使得每部分的和不超过给定的常数$m$，并且所有部分的最大值的和最小。</p>
+<p>题解：朴素的动态规划的算法：定义$dp[i]$表示前$i$个数字划分后所有部分最大值的和，$m(l,r)$表示区间$[l,r]$的最大值，$sum(l,r)$表示区间$[l,r]$的和，状态转移方程：<br>$$dp[i]=min\left { dp[t]+m(t+1,i) \right },sum(t+1,i)\leq m$$<br>因为是非负整数，dp的值显然是递增的，但是并没有可维护单调的序列，决策点也没有单调性，需要挖掘出单调性，引用kuangbin的做法：</p>
+<blockquote>
+<p>首先假如不考虑m的限制，那么最优决策的$j$点，一定满足$a[j] &gt; max(a[j+1~i])$就是$j$点的值要大于$j+1$到$j$点的值。<br>很明显的结论，因为假如不成立，那么可以把$j$点也划分到后面去，得到更优的<br>所以用单调队列维护一个递减数列，这样的话最优决策点只能出现在这些点中。<br>现在加了$m$的限制，假如上面那个递减数列只有后面一部分是满足$m$限制的。<br>那么决策点就是上面这些点再加上满足$m$条件的那个边界，所以可以用平衡二叉树维护二叉树里面的值只要随着队列进行维护就好了，可以用multiset实现。</p>
+</blockquote>
+<p><a href="http://paste.ubuntu.com/24063618/" target="_blank" rel="external">code</a></p>
+<h2 id="斜率优化"><a href="#斜率优化" class="headerlink" title="斜率优化"></a>斜率优化</h2><h3 id="BZOJ-1010-玩具装箱toy"><a href="#BZOJ-1010-玩具装箱toy" class="headerlink" title="BZOJ 1010 玩具装箱toy"></a>BZOJ 1010 玩具装箱toy</h3><p>题意：$n$个玩具装到若干个容器内，问制作容器费用的最小值。<br>题解：<a href="http://blog.csdn.net/slongle_amazing/article/details/50330481" target="_blank" rel="external">一份写的不错的题解</a> 这里面详细的证明了决策点的单调性，在这前提下利用斜率的单调性，维护单调队列，侧重于“数”。</p>
+<h3 id="POJ-1180-Batch-Scheduling（批量任务）"><a href="#POJ-1180-Batch-Scheduling（批量任务）" class="headerlink" title="POJ 1180 Batch Scheduling（批量任务）"></a>POJ 1180 Batch Scheduling（批量任务）</h3><p>题意：有$n(n\leq 10^4)$个任务，要求依次执行，从时刻$0$开始，任务被分批加工。在每批任务开始前，机器需要启动时间$s$。每个任务有相应的执行时间T和影响因素F。一批任务完成时间就是各个任务的完成时间总和，每个任务完成的费用是任务完成时刻*该任务费用系数。确定一个方案使得总费用最小。</p>
+<p>题解：这题要倒推，只有后面任务的分配确定后才有意义。<br>$f(i)$表示完成$i$~$n$任务的最小费用，$T[i,j]$，$F[i,j]$分别表示完成任务$i$~任务$j$所需要的时间和费用。假设新增批次任务$i$~任务$j-1$，那么在$f(j)$的基础上，新增加的完成$i$~$j-1$任务的费用：$(s+T[i,j-1])<em>F[i,j-1]$，延时造成的费用：$(s+T[i,j-1])</em>F[i,j-1]$。所以$f(i)=min(f(j)+(s+T[i,j-1])*F[i,n])$，时间复杂度$O(n^2)$。</p>
+<p>利用最优决策点的凸性优化（侧重“形”）：记$x(i)=T[i,n]，y(i)=f(i)，a[i]=s+T[i,n]，b[i]=F[i,n]$。上面的状态转移方程式等价于：$f(i)=min(y(j)+(a[i]-x[j])<em>b[i])$，即$minp=f(i)=-b[i]</em>x(j)+y(j)+a[i]<em>b[i]$，即$y(j)=b[i]</em>x(j)+(p-a[i]*b[i])$。随着$i$递减，$x(i)$递增，斜率$b[i]$递增，所以用单调队列维护一个下凸壳，时间复杂度降为$O(n)$。<br><a href="http://paste.ubuntu.com/24005937/" target="_blank" rel="external">code</a></p>
+<h3 id="HDOJ-5956-The-Elder（长者的王国）"><a href="#HDOJ-5956-The-Elder（长者的王国）" class="headerlink" title="HDOJ 5956 The Elder（长者的王国）"></a>HDOJ 5956 The Elder（长者的王国）</h3><p>题意：给出一个n个点的有根树，每条边上有权值，两个点的距离定义为路上边权和，给出另一个参数p。令$f_i=max(f_j+dis(i,j)^2+p)$，求f_i的最大值。</p>
+<p>题解：树上的斜率优化DP，DFS遍历时，记录下当前单调队列的两个指针，以及队尾哪些被pop掉，递归结束后恢复即可。<br><a href="http://paste.ubuntu.com/24006830/" target="_blank" rel="external">code</a></p>
+<p>斜率单调暴力移指针<br>斜率不单调二分找答案<br>x坐标单调开单调队列<br>x坐标不单调开平衡树|cdq分治</p>
+<h2 id="四边形不等式优化"><a href="#四边形不等式优化" class="headerlink" title="四边形不等式优化"></a>四边形不等式优化</h2><p><a href="http://wenku.baidu.com/link?url=iCooAFws2vVL_uZNpvGySXFFN0l5NFYlHTpyyfOdrpZ6Z9_J320mLxh22sq-aYdh2EjkcBolxFtg8xs6A2DXv50xTjt3Otv1Lpejpaln1BO" target="_blank" rel="external">百度文库</a><br><a href="http://blog.csdn.net/tomorrowtodie/article/details/52279807" target="_blank" rel="external">CSDN</a><br><a href="http://chino.taipei/code-2016-0402Algorithm-DP%E5%84%AA%E5%8C%96%E4%B9%8B%E5%9B%9B%E9%82%8A%E5%BD%A2%E4%B8%8D%E7%AD%89%E5%BC%8F%E5%84%AA%E5%8C%96/" target="_blank" rel="external">chino</a><br><a href="https://ramay7.github.io/2016/11/04/%E5%9B%9B%E8%BE%B9%E5%BD%A2%E4%B8%8D%E7%AD%89%E5%BC%8F%E4%BC%98%E5%8C%96/" target="_blank" rel="external">瀚清</a><br><a href="http://blog.leanote.com/post/aireenye/Quadrilateral-Inequation-Improve-DP" target="_blank" rel="external">Aireen Ye</a></p>
+<h2 id="滚动数组优化（空间）"><a href="#滚动数组优化（空间）" class="headerlink" title="滚动数组优化（空间）"></a>滚动数组优化（空间）</h2><h2 id="二进制优化（时间）"><a href="#二进制优化（时间）" class="headerlink" title="二进制优化（时间）"></a>二进制优化（时间）</h2><h2 id="矩阵优化（时间）"><a href="#矩阵优化（时间）" class="headerlink" title="矩阵优化（时间）"></a>矩阵优化（时间）</h2><h2 id="数据结构优化（时间）斜率优化四边形优化"><a href="#数据结构优化（时间）斜率优化四边形优化" class="headerlink" title="数据结构优化（时间）斜率优化四边形优化"></a>数据结构优化（时间）斜率优化四边形优化</h2><p><a href="http://blog.csdn.net/hbhcy98/article/details/50636489" target="_blank" rel="external">[dp优化]个人对dp优化的理解</a></p>
+<p><a href="http://www.cppblog.com/menjitianya/archive/2015/10/23/212084.html" target="_blank" rel="external">夜深人静写算法（二） - 动态规划</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://sea96.github.io/2017/02/25/动态规划的各种优化/" data-id="cj035cu4a003b30uvsdtmk83a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/optimization/">optimization</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/26/BestCoder-92C-Girls-Love-233/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          BestCoder 92C Girls Love 233
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/24/Codeforces-396B-On-Sum-of-Fractions/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Codeforces 396B On Sum of Fractions</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ACM解题报告/">ACM解题报告</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法总结/">算法总结</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCS/">LCS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mo-s-Algorithm/">Mo's Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-tree/">binary tree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitmasks/">bitmasks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/combinatorics/">combinatorics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/constructive-algorithms/">constructive algorithms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structures/">data structures</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/expression-parsing/">expression parsing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graph/">graph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graphs/">graphs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/number-theory/">number theory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/optimization/">optimization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/probabilities/">probabilities</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/LCS/" style="font-size: 10px;">LCS</a> <a href="/tags/Mo-s-Algorithm/" style="font-size: 10px;">Mo's Algorithm</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/binary-search/" style="font-size: 20px;">binary search</a> <a href="/tags/binary-tree/" style="font-size: 10px;">binary tree</a> <a href="/tags/bitmasks/" style="font-size: 10px;">bitmasks</a> <a href="/tags/combinatorics/" style="font-size: 12.5px;">combinatorics</a> <a href="/tags/constructive-algorithms/" style="font-size: 17.5px;">constructive algorithms</a> <a href="/tags/data-structures/" style="font-size: 12.5px;">data structures</a> <a href="/tags/dp/" style="font-size: 15px;">dp</a> <a href="/tags/expression-parsing/" style="font-size: 10px;">expression parsing</a> <a href="/tags/graph/" style="font-size: 10px;">graph</a> <a href="/tags/graphs/" style="font-size: 10px;">graphs</a> <a href="/tags/greedy/" style="font-size: 15px;">greedy</a> <a href="/tags/math/" style="font-size: 20px;">math</a> <a href="/tags/number-theory/" style="font-size: 17.5px;">number theory</a> <a href="/tags/optimization/" style="font-size: 12.5px;">optimization</a> <a href="/tags/probabilities/" style="font-size: 10px;">probabilities</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/04/HackRank-Lena-Sort/">HackRank Lena Sort</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/03/Codeforces-468C-Hack-it/">Codeforces 468C Hack it!</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/02/Codeforces-493E-Vasya-and-Polynomial/">Codeforces 493E Vasya and Polynomial</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/02/Kattis-Boxes/">Kattis Boxes</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/01/Gym-101020K-Clash-Of-Snakes/">Gym 101020K Clash Of Snakes</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 清逸<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
