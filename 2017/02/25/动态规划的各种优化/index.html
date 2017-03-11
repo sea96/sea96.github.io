@@ -384,9 +384,9 @@
       
         <p><a href="http://wenku.baidu.com/view/ef259400bed5b9f3f90f1c3a.html" target="_blank" rel="external">用单调性优化动态规划</a></p>
 <h2 id="单调性优化"><a href="#单调性优化" class="headerlink" title="单调性优化"></a>单调性优化</h2><h3 id="Vijos-1243-生产产品"><a href="#Vijos-1243-生产产品" class="headerlink" title="Vijos 1243 生产产品"></a>Vijos 1243 生产产品</h3><p>题意：产品的生产需要$m(\leq 10^5)$个步骤，每个步骤可以在$n(\leq 5)$个机器中任何一台完成，机器$i$完成第$j$个步骤的时间为$a_{i,j}$。把半成品从一台机器上搬到另一台机器上也需要一定的时间$k$，每台机器最多只能连续完成产品的$l(\leq 5*10^4)$个步骤，问最短需要多长时间。</p>
-<p>题解：朴素的动态规划的算法：定义$dp[i][j]$表示前i个步骤，最后一段步骤用第$j$个机器完成，$sum[i][j]$表示前$i$个步骤用第$j$个机器完成的时间。状态转移方程：<br>$$dp[i][j]=min\left { dp[t][p]+(sum[i][j]-sum[t][j])+k \right },(j\neq p,i-t\leq l)$$<br>时间复杂度：$O(n^2ml)$。<br>把方程式变形得：<br>$$dp[i][j]=min\left { dp[t][p]-sum[t][j] \right }+sum[i][j]+k,(j\neq p,i-t\leq l)$$<br>发现括号内的式子是根据$t$决定的（枚举$p$和$j$），所以可以用单调队列维护一个单调递增的序列进行优化，时间复杂度：$O(n^2m)$。<br><a href="http://paste.ubuntu.com/24063482/" target="_blank" rel="external">code</a></p>
+<p>题解：朴素的动态规划的算法：定义$dp[i][j]$表示前i个步骤，最后一段步骤用第$j$个机器完成，$sum[i][j]$表示前$i$个步骤用第$j$个机器完成的时间。状态转移方程：<br>$$dp[i][j]=min\left \{ dp[t][p]+(sum[i][j]-sum[t][j])+k \right \},(j\neq p,i-t\leq l)$$<br>时间复杂度：$O(n^2ml)$。<br>把方程式变形得：<br>$$dp[i][j]=min\left \{ dp[t][p]-sum[t][j] \right \}+sum[i][j]+k,(j\neq p,i-t\leq l)$$<br>发现括号内的式子是根据$t$决定的（枚举$p$和$j$），所以可以用单调队列维护一个单调递增的序列进行优化，时间复杂度：$O(n^2m)$。<br><a href="http://paste.ubuntu.com/24063482/" target="_blank" rel="external">code</a></p>
 <h3 id="POJ-3017-Cut-the-Sequence"><a href="#POJ-3017-Cut-the-Sequence" class="headerlink" title="POJ 3017 Cut the Sequence"></a>POJ 3017 Cut the Sequence</h3><p>题意：给定一个有$n$个非负整数的数列$a(a_i\leq 10^5)$，要求将其划分为若干个部分，使得每部分的和不超过给定的常数$m$，并且所有部分的最大值的和最小。</p>
-<p>题解：朴素的动态规划的算法：定义$dp[i]$表示前$i$个数字划分后所有部分最大值的和，$m(l,r)$表示区间$[l,r]$的最大值，$sum(l,r)$表示区间$[l,r]$的和，状态转移方程：<br>$$dp[i]=min\left { dp[t]+m(t+1,i) \right },sum(t+1,i)\leq m$$<br>因为是非负整数，dp的值显然是递增的，但是并没有可维护单调的序列，决策点也没有单调性，需要挖掘出单调性，引用kuangbin的做法：</p>
+<p>题解：朴素的动态规划的算法：定义$dp[i]$表示前$i$个数字划分后所有部分最大值的和，$m(l,r)$表示区间$[l,r]$的最大值，$sum(l,r)$表示区间$[l,r]$的和，状态转移方程：<br>$$dp[i]=min\left \{ dp[t]+m(t+1,i) \right \},sum(t+1,i)\leq m$$<br>因为是非负整数，dp的值显然是递增的，但是并没有可维护单调的序列，决策点也没有单调性，需要挖掘出单调性，引用kuangbin的做法：</p>
 <blockquote>
 <p>首先假如不考虑m的限制，那么最优决策的$j$点，一定满足$a[j] &gt; max(a[j+1~i])$就是$j$点的值要大于$j+1$到$j$点的值。<br>很明显的结论，因为假如不成立，那么可以把$j$点也划分到后面去，得到更优的<br>所以用单调队列维护一个递减数列，这样的话最优决策点只能出现在这些点中。<br>现在加了$m$的限制，假如上面那个递减数列只有后面一部分是满足$m$限制的。<br>那么决策点就是上面这些点再加上满足$m$条件的那个边界，所以可以用平衡二叉树维护二叉树里面的值只要随着队列进行维护就好了，可以用multiset实现。</p>
 </blockquote>
@@ -546,7 +546,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -564,7 +564,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -380,7 +380,7 @@
 
       
         <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定一个长度为$n(\leq 10^2)$，只包含’2’和’3’的字符串，每次操作可以交换相邻的字符，代价是智商-2。问智商为$m(\leq 10^2)$不降为负数的情况下，最多能使字符串出现多少个字串“233”。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>定义$dp[i][j][k]$表示使用了前$i$个’2’，第$i$个’2’在j位置，一共有$k$个“233”所需要的最小代价。状态转移方程：<br>$$dp[i][j][k]=min \left {   dp[i-1][j2][k],dp[i-1][j3][k-1] \right } + 2|a[i]-j|$$<br>时间复杂度：$O(n^4)$。    </p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>定义$dp[i][j][k]$表示使用了前$i$个’2’，第$i$个’2’在j位置，一共有$k$个“233”所需要的最小代价。状态转移方程：<br>$$dp[i][j][k]=min \left \{   dp[i-1][j2][k],dp[i-1][j3][k-1] \right \} + 2|a[i]-j|$$<br>时间复杂度：$O(n^4)$。    </p>
 <blockquote>
 <p>首先，因为字符不是’2’就是’3’，所以我们可以把字符串当做一个全部都是’3’的串，然后有若干的’2’插入到了某些位置。<br>显然，我们交换相邻的’2’与’2’或者相邻的’3’与’3’是没有意义的，我们只会进行相邻’2’与’3’之间的交换。因此，所有’2’的相对前后关系其实是不会变化的。</p>
 </blockquote>
@@ -532,7 +532,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -550,7 +550,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
