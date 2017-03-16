@@ -1,0 +1,777 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="graphs,DFS,trees," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="题意有$n$个点$m$条边的无向图，每条边上有权值$w$，问一个点的序号，满足从这个点出发到其他点的最大距离最小（在环上走的距离为0），如果有多个，取序号最小的点。
+数据$1 \leq n \leq 10^5$$ 0 \leq m \leq 2*10^5$$ 1 \leq w \leq 10^5$
+题解对无向图求边-双联通分量进行缩环，问题转换为树上找一个点使得到其他点的最大距离最小。可以用dp，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gym 100676H Capital City">
+<meta property="og:url" content="https://sea96.github.io/2017/03/16/Gym-100676H-Capital-City/index.html">
+<meta property="og:site_name" content="清逸">
+<meta property="og:description" content="题意有$n$个点$m$条边的无向图，每条边上有权值$w$，问一个点的序号，满足从这个点出发到其他点的最大距离最小（在环上走的距离为0），如果有多个，取序号最小的点。
+数据$1 \leq n \leq 10^5$$ 0 \leq m \leq 2*10^5$$ 1 \leq w \leq 10^5$
+题解对无向图求边-双联通分量进行缩环，问题转换为树上找一个点使得到其他点的最大距离最小。可以用dp，">
+<meta property="og:updated_time" content="2017-03-16T01:20:50.576Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gym 100676H Capital City">
+<meta name="twitter:description" content="题意有$n$个点$m$条边的无向图，每条边上有权值$w$，问一个点的序号，满足从这个点出发到其他点的最大距离最小（在环上走的距离为0），如果有多个，取序号最小的点。
+数据$1 \leq n \leq 10^5$$ 0 \leq m \leq 2*10^5$$ 1 \leq w \leq 10^5$
+题解对无向图求边-双联通分量进行缩环，问题转换为树上找一个点使得到其他点的最大距离最小。可以用dp，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://sea96.github.io/2017/03/16/Gym-100676H-Capital-City/"/>
+
+
+
+
+
+  <title> Gym 100676H Capital City | 清逸 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">清逸</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://sea96.github.io/2017/03/16/Gym-100676H-Capital-City/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="清逸">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="清逸">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="清逸" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Gym 100676H Capital City
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-16T09:08:02+08:00">
+                2017-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM解题报告/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM解题报告</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/16/Gym-100676H-Capital-City/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/16/Gym-100676H-Capital-City/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有$n$个点$m$条边的无向图，每条边上有权值$w$，问一个点的序号，满足从这个点出发到其他点的最大距离最小（在环上走的距离为0），如果有多个，取序号最小的点。</p>
+<h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><p>$1 \leq n \leq 10^5$<br>$ 0 \leq m \leq 2*10^5$<br>$ 1 \leq w \leq 10^5$</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>对无向图求边-双联通分量进行缩环，问题转换为树上找一个点使得到其他点的最大距离最小。可以用dp，两次DFS得到每一个点到其他点的最大距离。但是只需要找一个点，那么这个点一定在树的直径上，处理出每一个点到直径的两个端点的距离即可，时间复杂度：$O(n+m)$</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">5</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = <span class="number">2e5</span> + <span class="number">5</span>;</div><div class="line"><span class="keyword">struct</span> Edge &#123;</div><div class="line">    <span class="keyword">int</span> v, w, nex, cut;</div><div class="line">&#125;edges[M&lt;&lt;<span class="number">2</span>];</div><div class="line"><span class="keyword">int</span> head[N], head2[N];</div><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; bcc[N];</div><div class="line"><span class="keyword">int</span> dfn[N], bcc_no[N];</div><div class="line"><span class="keyword">int</span> sta[N], top;</div><div class="line"><span class="keyword">int</span> id[N];</div><div class="line"><span class="keyword">int</span> dfs_clock, bcc_cnt;</div><div class="line"><span class="keyword">int</span> n, m, etot;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_edge</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">memset</span>(head, <span class="number">-1</span>, <span class="keyword">sizeof</span>(head));</div><div class="line">    <span class="built_in">memset</span>(head2, <span class="number">-1</span>, <span class="keyword">sizeof</span>(head2));</div><div class="line">    etot = <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> w, <span class="keyword">int</span> *head)</span> </span>&#123;</div><div class="line">    edges[etot] = Edge&#123;v, w, head[u], <span class="number">0</span>&#125;;</div><div class="line">    head[u] = etot++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Tarjan</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> fa)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> lowu = dfn[u] = ++dfs_clock;</div><div class="line">    sta[top++] = u;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=head[u]; ~i; i=edges[i].nex) &#123;</div><div class="line">        <span class="keyword">int</span> v = edges[i].v;</div><div class="line">        <span class="keyword">if</span> (!dfn[v]) &#123;</div><div class="line">            <span class="keyword">int</span> lowv = Tarjan(v, u);</div><div class="line">            lowu = min(lowu, lowv);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dfn[v] &lt; dfn[u] &amp;&amp; v != fa) &#123;</div><div class="line">            lowu = min(lowu, dfn[v]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//桥</span></div><div class="line">    <span class="keyword">if</span> (lowu == dfn[u]) &#123;</div><div class="line">        bcc[++bcc_cnt].clear();</div><div class="line">        <span class="keyword">int</span> v;</div><div class="line">        <span class="keyword">do</span> &#123;</div><div class="line">            v = sta[--top];</div><div class="line">            bcc[bcc_cnt].push_back(v);</div><div class="line">            bcc_no[v] = bcc_cnt;</div><div class="line">        &#125; <span class="keyword">while</span> (v != u);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> lowu;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">find_bcc</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">memset</span>(dfn, <span class="number">0</span>, <span class="keyword">sizeof</span>(dfn));</div><div class="line">    <span class="built_in">memset</span>(bcc_no, <span class="number">0</span>, <span class="keyword">sizeof</span>(bcc_no));</div><div class="line">    dfs_clock = top = bcc_cnt = <span class="number">0</span>;</div><div class="line">    Tarjan(<span class="number">1</span>, <span class="number">-1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">ll d[N], d1[N], d2[N];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> fa, ll *dis)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=head2[u]; ~i; i=edges[i].nex) &#123;</div><div class="line">        <span class="keyword">int</span> v = edges[i].v, w = edges[i].w;</div><div class="line">        <span class="keyword">if</span> (v == fa) <span class="keyword">continue</span>;</div><div class="line">        dis[v] = dis[u] + w;</div><div class="line">        DFS(v, u, dis);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</div><div class="line">    find_bcc();</div><div class="line">    <span class="keyword">if</span> (bcc_cnt == <span class="number">1</span>) &#123;</div><div class="line">        <span class="built_in">puts</span>(<span class="string">"1 0"</span>);</div><div class="line">        <span class="keyword">return</span> ;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=bcc_cnt; ++i) &#123;</div><div class="line">        id[i] = (<span class="keyword">int</span>)(<span class="number">1e9</span>);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x: bcc[i]) &#123;</div><div class="line">            id[i] = min(id[i], x);</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=head[x]; ~j; j=edges[j].nex) &#123;</div><div class="line">                <span class="keyword">int</span> y = edges[j].v, z = edges[j].w;</div><div class="line">                <span class="keyword">if</span> (bcc_no[y] == i) <span class="keyword">continue</span>;</div><div class="line">                add_edge(i, bcc_no[y], z, head2);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> x = bcc_no[<span class="number">1</span>];</div><div class="line">    d[x] = <span class="number">0</span>;</div><div class="line">    DFS(x, <span class="number">0</span>, d);</div><div class="line">    x = <span class="number">-1</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; ++i) &#123;</div><div class="line">        <span class="keyword">int</span> v = bcc_no[i];</div><div class="line">        <span class="keyword">if</span> (x == <span class="number">-1</span> || d[x] &lt; d[v]) x = v;</div><div class="line">    &#125;</div><div class="line">    d1[x] = <span class="number">0</span>;</div><div class="line">    DFS(x, <span class="number">0</span>, d1);</div><div class="line">    <span class="keyword">int</span> y = <span class="number">-1</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; ++i) &#123;</div><div class="line">        <span class="keyword">int</span> v = bcc_no[i];</div><div class="line">        <span class="keyword">if</span> (y == <span class="number">-1</span> || d1[y] &lt; d1[v]) y = v;</div><div class="line">    &#125;</div><div class="line">    d2[y] = <span class="number">0</span>;</div><div class="line">    DFS(y, <span class="number">0</span>, d2);</div><div class="line">    <span class="keyword">int</span> ans = <span class="number">-1</span>;</div><div class="line">    ll len = (ll)(<span class="number">1e18</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; ++i) &#123;</div><div class="line">        <span class="keyword">int</span> v = bcc_no[i];</div><div class="line">        ll md = max(d1[v], d2[v]);</div><div class="line">        <span class="keyword">if</span> (ans == <span class="number">-1</span> || len &gt; md) &#123;</div><div class="line">            ans = id[v]; len = md;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (md == len &amp;&amp; ans &gt; id[v]) ans = id[v];</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d %I64d\n"</span>, ans, len);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</div><div class="line">    <span class="keyword">while</span> (T--) &#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</div><div class="line">        init_edge();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=m; ++i) &#123;</div><div class="line">            <span class="keyword">int</span> u, v, w;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;u, &amp;v, &amp;w);</div><div class="line">            add_edge(u, v, w, head);</div><div class="line">            add_edge(v, u, w, head);</div><div class="line">        &#125;</div><div class="line">        solve();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/graphs/" rel="tag"># graphs</a>
+          
+            <a href="/tags/DFS/" rel="tag"># DFS</a>
+          
+            <a href="/tags/trees/" rel="tag"># trees</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/16/Gym-100676G-Training-Camp/" rel="next" title="Gym 100676G Training Camp">
+                <i class="fa fa-chevron-left"></i> Gym 100676G Training Camp
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/03/16/Gym-100676H-Capital-City/"
+     data-title="Gym 100676H Capital City"
+     data-content=""
+     data-url="https://sea96.github.io/2017/03/16/Gym-100676H-Capital-City/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/16/Gym-100676H-Capital-City/"
+           data-title="Gym 100676H Capital City" data-url="https://sea96.github.io/2017/03/16/Gym-100676H-Capital-City/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="清逸" />
+          <p class="site-author-name" itemprop="name">清逸</p>
+           
+              <p class="site-description motion-element" itemprop="description">知者不言，言者不知。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据"><span class="nav-number">2.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">3.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">清逸</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sea96"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="bitmasks,dp,graph," />
+  <meta name="keywords" content="dp,graphs,bitmasks," />
 
 
 
@@ -89,20 +89,20 @@
 
 <meta name="description" content="题意一个人要读$n$个topic，每天一个topic。在第$k$天读第$x$个topic得到的level是$k*w[x]$，现在有$m$个约束，即读topic的顺序，问得到的最大的level是多少。
 数据$1 \leq n \leq 18$$ 1 \leq w \leq 100$
-题解很容易想到是拓扑排序，如果使用贪心策略每次取出$w$最小的，用优先队列实现，这个是错误的，因为只保证了当前的最优解">
+题解很容易想到是拓扑排序，如果使用贪心策略每次取出$w$最小的，用优先队列实现，但是这个是错误的，因为只保证了当前的最">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gym 100676G Training Camp">
 <meta property="og:url" content="https://sea96.github.io/2017/03/16/Gym-100676G-Training-Camp/index.html">
 <meta property="og:site_name" content="清逸">
 <meta property="og:description" content="题意一个人要读$n$个topic，每天一个topic。在第$k$天读第$x$个topic得到的level是$k*w[x]$，现在有$m$个约束，即读topic的顺序，问得到的最大的level是多少。
 数据$1 \leq n \leq 18$$ 1 \leq w \leq 100$
-题解很容易想到是拓扑排序，如果使用贪心策略每次取出$w$最小的，用优先队列实现，这个是错误的，因为只保证了当前的最优解">
-<meta property="og:updated_time" content="2017-03-16T00:56:06.036Z">
+题解很容易想到是拓扑排序，如果使用贪心策略每次取出$w$最小的，用优先队列实现，但是这个是错误的，因为只保证了当前的最">
+<meta property="og:updated_time" content="2017-03-16T01:07:14.330Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gym 100676G Training Camp">
 <meta name="twitter:description" content="题意一个人要读$n$个topic，每天一个topic。在第$k$天读第$x$个topic得到的level是$k*w[x]$，现在有$m$个约束，即读topic的顺序，问得到的最大的level是多少。
 数据$1 \leq n \leq 18$$ 1 \leq w \leq 100$
-题解很容易想到是拓扑排序，如果使用贪心策略每次取出$w$最小的，用优先队列实现，这个是错误的，因为只保证了当前的最优解">
+题解很容易想到是拓扑排序，如果使用贪心策略每次取出$w$最小的，用优先队列实现，但是这个是错误的，因为只保证了当前的最">
 
 
 
@@ -384,7 +384,7 @@
       
         <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>一个人要读$n$个topic，每天一个topic。在第$k$天读第$x$个topic得到的level是$k*w[x]$，现在有$m$个约束，即读topic的顺序，问得到的最大的level是多少。</p>
 <h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><p>$1 \leq n \leq 18$<br>$ 1 \leq w \leq 100$</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>很容易想到是拓扑排序，如果使用贪心策略每次取出$w$最小的，用优先队列实现，这个是错误的，因为只保证了当前的最优解，没有保证全局最优解。<br>所以考虑dp的方法，注意到$n$的数据范围很小，自然想到用状态压缩dp，状态转移的条件和拓扑排序一样，入度为0的时候才能转移。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>很容易想到是拓扑排序，如果使用贪心策略每次取出$w$最小的，用优先队列实现，但是这个是错误的，因为只保证了当前的最优解，没有保证全局最优解。<br>所以考虑dp的方法，注意到$n$的数据范围很小，自然想到用状态压缩dp，状态转移的条件和拓扑排序一样，入度为0的时候才能转移。</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">20</span>;</div><div class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; ID;</div><div class="line"><span class="keyword">struct</span> Edge &#123;</div><div class="line">    <span class="keyword">int</span> u, v;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">vector</span>&lt;Edge&gt; edges;</div><div class="line"><span class="keyword">int</span> dp[(<span class="number">1</span>&lt;&lt;<span class="number">18</span>)+<span class="number">5</span>];</div><div class="line"><span class="keyword">bool</span> vis[N];</div><div class="line"><span class="keyword">int</span> w[N];</div><div class="line"><span class="keyword">int</span> deg[N];</div><div class="line"><span class="keyword">int</span> n, m;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp));</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> mask=<span class="number">0</span>; mask&lt;(<span class="number">1</span>&lt;&lt;n); ++mask) &#123;</div><div class="line">        <span class="built_in">memset</span>(vis, <span class="literal">false</span>, <span class="keyword">sizeof</span>(vis));</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; ++i) <span class="keyword">if</span> (mask &amp; (<span class="number">1</span>&lt;&lt;i)) vis[i] = <span class="literal">true</span>;</div><div class="line">        <span class="keyword">int</span> day = __builtin_popcount(mask);</div><div class="line">        <span class="keyword">bool</span> flag = <span class="literal">true</span>;</div><div class="line">        <span class="built_in">memset</span>(deg, <span class="number">0</span>, <span class="keyword">sizeof</span>(deg));</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> e: edges) &#123;</div><div class="line">            <span class="keyword">if</span> (!vis[e.u] &amp;&amp; vis[e.v]) &#123; flag = <span class="literal">false</span>; <span class="keyword">break</span>; &#125;</div><div class="line">            <span class="keyword">if</span> (!vis[e.u]) deg[e.v]++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (!flag) <span class="keyword">continue</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; ++i) &#123;</div><div class="line">            <span class="keyword">if</span> (!vis[i] &amp;&amp; !deg[i]) &#123;</div><div class="line">                dp[mask|(<span class="number">1</span>&lt;&lt;i)] = max(dp[mask|(<span class="number">1</span>&lt;&lt;i)], dp[mask]+(day+<span class="number">1</span>)*w[i]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> dp[(<span class="number">1</span>&lt;&lt;n)<span class="number">-1</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; T;</div><div class="line">    <span class="keyword">while</span> (T--) &#123;</div><div class="line">        <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</div><div class="line">        edges.clear();</div><div class="line">        ID.clear();</div><div class="line">        <span class="built_in">string</span> topic, topic2, tmp;</div><div class="line">        getline(<span class="built_in">cin</span>, tmp);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; ++i) &#123;</div><div class="line">            w[i] = <span class="number">0</span>; topic = <span class="string">""</span>;</div><div class="line">            getline(<span class="built_in">cin</span>, tmp);</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;tmp.length(); ++j) &#123;</div><div class="line">                <span class="keyword">if</span> (tmp[j] &gt;= <span class="string">'0'</span> &amp;&amp; tmp[j] &lt;= <span class="string">'9'</span>) &#123;</div><div class="line">                    w[i] = w[i]*<span class="number">10</span> + (tmp[j]-<span class="string">'0'</span>);</div><div class="line">                &#125; <span class="keyword">else</span> topic += tmp[j];</div><div class="line">            &#125;</div><div class="line">            ID[topic] = i;</div><div class="line">        &#125;</div><div class="line">        edges.clear();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=m; ++i) &#123;</div><div class="line">            getline(<span class="built_in">cin</span>, tmp);</div><div class="line">            topic = topic2 = <span class="string">""</span>;</div><div class="line">            <span class="keyword">bool</span> fir = <span class="literal">true</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;tmp.length(); ++j) &#123;</div><div class="line">                <span class="keyword">if</span> (tmp[j] == <span class="string">'-'</span>) &#123;</div><div class="line">                    j += <span class="number">3</span>;</div><div class="line">                    fir = <span class="literal">false</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">if</span> (fir) topic += tmp[j];</div><div class="line">                    <span class="keyword">else</span> topic2 += tmp[j];</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            topic2 += <span class="string">' '</span>;</div><div class="line">            edges.push_back(Edge&#123;ID[topic], ID[topic2]&#125;);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; solve() &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
@@ -408,11 +408,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/bitmasks/" rel="tag"># bitmasks</a>
-          
             <a href="/tags/dp/" rel="tag"># dp</a>
           
-            <a href="/tags/graph/" rel="tag"># graph</a>
+            <a href="/tags/graphs/" rel="tag"># graphs</a>
+          
+            <a href="/tags/bitmasks/" rel="tag"># bitmasks</a>
           
         </div>
       
@@ -434,6 +434,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/16/Gym-100676H-Capital-City/" rel="prev" title="Gym 100676H Capital City">
+                Gym 100676H Capital City <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -528,7 +532,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
