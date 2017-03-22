@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="binary search,math,constructive algorithms," />
+  <meta name="keywords" content="data structures,sqrt decomposition," />
 
 
 
@@ -87,25 +87,19 @@
 
 
 
-<meta name="description" content="题意定义$f(n)$表示$n$的数位和，求一组$[l,r]$$(1 \leq l,r &amp;lt; 10^{200})$，使得$\sum\limits_{i=l}^rf(i)\equiv 0\pmod a$$(1\leq a\leq 10^{18})$。
-题解记$s(n)=\sum\limits_{i=1}^{n}f(i)$，计算$s(n)$只要把每一个数位对答案的贡献加起来即可。
-
-构造：注意到$f">
+<meta name="description" content="平方分割又叫做分桶法或者分块法，把排成一排的N个元素每$\sqrt N $分在一个块（桶）里，这样的分割方法可以把对区间的操作的复杂度降至$O(\sqrt N)$。
+对序列分块一般的做法是将序列分成若干块，对于一个区间的操作分为块内操作和块间操作，块内的暴力求解（块内元素的个数最多$\sqrt N$个，所以复杂度$O(\sqrt N)$起步），块间的高效求解（块的个数最多$\sqrt N$个，复杂">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Codeforces 468C Hack it!">
-<meta property="og:url" content="https://sea96.github.io/2017/03/03/Codeforces-468C-Hack-it/index.html">
+<meta property="og:title" content="平方分割">
+<meta property="og:url" content="https://sea96.github.io/2017/03/21/平方分割/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="题意定义$f(n)$表示$n$的数位和，求一组$[l,r]$$(1 \leq l,r &amp;lt; 10^{200})$，使得$\sum\limits_{i=l}^rf(i)\equiv 0\pmod a$$(1\leq a\leq 10^{18})$。
-题解记$s(n)=\sum\limits_{i=1}^{n}f(i)$，计算$s(n)$只要把每一个数位对答案的贡献加起来即可。
-
-构造：注意到$f">
-<meta property="og:updated_time" content="2017-03-04T00:30:36.767Z">
+<meta property="og:description" content="平方分割又叫做分桶法或者分块法，把排成一排的N个元素每$\sqrt N $分在一个块（桶）里，这样的分割方法可以把对区间的操作的复杂度降至$O(\sqrt N)$。
+对序列分块一般的做法是将序列分成若干块，对于一个区间的操作分为块内操作和块间操作，块内的暴力求解（块内元素的个数最多$\sqrt N$个，所以复杂度$O(\sqrt N)$起步），块间的高效求解（块的个数最多$\sqrt N$个，复杂">
+<meta property="og:updated_time" content="2017-03-22T02:23:19.611Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Codeforces 468C Hack it!">
-<meta name="twitter:description" content="题意定义$f(n)$表示$n$的数位和，求一组$[l,r]$$(1 \leq l,r &amp;lt; 10^{200})$，使得$\sum\limits_{i=l}^rf(i)\equiv 0\pmod a$$(1\leq a\leq 10^{18})$。
-题解记$s(n)=\sum\limits_{i=1}^{n}f(i)$，计算$s(n)$只要把每一个数位对答案的贡献加起来即可。
-
-构造：注意到$f">
+<meta name="twitter:title" content="平方分割">
+<meta name="twitter:description" content="平方分割又叫做分桶法或者分块法，把排成一排的N个元素每$\sqrt N $分在一个块（桶）里，这样的分割方法可以把对区间的操作的复杂度降至$O(\sqrt N)$。
+对序列分块一般的做法是将序列分成若干块，对于一个区间的操作分为块内操作和块间操作，块内的暴力求解（块内元素的个数最多$\sqrt N$个，所以复杂度$O(\sqrt N)$起步），块间的高效求解（块的个数最多$\sqrt N$个，复杂">
 
 
 
@@ -133,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://sea96.github.io/2017/03/03/Codeforces-468C-Hack-it/"/>
+  <link rel="canonical" href="https://sea96.github.io/2017/03/21/平方分割/"/>
 
 
 
 
 
-  <title> Codeforces 468C Hack it! | 清逸 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 平方分割 | 清逸 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -278,7 +272,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://sea96.github.io/2017/03/03/Codeforces-468C-Hack-it/">
+  <link itemprop="mainEntityOfPage" href="https://sea96.github.io/2017/03/21/平方分割/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="清逸">
@@ -302,7 +296,7 @@
             
             
               
-                Codeforces 468C Hack it!
+                平方分割
               
             
           </h1>
@@ -317,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-03T16:42:28+08:00">
-                2017-03-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T20:02:57+08:00">
+                2017-03-21
               </time>
             
 
@@ -340,8 +334,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM解题报告/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM解题报告</span>
+                  <a href="/categories/算法总结/" itemprop="url" rel="index">
+                    <span itemprop="name">算法总结</span>
                   </a>
                 </span>
 
@@ -358,8 +352,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/03/Codeforces-468C-Hack-it/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/03/Codeforces-468C-Hack-it/" itemprop="commentCount"></span>
+                <a href="/2017/03/21/平方分割/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/21/平方分割/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -385,19 +379,26 @@
       
 
       
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>定义$f(n)$表示$n$的数位和，求一组$[l,r]$$(1 \leq l,r &lt; 10^{200})$，使得$\sum\limits_{i=l}^rf(i)\equiv 0\pmod a$$(1\leq a\leq 10^{18})$。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>记$s(n)=\sum\limits_{i=1}^{n}f(i)$，计算$s(n)$只要把每一个数位对答案的贡献加起来即可。</p>
-<ul>
-<li>构造：<br>注意到$f(x+10^{18})=f(x)+1$，那么$s(x+10^{18})=s(10^{18})+s(x)+x$，即$s(x+10^{18})-s(x)=s(10^{18})+x$。令$s(10^{18})+x=a$，即$x=a-s(10^{18})$，构造出一组解：$L=x+1$，$R=x+10^{18}$。</li>
-<li><p>二分方法：</p>
-<blockquote>
-<p>我们只需找到$s(R)%a = s(L-1)%a$就美滋滋了。我们使用二分查询找到最小的且满足$g(R)&gt;=a$的值$R$，接下来令$L=1$，然后跑一个双指针,调整L,R的值即可。</p>
-</blockquote>
-<p>时间复杂度：$O(?)$</p>
-</li>
-</ul>
-<p><a href="http://codeforces.com/blog/entry/13896" target="_blank" rel="external">官方题解</a></p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line">ll a;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%I64d"</span>, &amp;a);</div><div class="line">    <span class="comment">//s(1e18)</span></div><div class="line">    ll s = ((<span class="number">3</span>*(<span class="number">3</span>*(<span class="number">3</span>*(<span class="number">3</span>*(<span class="number">5</span>*(<span class="number">2</span>*((ll)<span class="number">1e17</span>%a))%a)%a)%a)%a)%a)%a+<span class="number">1</span>)%a;</div><div class="line">    ll x = a - s;</div><div class="line">    ll L = x + <span class="number">1</span>, R = x + (ll)(<span class="number">1e18</span>);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%I64d %I64d\n"</span>, L, R);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>平方分割又叫做分桶法或者分块法，把排成一排的N个元素每$\sqrt N $分在一个块（桶）里，这样的分割方法可以把对区间的操作的复杂度降至$O(\sqrt N)$。</p>
+<h2 id="对序列分块"><a href="#对序列分块" class="headerlink" title="对序列分块"></a>对序列分块</h2><p>一般的做法是将序列分成若干块，对于一个区间的操作分为块内操作和块间操作，块内的暴力求解（块内元素的个数最多$\sqrt N$个，所以复杂度$O(\sqrt N)$起步），块间的高效求解（块的个数最多$\sqrt N$个，复杂度$O(\sqrt N)$起步）。</p>
+<p><a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=3154" target="_blank" rel="external">UVA 12003    Array Transformer</a><br>题意：有一个数组$A[1,…,n]$和$m$条指令和一个数字$u$，每条指令形如$(l,r,v,p)$，统计出$A[l],A[l+1],…,A[r]$中严格小于$v$的元素的个数为$k$，然后把$A[p]$改为$\frac {u*k}{r-l+1}$。问变换后的最终数组。<br>题解：预设一个整数$B$（$B=\sqrt N$或者更大），每$B$个元素分成一块，分别排好序后，对于一个区间$[l,r]$查询小于$v$的个数分为块内查询和块间查询：块内元素一个一个判断是否小于$v$；块间用二分查找来统计小于$v$的个数。修改的操作则在$p$所在的块里进行，因为修改后块内元素基本有序，所以用插入排序的方法使得被修改的元素移动到正确的位置。<br>单次查询的复杂度：$O(B+\sqrt {\frac{N}{B}}logB)$，单次修改的复杂度：$O(logB+B)$<br>总时间复杂度：$O(M(B+\sqrt {\frac{N}{B}}logB))$</p>
+<p>莫队算法用到了分块的思想，一般是给$Q$个区间$[l,r]$来进行的一些操作和询问。<br>将序列分成$\sqrt N $块，每块的大小为$\sqrt N $。离线处理$Q$个区间：首先对左端点$l$所在的块号从小到大排序，如果块号相同则按右端点$r$从小到大排序。然后用双指针移动到当前区间位置，每次移动更新对结果的贡献。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=Q; ++i) &#123;</div><div class="line">    <span class="keyword">while</span> (L &lt; q[i].l) sub(L++);</div><div class="line">    <span class="keyword">while</span> (L &gt; q[i].l) add(--L);  <span class="comment">//删除</span></div><div class="line">    <span class="keyword">while</span> (R &lt; q[i].r) add(++R);  <span class="comment">//增加</span></div><div class="line">    <span class="keyword">while</span> (R &gt; q[i].r) sub(R--);</div><div class="line">    ans[q[i].id] = sum;  <span class="comment">//答案</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><a href="http://codeforces.com/contest/86/problem/D" target="_blank" rel="external">CF 86D Powerful array</a></p>
+<h2 id="对点平方分割"><a href="#对点平方分割" class="headerlink" title="对点平方分割"></a>对点平方分割</h2><p>HDU 4366    Successor<br>HDU 4391    Paint The Wall<br>HDU 4638    Group<br>HDU 4467    Graph<br>HDU 4858    项目管理<br>HYSBZ 2002    Bounce 弹飞绵羊<br>HYSBZ 2957    楼房重建<br>ZOJ 3749    Chameleon</p>
+<p>CodeForces 348C    Subset Sums<br>CodeForces 444C    DZY Loves Colors<br>CodeForces 576C    Points on Plane<br>CodeForces 351D    Jeff and Removing Periods<br>CodeForces 398D    Instant Messanger<br>CodeForces 103D    Time to Raid Cowavans<br>CodeForces 455D    Serega and Fun<br>CodeForces 375D    Tree and Queries<br>CodeForces 551E    GukiZ and GukiZiana<br>CodeForces 13E    Holes<br>CodeForces 617E    XOR and Favorite Number<br>SPOJ DQUERY    D-query<br>SPOJ PATULJCI    Snow White and the N dwarfs<br>SPOJ RACETIME    Race Against Time<br>SPOJ ZQUERY    Zero Query<br>CodeChef GERALD07    Chef and Graph Queries<br>CodeChef IITI15    Sherlock and Inversions</p>
+<p>uva 12292</p>
+<p>分块大法好！<br>平方分割又叫做分桶法或者分块法，把排成一排的N个元素每分在一个块（桶）里，这样的分割方法可以把对区间的操作的复杂度降至。</p>
+<p>对序列分块</p>
+<p>一般的做法是将序列分成若干块，对于一个区间的操作分为块内操作和块间操作，块内的暴力求解（块内元素的个数最多个，所以复杂度起步），块间的高效求解（块的个数最多个，复杂度起步）。</p>
+<p>UVA 12003 Array Transformer<br>题意：有一个数组和条指令和一个数字，每条指令形如，统计出中严格小于的元素的个数为，然后把改为。问变换后的最终数组。<br>题解：预设一个整数（或者更大），每个元素分成一块，分别排好序后，对于一个区间查询小于的个数分为块内查询和块间查询：块内元素一个一个判断是否小于；块间用二分查找来统计小于的个数。修改的操作则在所在的块里进行，因为修改后块内元素基本有序，所以用插入排序的方法使得被修改的元素移动到正确的位置。<br>单次查询的复杂度：，单次修改的复杂度：<br>总时间复杂度：</p>
+<p>莫队算法用到了分块的思想，一般是给个区间来进行的一些操作和询问。<br>将序列分成块，每块的大小为。离线处理个区间：首先对左端点所在的块号从小到大排序，如果块号相同则按右端点从小到大排序。然后用双指针移动到当前区间位置，每次移动更新对结果的贡献。</p>
+<p>for (int i=1; i&lt;=Q; ++i) {<br>    while (L &lt; q[i].l) sub(L++);<br>    while (L &gt; q[i].l) add(–L);  //删除<br>    while (R &lt; q[i].r) add(++R);  //增加<br>    while (R &gt; q[i].r) sub(R–);<br>    ans[q[i].id] = sum;  //答案<br>}<br>CF 86D Powerful array</p>
+<p>对点平方分割</p>
+<p>HDU 4366 Successor<br>HDU 4391 Paint The Wall<br>HDU 4638 Group<br>HDU 4467 Graph<br>HDU 4858 项目管理<br>HYSBZ 2002 Bounce 弹飞绵羊<br>HYSBZ 2957 楼房重建<br>ZOJ 3749 Chameleon</p>
+<p>CodeForces 348C Subset Sums<br>CodeForces 444C DZY Loves Colors<br>CodeForces 576C Points on Plane<br>CodeForces 351D Jeff and Removing Periods<br>CodeForces 398D Instant Messanger<br>CodeForces 103D Time to Raid Cowavans<br>CodeForces 455D Serega and Fun<br>CodeForces 375D Tree and Queries<br>CodeForces 551E GukiZ and GukiZiana<br>CodeForces 13E Holes<br>CodeForces 617E XOR and Favorite Number<br>SPOJ DQUERY D-query<br>SPOJ PATULJCI Snow White and the N dwarfs<br>SPOJ RACETIME Race Against Time<br>SPOJ ZQUERY Zero Query<br>CodeChef GERALD07 Chef and Graph Queries<br>CodeChef IITI15 Sherlock and Inversions</p>
+<p>uva 12292</p>
+<p>分块大法好！</p>
+
       
     </div>
 
@@ -420,11 +421,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/binary-search/" rel="tag"># binary search</a>
+            <a href="/tags/data-structures/" rel="tag"># data structures</a>
           
-            <a href="/tags/math/" rel="tag"># math</a>
-          
-            <a href="/tags/constructive-algorithms/" rel="tag"># constructive algorithms</a>
+            <a href="/tags/sqrt-decomposition/" rel="tag"># sqrt decomposition</a>
           
         </div>
       
@@ -437,8 +436,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/02/Codeforces-493E-Vasya-and-Polynomial/" rel="next" title="Codeforces 493E Vasya and Polynomial">
-                <i class="fa fa-chevron-left"></i> Codeforces 493E Vasya and Polynomial
+              <a href="/2017/03/20/AtCoder-Regular-Contest-070/" rel="next" title="AtCoder Regular Contest 070">
+                <i class="fa fa-chevron-left"></i> AtCoder Regular Contest 070
               </a>
             
           </div>
@@ -446,10 +445,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/04/HackRank-Lena-Sort/" rel="prev" title="HackRank Lena Sort">
-                HackRank Lena Sort <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -464,10 +459,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/03/03/Codeforces-468C-Hack-it/"
-     data-title="Codeforces 468C Hack it!"
+        <div class="ds-share flat" data-thread-key="2017/03/21/平方分割/"
+     data-title="平方分割"
      data-content=""
-     data-url="https://sea96.github.io/2017/03/03/Codeforces-468C-Hack-it/">
+     data-url="https://sea96.github.io/2017/03/21/平方分割/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -494,8 +489,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/03/Codeforces-468C-Hack-it/"
-           data-title="Codeforces 468C Hack it!" data-url="https://sea96.github.io/2017/03/03/Codeforces-468C-Hack-it/">
+      <div class="ds-thread" data-thread-key="2017/03/21/平方分割/"
+           data-title="平方分割" data-url="https://sea96.github.io/2017/03/21/平方分割/">
       </div>
     
   </div>
@@ -597,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对序列分块"><span class="nav-number">1.</span> <span class="nav-text">对序列分块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对点平方分割"><span class="nav-number">2.</span> <span class="nav-text">对点平方分割</span></a></li></ol></div>
             
 
           </div>
