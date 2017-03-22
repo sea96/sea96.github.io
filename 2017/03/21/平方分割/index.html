@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="清逸">
 <meta property="og:description" content="平方分割又叫做分桶法或者分块法，把排成一排的N个元素每$\sqrt N $分在一个块（桶）里，这样的分割方法可以把对区间的操作的复杂度降至$O(\sqrt N)$。
 对序列分块一般的做法是将序列分成若干块，对于一个区间的操作分为块内操作和块间操作，块内的暴力求解（块内元素的个数最多$\sqrt N$个，所以复杂度$O(\sqrt N)$起步），块间的高效求解（块的个数最多$\sqrt N$个，复杂">
-<meta property="og:updated_time" content="2017-03-22T02:23:19.611Z">
+<meta property="og:updated_time" content="2017-03-22T02:30:09.905Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="平方分割">
 <meta name="twitter:description" content="平方分割又叫做分桶法或者分块法，把排成一排的N个元素每$\sqrt N $分在一个块（桶）里，这样的分割方法可以把对区间的操作的复杂度降至$O(\sqrt N)$。
@@ -386,16 +386,6 @@
 <p><a href="http://codeforces.com/contest/86/problem/D" target="_blank" rel="external">CF 86D Powerful array</a></p>
 <h2 id="对点平方分割"><a href="#对点平方分割" class="headerlink" title="对点平方分割"></a>对点平方分割</h2><p>HDU 4366    Successor<br>HDU 4391    Paint The Wall<br>HDU 4638    Group<br>HDU 4467    Graph<br>HDU 4858    项目管理<br>HYSBZ 2002    Bounce 弹飞绵羊<br>HYSBZ 2957    楼房重建<br>ZOJ 3749    Chameleon</p>
 <p>CodeForces 348C    Subset Sums<br>CodeForces 444C    DZY Loves Colors<br>CodeForces 576C    Points on Plane<br>CodeForces 351D    Jeff and Removing Periods<br>CodeForces 398D    Instant Messanger<br>CodeForces 103D    Time to Raid Cowavans<br>CodeForces 455D    Serega and Fun<br>CodeForces 375D    Tree and Queries<br>CodeForces 551E    GukiZ and GukiZiana<br>CodeForces 13E    Holes<br>CodeForces 617E    XOR and Favorite Number<br>SPOJ DQUERY    D-query<br>SPOJ PATULJCI    Snow White and the N dwarfs<br>SPOJ RACETIME    Race Against Time<br>SPOJ ZQUERY    Zero Query<br>CodeChef GERALD07    Chef and Graph Queries<br>CodeChef IITI15    Sherlock and Inversions</p>
-<p>uva 12292</p>
-<p>分块大法好！<br>平方分割又叫做分桶法或者分块法，把排成一排的N个元素每分在一个块（桶）里，这样的分割方法可以把对区间的操作的复杂度降至。</p>
-<p>对序列分块</p>
-<p>一般的做法是将序列分成若干块，对于一个区间的操作分为块内操作和块间操作，块内的暴力求解（块内元素的个数最多个，所以复杂度起步），块间的高效求解（块的个数最多个，复杂度起步）。</p>
-<p>UVA 12003 Array Transformer<br>题意：有一个数组和条指令和一个数字，每条指令形如，统计出中严格小于的元素的个数为，然后把改为。问变换后的最终数组。<br>题解：预设一个整数（或者更大），每个元素分成一块，分别排好序后，对于一个区间查询小于的个数分为块内查询和块间查询：块内元素一个一个判断是否小于；块间用二分查找来统计小于的个数。修改的操作则在所在的块里进行，因为修改后块内元素基本有序，所以用插入排序的方法使得被修改的元素移动到正确的位置。<br>单次查询的复杂度：，单次修改的复杂度：<br>总时间复杂度：</p>
-<p>莫队算法用到了分块的思想，一般是给个区间来进行的一些操作和询问。<br>将序列分成块，每块的大小为。离线处理个区间：首先对左端点所在的块号从小到大排序，如果块号相同则按右端点从小到大排序。然后用双指针移动到当前区间位置，每次移动更新对结果的贡献。</p>
-<p>for (int i=1; i&lt;=Q; ++i) {<br>    while (L &lt; q[i].l) sub(L++);<br>    while (L &gt; q[i].l) add(–L);  //删除<br>    while (R &lt; q[i].r) add(++R);  //增加<br>    while (R &gt; q[i].r) sub(R–);<br>    ans[q[i].id] = sum;  //答案<br>}<br>CF 86D Powerful array</p>
-<p>对点平方分割</p>
-<p>HDU 4366 Successor<br>HDU 4391 Paint The Wall<br>HDU 4638 Group<br>HDU 4467 Graph<br>HDU 4858 项目管理<br>HYSBZ 2002 Bounce 弹飞绵羊<br>HYSBZ 2957 楼房重建<br>ZOJ 3749 Chameleon</p>
-<p>CodeForces 348C Subset Sums<br>CodeForces 444C DZY Loves Colors<br>CodeForces 576C Points on Plane<br>CodeForces 351D Jeff and Removing Periods<br>CodeForces 398D Instant Messanger<br>CodeForces 103D Time to Raid Cowavans<br>CodeForces 455D Serega and Fun<br>CodeForces 375D Tree and Queries<br>CodeForces 551E GukiZ and GukiZiana<br>CodeForces 13E Holes<br>CodeForces 617E XOR and Favorite Number<br>SPOJ DQUERY D-query<br>SPOJ PATULJCI Snow White and the N dwarfs<br>SPOJ RACETIME Race Against Time<br>SPOJ ZQUERY Zero Query<br>CodeChef GERALD07 Chef and Graph Queries<br>CodeChef IITI15 Sherlock and Inversions</p>
 <p>uva 12292</p>
 <p>分块大法好！</p>
 
