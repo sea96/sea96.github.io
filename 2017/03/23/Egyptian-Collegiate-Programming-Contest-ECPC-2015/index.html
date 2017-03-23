@@ -1,0 +1,800 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="greedy,binary search,dp,splay," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="A. Arcade Game题意给一个$n$位的数字，每一次等概率地变成按照数位全排列的某一个排列（各个位的数不同），要求变换后的数字比之前的大，问最终变成最大排列形式的数字的概率。
+数据$1 \leq n \leq 9$
+题解设数字在全排列的位置为$k$，它最终变成最大数字的概率为$p_k$，那么$p_k = (\sum_{j=k+1}^{n!}p_j) \frac {1}{n!}$，$p_{n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Egyptian Collegiate Programming Contest (ECPC 2015)">
+<meta property="og:url" content="https://sea96.github.io/2017/03/23/Egyptian-Collegiate-Programming-Contest-ECPC-2015/index.html">
+<meta property="og:site_name" content="清逸">
+<meta property="og:description" content="A. Arcade Game题意给一个$n$位的数字，每一次等概率地变成按照数位全排列的某一个排列（各个位的数不同），要求变换后的数字比之前的大，问最终变成最大排列形式的数字的概率。
+数据$1 \leq n \leq 9$
+题解设数字在全排列的位置为$k$，它最终变成最大数字的概率为$p_k$，那么$p_k = (\sum_{j=k+1}^{n!}p_j) \frac {1}{n!}$，$p_{n">
+<meta property="og:updated_time" content="2017-03-23T02:11:07.564Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Egyptian Collegiate Programming Contest (ECPC 2015)">
+<meta name="twitter:description" content="A. Arcade Game题意给一个$n$位的数字，每一次等概率地变成按照数位全排列的某一个排列（各个位的数不同），要求变换后的数字比之前的大，问最终变成最大排列形式的数字的概率。
+数据$1 \leq n \leq 9$
+题解设数字在全排列的位置为$k$，它最终变成最大数字的概率为$p_k$，那么$p_k = (\sum_{j=k+1}^{n!}p_j) \frac {1}{n!}$，$p_{n">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://sea96.github.io/2017/03/23/Egyptian-Collegiate-Programming-Contest-ECPC-2015/"/>
+
+
+
+
+
+  <title> Egyptian Collegiate Programming Contest (ECPC 2015) | 清逸 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">清逸</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://sea96.github.io/2017/03/23/Egyptian-Collegiate-Programming-Contest-ECPC-2015/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="清逸">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="清逸">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="清逸" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Egyptian Collegiate Programming Contest (ECPC 2015)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-23T09:11:10+08:00">
+                2017-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM解题报告/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM解题报告</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM解题报告/套题/" itemprop="url" rel="index">
+                    <span itemprop="name">套题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/23/Egyptian-Collegiate-Programming-Contest-ECPC-2015/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/23/Egyptian-Collegiate-Programming-Contest-ECPC-2015/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="A-Arcade-Game"><a href="#A-Arcade-Game" class="headerlink" title="A. Arcade Game"></a>A. Arcade Game</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给一个$n$位的数字，每一次等概率地变成按照数位全排列的某一个排列（各个位的数不同），要求变换后的数字比之前的大，问最终变成最大排列形式的数字的概率。</p>
+<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><p>$1 \leq n \leq 9$</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>设数字在全排列的位置为$k$，它最终变成最大数字的概率为$p_k$，那么$p_k = (\sum_{j=k+1}^{n!}p_j) \frac {1}{n!}$，$p_{n!}=1.0$（如果一开始的数字就是最大值，那么概率为0）。发现公式是关于计算后缀的和，可以迭代计算，每次更新后缀概率总和，在$O(n!-k)$时间复杂度解决。</p>
+<h2 id="B-Unlucky-Teacher"><a href="#B-Unlucky-Teacher" class="headerlink" title="B. Unlucky Teacher"></a>B. Unlucky Teacher</h2><p>判断选择题哪个是正确答案，因为答案唯一，所以如果答案已给出，或者知道有三个选项是错误的就能知道答案。</p>
+<h2 id="C-Connecting-Graph"><a href="#C-Connecting-Graph" class="headerlink" title="C. Connecting Graph"></a>C. Connecting Graph</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><h3 id="数据-1"><a href="#数据-1" class="headerlink" title="数据"></a>数据</h3><h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><h2 id="D-Frozen-Rivers"><a href="#D-Frozen-Rivers" class="headerlink" title="D. Frozen Rivers"></a>D. Frozen Rivers</h2><p>简单树形DP，状态转移方程：<br>$$dp[u]=(dp[v_{min}]+w_{min})+\sum (dp[v]+w_{min}+(w-w_{min})*2)$$</p>
+<h2 id="E-Palmyra"><a href="#E-Palmyra" class="headerlink" title="E. Palmyra"></a>E. Palmyra</h2><h3 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h3><h3 id="数据-2"><a href="#数据-2" class="headerlink" title="数据"></a>数据</h3><h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><h2 id="F-Geometry"><a href="#F-Geometry" class="headerlink" title="F. Geometry"></a>F. Geometry</h2><p>水题，给长和宽，判断是正方形还是长方形。</p>
+<h2 id="G-It-is-all-about-wisdom"><a href="#G-It-is-all-about-wisdom" class="headerlink" title="G. It is all about wisdom"></a>G. It is all about wisdom</h2><h3 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h3><h3 id="数据-3"><a href="#数据-3" class="headerlink" title="数据"></a>数据</h3><h3 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h3><h2 id="H-Tonight-Dinner"><a href="#H-Tonight-Dinner" class="headerlink" title="H. Tonight Dinner"></a>H. Tonight Dinner</h2><h3 id="题意-4"><a href="#题意-4" class="headerlink" title="题意"></a>题意</h3><h3 id="数据-4"><a href="#数据-4" class="headerlink" title="数据"></a>数据</h3><h3 id="题解-4"><a href="#题解-4" class="headerlink" title="题解"></a>题解</h3><h2 id="I-Salem"><a href="#I-Salem" class="headerlink" title="I. Salem"></a>I. Salem</h2><p>水题，计算两个数字在二进制表示下不同的位的个数。<br>dist = __builtin_popcount(x^y)</p>
+<h2 id="J-Game"><a href="#J-Game" class="headerlink" title="J. Game"></a>J. Game</h2><p>简单博弈题，每个人有两种操作：</p>
+<ul>
+<li>LEFT：从右往左，相邻两个合并成一个</li>
+<li>RIGHT：从左往右，相邻两个合并成一个</li>
+</ul>
+<p>当剩下一个字母游戏结束，如果是元音字母则先手胜，否则后手胜利。<br>这个胜利条件和一般的博弈稍微有点不同，需要判断当前状态是先手还是后手的turn。</p>
+<h2 id="K-PhD-Math"><a href="#K-PhD-Math" class="headerlink" title="K. PhD Math"></a>K. PhD Math</h2><h3 id="题意-5"><a href="#题意-5" class="headerlink" title="题意"></a>题意</h3><h3 id="数据-5"><a href="#数据-5" class="headerlink" title="数据"></a>数据</h3><h3 id="题解-5"><a href="#题解-5" class="headerlink" title="题解"></a>题解</h3><h2 id="L-Candy-Jars"><a href="#L-Candy-Jars" class="headerlink" title="L. Candy Jars"></a>L. Candy Jars</h2><h3 id="题意-6"><a href="#题意-6" class="headerlink" title="题意"></a>题意</h3><h3 id="数据-6"><a href="#数据-6" class="headerlink" title="数据"></a>数据</h3><h3 id="题解-6"><a href="#题解-6" class="headerlink" title="题解"></a>题解</h3><h2 id="M-Building-Force-Fields"><a href="#M-Building-Force-Fields" class="headerlink" title="M. Building Force Fields"></a>M. Building Force Fields</h2><h3 id="题意-7"><a href="#题意-7" class="headerlink" title="题意"></a>题意</h3><h3 id="数据-7"><a href="#数据-7" class="headerlink" title="数据"></a>数据</h3><h3 id="题解-7"><a href="#题解-7" class="headerlink" title="题解"></a>题解</h3>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/greedy/" rel="tag"># greedy</a>
+          
+            <a href="/tags/binary-search/" rel="tag"># binary search</a>
+          
+            <a href="/tags/dp/" rel="tag"># dp</a>
+          
+            <a href="/tags/splay/" rel="tag"># splay</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/21/平方分割/" rel="next" title="平方分割">
+                <i class="fa fa-chevron-left"></i> 平方分割
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/03/23/Egyptian-Collegiate-Programming-Contest-ECPC-2015/"
+     data-title="Egyptian Collegiate Programming Contest (ECPC 2015)"
+     data-content=""
+     data-url="https://sea96.github.io/2017/03/23/Egyptian-Collegiate-Programming-Contest-ECPC-2015/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/23/Egyptian-Collegiate-Programming-Contest-ECPC-2015/"
+           data-title="Egyptian Collegiate Programming Contest (ECPC 2015)" data-url="https://sea96.github.io/2017/03/23/Egyptian-Collegiate-Programming-Contest-ECPC-2015/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="清逸" />
+          <p class="site-author-name" itemprop="name">清逸</p>
+           
+              <p class="site-description motion-element" itemprop="description">知者不言，言者不知。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Arcade-Game"><span class="nav-number">1.</span> <span class="nav-text">A. Arcade Game</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意"><span class="nav-number">1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据"><span class="nav-number">1.2.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">1.3.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-Unlucky-Teacher"><span class="nav-number">2.</span> <span class="nav-text">B. Unlucky Teacher</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-Connecting-Graph"><span class="nav-number">3.</span> <span class="nav-text">C. Connecting Graph</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-1"><span class="nav-number">3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据-1"><span class="nav-number">3.2.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-1"><span class="nav-number">3.3.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-Frozen-Rivers"><span class="nav-number">4.</span> <span class="nav-text">D. Frozen Rivers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-Palmyra"><span class="nav-number">5.</span> <span class="nav-text">E. Palmyra</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-2"><span class="nav-number">5.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据-2"><span class="nav-number">5.2.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-2"><span class="nav-number">5.3.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#F-Geometry"><span class="nav-number">6.</span> <span class="nav-text">F. Geometry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G-It-is-all-about-wisdom"><span class="nav-number">7.</span> <span class="nav-text">G. It is all about wisdom</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-3"><span class="nav-number">7.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据-3"><span class="nav-number">7.2.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-3"><span class="nav-number">7.3.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H-Tonight-Dinner"><span class="nav-number">8.</span> <span class="nav-text">H. Tonight Dinner</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-4"><span class="nav-number">8.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据-4"><span class="nav-number">8.2.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-4"><span class="nav-number">8.3.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-Salem"><span class="nav-number">9.</span> <span class="nav-text">I. Salem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#J-Game"><span class="nav-number">10.</span> <span class="nav-text">J. Game</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K-PhD-Math"><span class="nav-number">11.</span> <span class="nav-text">K. PhD Math</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-5"><span class="nav-number">11.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据-5"><span class="nav-number">11.2.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-5"><span class="nav-number">11.3.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L-Candy-Jars"><span class="nav-number">12.</span> <span class="nav-text">L. Candy Jars</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-6"><span class="nav-number">12.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据-6"><span class="nav-number">12.2.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-6"><span class="nav-number">12.3.</span> <span class="nav-text">题解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#M-Building-Force-Fields"><span class="nav-number">13.</span> <span class="nav-text">M. Building Force Fields</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意-7"><span class="nav-number">13.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据-7"><span class="nav-number">13.2.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解-7"><span class="nav-number">13.3.</span> <span class="nav-text">题解</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">清逸</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sea96"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
