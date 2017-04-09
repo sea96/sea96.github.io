@@ -105,7 +105,7 @@
 存在任意长的一段连续数，其中的所有数都是合数（相邻素数之间的间隔任意大）
 所有大于2的素数都可以唯一地表示成两个平方数之差。
 当$n$为大于2的整数时，$2^n+1$">
-<meta property="og:updated_time" content="2017-04-09T05:29:39.154Z">
+<meta property="og:updated_time" content="2017-04-09T13:04:02.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初等数论">
 <meta name="twitter:description" content="素数运算
@@ -423,9 +423,11 @@
 <h4 id="欧拉筛法"><a href="#欧拉筛法" class="headerlink" title="欧拉筛法"></a>欧拉筛法</h4><p>在埃式筛法上改进：每个合数仅被它最小的质因数筛去。<br>时间复杂度：$O(n)$<br>此方法可以求积性函数$f(x)$，即在$O(n)$时间复杂度内预处理$f(1)$,$f(2)$ … $f(n)$的值，典型的用途是求欧拉函数。</p>
 <h2 id="公约数问题"><a href="#公约数问题" class="headerlink" title="公约数问题"></a>公约数问题</h2><h4 id="最大公约数和最小公倍数"><a href="#最大公约数和最小公倍数" class="headerlink" title="最大公约数和最小公倍数"></a>最大公约数和最小公倍数</h4><p>若<br>$x=p_1^{e_1}p_2^{e_2}…p_k^{e_k}$<br>$y=p_1^{d_1}p_2^{d_2}…p_k^{d_k}$<br>则<br>$GCD(x,y)=p_1^{min(e_1,d_1)}p_2^{min(e_2,d_2)}…p_k^{min(e_k,d_k)}$<br>$LCM(x,y)=p_1^{max(e_1,d_1)}p_2^{max(e_2,d_2)}…p_k^{max(e_k,d_k)}$<br>同时可以得到<br>$x×y=GCD(x,y)×LCM(x,y)$</p>
 <p>若<br>$x=p×GCD(x,y)$<br>$y=q×GCD(x,y)$<br>则<br>$x+y=(p+q)×GCD(x,y)$<br>那么$GCD(x,y)=GCD(x,x+y)$<br>同理可得$GCD(x,y)=GCD(x+y,LCM(x,y))$</p>
-<h4 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h4><p>$$GCD(a,b)=<br>\begin{cases}<br>b&amp; \text{a = 0}\\<br>GCD(b,a\mod b)&amp; \text{a $\neq$ 0}<br>\end{cases}$$</p>
-<h4 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h4><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><hr>
-<p><a href="https://zh.wikipedia.org/wiki/%E7%B4%A0%E6%95%B0" target="_blank" rel="external">维基百科 质数</a><br><a href="http://www.matrix67.com/blog/archives/234" target="_blank" rel="external">Matrix67 Blog</a><br><a href="https://zh.wikipedia.org/wiki/%E7%B4%A0%E6%95%B0" target="_blank" rel="external">维基百科 质数</a></p>
+<h4 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h4><p>$$GCD(a,b)=<br>\begin{cases}<br>b&amp; \text{a = 0}\\<br>GCD(b,a\mod b)&amp; \text{a $\neq$ 0}<br>\end{cases}$$<br>简单证明：<br>设$g=GCD(a,b)$<br>将$a \mod b$化成$a$与$b$的线性组合，即$a \mod b=a-\lfloor{\frac{a}{b}}\rfloor *b$。由于$g$能整除$a$和$b$，那么$g$一定能整除$a$与$b$的线性组合，即$g$能整除$(a \mod b)$，所以$GCD(a,b)=GCD(b,a\mod b)$</p>
+<h4 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h4><p>已知整数$a$、$b$，扩展欧几里得算法可以在求得$a$、$b$的最大公约数的同时，能找到整数$x$、$y$（其中一个很可能是负数）满足$ax+by=GCD(a,b)$.<br>若$b=0$，则$GCD(a,b)=a$，$x=1$，$y=0$；<br>若$b\neq 0$，首先递归求解满足$bx’+(a\mod b)y’=GCD(b,a\mod b)$的$x’$、$y’$，因为$GCD(a,b)=GCD(b,a\mod b)$，所以有以下等式成立：<br>$$bx’+(a-\lfloor{\frac{a}{b}}\rfloor<em>b)</em>y’=ay’+b(x’-\lfloor{\frac{a}{b}}\rfloor<em>y’)=ax+by$$<br>选择$x=y’$，$y=x’-\lfloor{\frac{a}{b}}\rfloor</em>y’$就可以满足等式。</p>
+<p>应用扩展欧几里得算法，可以求解如下形式的二元一次不定方程：<br>$$ax+by=c$$<br>首先先求解$ax+by=GCD(a,b)$的$x$和$y$，记$g=GCD(a,b)$.<br>若$c$不能被$g$整除，则无整数解；<br>否则初始解：$x_0=x<em>\frac{c}{g}$，$y_0=y</em>\frac{c}{g}$.<br>不定方程的通解形式为：<br>$$\begin{cases}<br>x_k=x_0+k<em>\frac{b}{g} &amp; \\<br>y_k=y_0-k</em>\frac{a}{g}&amp; \text{k $\in$ Z}<br>\end{cases}$$</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><hr>
+<p><a href="https://zh.wikipedia.org/wiki/%E7%B4%A0%E6%95%B0" target="_blank" rel="external">维基百科 质数</a><br><a href="http://www.matrix67.com/blog/archives/234" target="_blank" rel="external">Matrix67 Blog</a><br><a href="https://zh.wikipedia.org/wiki/%E8%BC%BE%E8%BD%89%E7%9B%B8%E9%99%A4%E6%B3%95" target="_blank" rel="external">维基百科 辗转相除法</a><br><a href="https://zh.wikipedia.org/wiki/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95" target="_blank" rel="external">维基百科 扩展欧几里得算法</a></p>
 
       
     </div>
