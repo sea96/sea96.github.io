@@ -89,20 +89,32 @@
 
 <meta name="description" content="素数运算
 素数的定义质数（Prime number），又称素数，指在大于1的自然数中，除了1和该数自身外，无法被其他自然数整除的数（也可定义为只有1与该数本身两个因数的数）
-素数的判定试除法试用2…$\lfloor \sqrt{n} \rfloor$去除$n$（更好的做法是先筛选出[2..$\sqrt{n}$]里的所有素数），$n$是素数当且仅当没有一个试用的除数能被$n$整除。时间复杂度：$O(">
+素数的性质和定理
+素数在数量上是无限的（不存在最大的素数）
+存在任意长的一段连续数，其中的所有数都是合数（相邻素数之间的间隔任意大）
+所有大于2的素数都可以唯一地表示成两个平方数之差。
+每个大于4的偶数可以写成两个奇素数的和。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初等数论">
 <meta property="og:url" content="https://sea96.github.io/2017/04/09/初等数论/index.html">
 <meta property="og:site_name" content="清逸">
 <meta property="og:description" content="素数运算
 素数的定义质数（Prime number），又称素数，指在大于1的自然数中，除了1和该数自身外，无法被其他自然数整除的数（也可定义为只有1与该数本身两个因数的数）
-素数的判定试除法试用2…$\lfloor \sqrt{n} \rfloor$去除$n$（更好的做法是先筛选出[2..$\sqrt{n}$]里的所有素数），$n$是素数当且仅当没有一个试用的除数能被$n$整除。时间复杂度：$O(">
-<meta property="og:updated_time" content="2017-04-09T02:48:04.562Z">
+素数的性质和定理
+素数在数量上是无限的（不存在最大的素数）
+存在任意长的一段连续数，其中的所有数都是合数（相邻素数之间的间隔任意大）
+所有大于2的素数都可以唯一地表示成两个平方数之差。
+每个大于4的偶数可以写成两个奇素数的和。">
+<meta property="og:updated_time" content="2017-04-09T03:43:03.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初等数论">
 <meta name="twitter:description" content="素数运算
 素数的定义质数（Prime number），又称素数，指在大于1的自然数中，除了1和该数自身外，无法被其他自然数整除的数（也可定义为只有1与该数本身两个因数的数）
-素数的判定试除法试用2…$\lfloor \sqrt{n} \rfloor$去除$n$（更好的做法是先筛选出[2..$\sqrt{n}$]里的所有素数），$n$是素数当且仅当没有一个试用的除数能被$n$整除。时间复杂度：$O(">
+素数的性质和定理
+素数在数量上是无限的（不存在最大的素数）
+存在任意长的一段连续数，其中的所有数都是合数（相邻素数之间的间隔任意大）
+所有大于2的素数都可以唯一地表示成两个平方数之差。
+每个大于4的偶数可以写成两个奇素数的和。">
 
 
 
@@ -384,10 +396,17 @@
       
         <h2 id="素数运算"><a href="#素数运算" class="headerlink" title="素数运算"></a>素数运算</h2><hr>
 <h3 id="素数的定义"><a href="#素数的定义" class="headerlink" title="素数的定义"></a>素数的定义</h3><p><strong>质数</strong>（Prime number），又称<strong>素数</strong>，指在大于1的自然数中，除了1和该数自身外，无法被其他自然数整除的数（也可定义为只有1与该数本身两个因数的数）</p>
+<h3 id="素数的性质和定理"><a href="#素数的性质和定理" class="headerlink" title="素数的性质和定理"></a>素数的性质和定理</h3><ul>
+<li>素数在数量上是无限的（不存在最大的素数）</li>
+<li>存在任意长的一段连续数，其中的所有数都是合数（相邻素数之间的间隔任意大）</li>
+<li>所有大于2的素数都可以唯一地表示成两个平方数之差。</li>
+<li>每个大于4的偶数可以写成两个奇素数的和。</li>
+<li>当$n$为大于2的整数时，$2^n+1$和$2^n-1$两个数中，如果其中一个数是素数，那么另一个数一定是合数。</li>
+</ul>
 <h3 id="素数的判定"><a href="#素数的判定" class="headerlink" title="素数的判定"></a>素数的判定</h3><h4 id="试除法"><a href="#试除法" class="headerlink" title="试除法"></a>试除法</h4><p>试用2…$\lfloor \sqrt{n} \rfloor$去除$n$（更好的做法是先筛选出[2..$\sqrt{n}$]里的所有素数），$n$是素数当且仅当没有一个试用的除数能被$n$整除。时间复杂度：$O(\sqrt{n})$</p>
 <h4 id="Miller-Rabin方法"><a href="#Miller-Rabin方法" class="headerlink" title="Miller_Rabin方法"></a>Miller_Rabin方法</h4><p>米勒-拉宾素性检验是一种素数判定法则，利用随机化算法判断一个数是合数还是可能是素数。<br>测试大素数的<strong>Miller_Rabin</strong>方法基于下述原理：</p>
 <ul>
-<li>如果$n$是素数，且与$a$互质，则$a^{n-1} \equiv 1\pmod{n} (1\leq a \leq n)$，即费马小定理。</li>
+<li>如果$n$是素数，$a$是小于n的正整数，则$a^{n-1} \equiv 1\pmod{n}$，即费马小定理。</li>
 <li>如果$n$是奇素数，则$a^2 ≡ 1\pmod n$的解为$a ≡ 1$或$a ≡ n-1\pmod n$</li>
 </ul>
 <p>重复$k$次计算，每次在$[1,n-1]$范围内随机选取一个$a$，若$a^{n-1} \neq 1\pmod{n}$，则$n$是合数。若随机选取的$k$个$a$都使得$a^{n-1} \equiv 1\pmod{n}$，则$n$是素数或伪素数。<br>若使用模指数运算的快速算法，这个算法的运行时间是：$O(k×log_{2}^3n)$<br>经验结论：</p>
@@ -398,7 +417,10 @@
 <li>if n &lt; 318,665,857,834,031,151,167,461, it is enough to test a = 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, and 37.</li>
 <li>if n &lt; 3,317,044,064,679,887,385,961,981, it is enough to test a = 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, and 41.</li>
 </ul>
-<h3 id="素数的筛法"><a href="#素数的筛法" class="headerlink" title="素数的筛法"></a>素数的筛法</h3><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><hr>
+<h3 id="素数的筛法"><a href="#素数的筛法" class="headerlink" title="素数的筛法"></a>素数的筛法</h3><p>筛选[2..$n$]中的所有素数</p>
+<h4 id="埃拉托斯特尼筛法"><a href="#埃拉托斯特尼筛法" class="headerlink" title="埃拉托斯特尼筛法"></a>埃拉托斯特尼筛法</h4><p>按递增顺序搜索筛中的最小数，将其倍数从筛中筛去，最终筛中留下的数即为素数。<br>时间复杂度：$O(nloglogn)$</p>
+<h4 id="欧拉筛法"><a href="#欧拉筛法" class="headerlink" title="欧拉筛法"></a>欧拉筛法</h4><p>在埃式筛法上改进：每个合数仅被它最小的质因数筛去。<br>时间复杂度：$O(n)$<br>此方法可以求积性函数$f(x)$，即在$O(n)$时间复杂度内预处理$f(1)$,$f(2)$ … $f(n)$的值，典型的用途是求欧拉函数。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><hr>
 <p><a href="https://zh.wikipedia.org/wiki/%E7%B4%A0%E6%95%B0" target="_blank" rel="external">维基百科 质数</a><br><a href="http://www.matrix67.com/blog/archives/234" target="_blank" rel="external">Matrix67 Blog</a></p>
 
       
@@ -592,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#素数运算"><span class="nav-number">1.</span> <span class="nav-text">素数运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的定义"><span class="nav-number">1.1.</span> <span class="nav-text">素数的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的判定"><span class="nav-number">1.2.</span> <span class="nav-text">素数的判定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#试除法"><span class="nav-number">1.2.1.</span> <span class="nav-text">试除法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Miller-Rabin方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">Miller_Rabin方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的筛法"><span class="nav-number">1.3.</span> <span class="nav-text">素数的筛法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#素数运算"><span class="nav-number">1.</span> <span class="nav-text">素数运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的定义"><span class="nav-number">1.1.</span> <span class="nav-text">素数的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的性质和定理"><span class="nav-number">1.2.</span> <span class="nav-text">素数的性质和定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的判定"><span class="nav-number">1.3.</span> <span class="nav-text">素数的判定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#试除法"><span class="nav-number">1.3.1.</span> <span class="nav-text">试除法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Miller-Rabin方法"><span class="nav-number">1.3.2.</span> <span class="nav-text">Miller_Rabin方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的筛法"><span class="nav-number">1.4.</span> <span class="nav-text">素数的筛法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#埃拉托斯特尼筛法"><span class="nav-number">1.4.1.</span> <span class="nav-text">埃拉托斯特尼筛法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧拉筛法"><span class="nav-number">1.4.2.</span> <span class="nav-text">欧拉筛法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
