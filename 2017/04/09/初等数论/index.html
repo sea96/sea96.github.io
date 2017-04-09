@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="graphs," />
+  <meta name="keywords" content="number theory," />
 
 
 
@@ -87,22 +87,22 @@
 
 
 
-<meta name="description" content="题意给一张完全图，用$k$个$n(\leq 10^6)$元简单环去覆盖所有边，问$k$的最小值。
-题解
-我们可以看到，他说要是任意两个点都有联系，看到这里，马上可以想到，要满足这个条件， 必须需要$\frac {n(n-1)}{2}$条边，于是，换一种思考，该题目就可以理解为，在$\frac {n(n-1)}{2}$条边中可以构成几个环。如果想到这里，你又开始去画点画边，那估计最后结果还是要悲剧。">
+<meta name="description" content="素数运算
+素数的定义质数（Prime number），又称素数，指在大于1的自然数中，除了1和该数自身外，无法被其他自然数整除的数（也可定义为只有1与该数本身两个因数的数）
+素数的判定试除法试用2…$\lfloor \sqrt{n} \rfloor$去除$n$（更好的做法是先筛选出[2..$\sqrt{n}$]里的所有素数），$n$是素数当且仅当没有一个试用的除数能被$n$整除。时间复杂度：$O(">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ZOJ 3328 Wu Xing">
-<meta property="og:url" content="https://sea96.github.io/2017/02/28/ZOJ-3328-Wu-Xing/index.html">
+<meta property="og:title" content="初等数论">
+<meta property="og:url" content="https://sea96.github.io/2017/04/09/初等数论/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="题意给一张完全图，用$k$个$n(\leq 10^6)$元简单环去覆盖所有边，问$k$的最小值。
-题解
-我们可以看到，他说要是任意两个点都有联系，看到这里，马上可以想到，要满足这个条件， 必须需要$\frac {n(n-1)}{2}$条边，于是，换一种思考，该题目就可以理解为，在$\frac {n(n-1)}{2}$条边中可以构成几个环。如果想到这里，你又开始去画点画边，那估计最后结果还是要悲剧。">
-<meta property="og:updated_time" content="2017-03-16T00:41:20.135Z">
+<meta property="og:description" content="素数运算
+素数的定义质数（Prime number），又称素数，指在大于1的自然数中，除了1和该数自身外，无法被其他自然数整除的数（也可定义为只有1与该数本身两个因数的数）
+素数的判定试除法试用2…$\lfloor \sqrt{n} \rfloor$去除$n$（更好的做法是先筛选出[2..$\sqrt{n}$]里的所有素数），$n$是素数当且仅当没有一个试用的除数能被$n$整除。时间复杂度：$O(">
+<meta property="og:updated_time" content="2017-04-09T02:48:04.562Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ZOJ 3328 Wu Xing">
-<meta name="twitter:description" content="题意给一张完全图，用$k$个$n(\leq 10^6)$元简单环去覆盖所有边，问$k$的最小值。
-题解
-我们可以看到，他说要是任意两个点都有联系，看到这里，马上可以想到，要满足这个条件， 必须需要$\frac {n(n-1)}{2}$条边，于是，换一种思考，该题目就可以理解为，在$\frac {n(n-1)}{2}$条边中可以构成几个环。如果想到这里，你又开始去画点画边，那估计最后结果还是要悲剧。">
+<meta name="twitter:title" content="初等数论">
+<meta name="twitter:description" content="素数运算
+素数的定义质数（Prime number），又称素数，指在大于1的自然数中，除了1和该数自身外，无法被其他自然数整除的数（也可定义为只有1与该数本身两个因数的数）
+素数的判定试除法试用2…$\lfloor \sqrt{n} \rfloor$去除$n$（更好的做法是先筛选出[2..$\sqrt{n}$]里的所有素数），$n$是素数当且仅当没有一个试用的除数能被$n$整除。时间复杂度：$O(">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="https://sea96.github.io/2017/02/28/ZOJ-3328-Wu-Xing/"/>
+  <link rel="canonical" href="https://sea96.github.io/2017/04/09/初等数论/"/>
 
 
 
 
 
-  <title> ZOJ 3328 Wu Xing | 清逸 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 初等数论 | 清逸 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -275,7 +275,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://sea96.github.io/2017/02/28/ZOJ-3328-Wu-Xing/">
+  <link itemprop="mainEntityOfPage" href="https://sea96.github.io/2017/04/09/初等数论/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="清逸">
@@ -299,7 +299,7 @@
             
             
               
-                ZOJ 3328 Wu Xing
+                初等数论
               
             
           </h1>
@@ -314,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-28T18:03:54+08:00">
-                2017-02-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-09T09:37:58+08:00">
+                2017-04-09
               </time>
             
 
@@ -337,8 +337,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM解题报告/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM解题报告</span>
+                  <a href="/categories/算法总结/" itemprop="url" rel="index">
+                    <span itemprop="name">算法总结</span>
                   </a>
                 </span>
 
@@ -355,8 +355,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/28/ZOJ-3328-Wu-Xing/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/28/ZOJ-3328-Wu-Xing/" itemprop="commentCount"></span>
+                <a href="/2017/04/09/初等数论/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/09/初等数论/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -382,12 +382,24 @@
       
 
       
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给一张完全图，用$k$个$n(\leq 10^6)$元简单环去覆盖所有边，问$k$的最小值。</p>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><blockquote>
-<p>我们可以看到，他说要是任意两个点都有联系，看到这里，马上可以想到，要满足这个条件， 必须需要$\frac {n(n-1)}{2}$条边，于是，换一种思考，该题目就可以理解为，在$\frac {n(n-1)}{2}$条边中可以构成几个环。如果想到这里，你又开始去画点画边，那估计最后结果还是要悲剧。至少我是画不出，就算画出了也不知道到底是否是最小个数的环。 所以我们接着继续分析。。。抛开怎么连线不管， 往整体方向想，要构成一个环， $n$个点必须要$n$条边，可以理解，最终所有环所构成的边，都不会超过$\frac {n(n-1)}{2}$条边。 所以每条边都在一个或几个环内，（其中不同的环可以共用一条边）。 所以至少有$\frac {(n-1)}{2}$个环， 如果可以整除，那么商就是答案。如果不能整除呢？ 那么余下的边必定可以再组成一个环（必定的嘛）。所以如果$(n-1)%2 != 0$，那么答案就等于$\frac {(n-1)}{2}+1$;结果就是和$\frac {n}{2}$的结果一样，如果有些同学，开玩笑地试了这个公式，恭喜你，你ac了。（踩到狗屎了，呵呵！）</p>
-</blockquote>
-<p>由$kn\geq \frac {n(n-1)}{2}$，可以求出 k 的下界，同时可以构造出取得下界的方案</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>略</p>
+        <h2 id="素数运算"><a href="#素数运算" class="headerlink" title="素数运算"></a>素数运算</h2><hr>
+<h3 id="素数的定义"><a href="#素数的定义" class="headerlink" title="素数的定义"></a>素数的定义</h3><p><strong>质数</strong>（Prime number），又称<strong>素数</strong>，指在大于1的自然数中，除了1和该数自身外，无法被其他自然数整除的数（也可定义为只有1与该数本身两个因数的数）</p>
+<h3 id="素数的判定"><a href="#素数的判定" class="headerlink" title="素数的判定"></a>素数的判定</h3><h4 id="试除法"><a href="#试除法" class="headerlink" title="试除法"></a>试除法</h4><p>试用2…$\lfloor \sqrt{n} \rfloor$去除$n$（更好的做法是先筛选出[2..$\sqrt{n}$]里的所有素数），$n$是素数当且仅当没有一个试用的除数能被$n$整除。时间复杂度：$O(\sqrt{n})$</p>
+<h4 id="Miller-Rabin方法"><a href="#Miller-Rabin方法" class="headerlink" title="Miller_Rabin方法"></a>Miller_Rabin方法</h4><p>米勒-拉宾素性检验是一种素数判定法则，利用随机化算法判断一个数是合数还是可能是素数。<br>测试大素数的<strong>Miller_Rabin</strong>方法基于下述原理：</p>
+<ul>
+<li>如果$n$是素数，且与$a$互质，则$a^{n-1} \equiv 1\pmod{n} (1\leq a \leq n)$，即费马小定理。</li>
+<li>如果$n$是奇素数，则$a^2 ≡ 1\pmod n$的解为$a ≡ 1$或$a ≡ n-1\pmod n$</li>
+</ul>
+<p>重复$k$次计算，每次在$[1,n-1]$范围内随机选取一个$a$，若$a^{n-1} \neq 1\pmod{n}$，则$n$是合数。若随机选取的$k$个$a$都使得$a^{n-1} \equiv 1\pmod{n}$，则$n$是素数或伪素数。<br>若使用模指数运算的快速算法，这个算法的运行时间是：$O(k×log_{2}^3n)$<br>经验结论：</p>
+<ul>
+<li>if n &lt; 3,215,031,751, it is enough to test a = 2, 3, 5, and 7;</li>
+<li>if n &lt; 4,759,123,141, it is enough to test a = 2, 7, and 61;</li>
+<li>if n &lt; 18,446,744,073,709,551,616 = $2^{64}$, it is enough to test a = 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, and 37.</li>
+<li>if n &lt; 318,665,857,834,031,151,167,461, it is enough to test a = 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, and 37.</li>
+<li>if n &lt; 3,317,044,064,679,887,385,961,981, it is enough to test a = 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, and 41.</li>
+</ul>
+<h3 id="素数的筛法"><a href="#素数的筛法" class="headerlink" title="素数的筛法"></a>素数的筛法</h3><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><hr>
+<p><a href="https://zh.wikipedia.org/wiki/%E7%B4%A0%E6%95%B0" target="_blank" rel="external">维基百科 质数</a><br><a href="http://www.matrix67.com/blog/archives/234" target="_blank" rel="external">Matrix67 Blog</a></p>
 
       
     </div>
@@ -411,7 +423,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/graphs/" rel="tag"># graphs</a>
+            <a href="/tags/number-theory/" rel="tag"># number theory</a>
           
         </div>
       
@@ -424,8 +436,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/28/Kattis-Curious-Cupid/" rel="next" title="Kattis Curious Cupid">
-                <i class="fa fa-chevron-left"></i> Kattis Curious Cupid
+              <a href="/2017/04/06/2016-2017-ACM-ICPC-Pacific-Northwest-Regional-Contest-Div-2/" rel="next" title="2016-2017 ACM-ICPC Pacific Northwest Regional Contest (Div. 2)">
+                <i class="fa fa-chevron-left"></i> 2016-2017 ACM-ICPC Pacific Northwest Regional Contest (Div. 2)
               </a>
             
           </div>
@@ -433,10 +445,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/01/Gym-101020K-Clash-Of-Snakes/" rel="prev" title="Gym 101020K Clash Of Snakes">
-                Gym 101020K Clash Of Snakes <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -451,10 +459,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/02/28/ZOJ-3328-Wu-Xing/"
-     data-title="ZOJ 3328 Wu Xing"
+        <div class="ds-share flat" data-thread-key="2017/04/09/初等数论/"
+     data-title="初等数论"
      data-content=""
-     data-url="https://sea96.github.io/2017/02/28/ZOJ-3328-Wu-Xing/">
+     data-url="https://sea96.github.io/2017/04/09/初等数论/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -481,8 +489,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/28/ZOJ-3328-Wu-Xing/"
-           data-title="ZOJ 3328 Wu Xing" data-url="https://sea96.github.io/2017/02/28/ZOJ-3328-Wu-Xing/">
+      <div class="ds-thread" data-thread-key="2017/04/09/初等数论/"
+           data-title="初等数论" data-url="https://sea96.github.io/2017/04/09/初等数论/">
       </div>
     
   </div>
@@ -584,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#素数运算"><span class="nav-number">1.</span> <span class="nav-text">素数运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的定义"><span class="nav-number">1.1.</span> <span class="nav-text">素数的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的判定"><span class="nav-number">1.2.</span> <span class="nav-text">素数的判定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#试除法"><span class="nav-number">1.2.1.</span> <span class="nav-text">试除法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Miller-Rabin方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">Miller_Rabin方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的筛法"><span class="nav-number">1.3.</span> <span class="nav-text">素数的筛法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
