@@ -105,7 +105,7 @@
 存在任意长的一段连续数，其中的所有数都是合数（相邻素数之间的间隔任意大）
 所有大于2的素数都可以唯一地表示成两个平方数之差。
 当$n$为大于2的整数时，$2^n+1$">
-<meta property="og:updated_time" content="2017-04-09T13:04:02.371Z">
+<meta property="og:updated_time" content="2017-04-11T13:18:41.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初等数论">
 <meta name="twitter:description" content="素数运算
@@ -404,11 +404,11 @@
 <li><strong>哥德巴赫猜想</strong>：每个大于4的偶数可以写成两个奇素数的和（陈景润证明：偶数为一个素数及一个不超过两个素数的乘积之和，简称“1+2”）</li>
 <li><strong>唯一分解定理</strong>：每个正整数都可以唯一地表示成素数的乘积，即有唯一的分解质因数的方案：$n=p_1^{e_1}p_2^{e_2}…p_k^{e_k}$<br>根据上面的式子，可以推知$n$共有 $(e_{1}+1)(e_{2}+1)…(e_{k}+1)$个约数。</li>
 </ul>
-<h3 id="素数的判定"><a href="#素数的判定" class="headerlink" title="素数的判定"></a>素数的判定</h3><h4 id="试除法"><a href="#试除法" class="headerlink" title="试除法"></a>试除法</h4><p>试用2…$\lfloor \sqrt{n} \rfloor$去除$n$（更好的做法是先筛选出[2..$\sqrt{n}$]里的所有素数），$n$是素数当且仅当没有一个试用的除数能被$n$整除。时间复杂度：$O(\sqrt{n})$</p>
-<h4 id="Miller-Rabin方法"><a href="#Miller-Rabin方法" class="headerlink" title="Miller_Rabin方法"></a>Miller_Rabin方法</h4><p>米勒-拉宾素性检验是一种素数判定法则，利用随机化算法判断一个数是合数还是可能是素数。<br>测试大素数的<strong>Miller_Rabin</strong>方法基于下述原理：</p>
+<h3 id="素数的判定"><a href="#素数的判定" class="headerlink" title="素数的判定"></a>素数的判定</h3><h4 id="试除法"><a href="#试除法" class="headerlink" title="试除法"></a>试除法</h4><p>试用2…$\lfloor \sqrt{n} \rfloor$去除$n$（更好的做法是筛选出[2..$\sqrt{n}$]里的所有素数），$n$是素数当且仅当没有一个试用的除数能被$n$整除。时间复杂度：$O(\sqrt{n})$</p>
+<h4 id="Miller-Rabin方法"><a href="#Miller-Rabin方法" class="headerlink" title="Miller_Rabin方法"></a>Miller_Rabin方法</h4><p>米勒-拉宾素性检验是一种素数判定法则，利用随机化算法判断一个数是合数还是可能是素数。<br>测试大素数的<strong>Miller_Rabin</strong>方法基于下述定理：</p>
 <ul>
-<li>如果$n$是素数，$a$是小于n的正整数，则$a^{n-1} \equiv 1\pmod{n}$，即费马小定理。</li>
-<li>如果$n$是奇素数，则$a^2 ≡ 1\pmod n$的解为$a ≡ 1$或$a ≡ n-1\pmod n$</li>
+<li>Fermat定理：如果$n$是素数，$a$是小于n的正整数，则$a^{n-1} \equiv 1\pmod{n}$.</li>
+<li>二次探测定理：如果$n$是奇素数，则$a^2 ≡ 1\pmod n$的解为$a ≡ 1\pmod n$或$a ≡ n-1\pmod n$.</li>
 </ul>
 <p>重复$k$次计算，每次在$[1,n-1]$范围内随机选取一个$a$，若$a^{n-1} \neq 1\pmod{n}$，则$n$是合数。若随机选取的$k$个$a$都使得$a^{n-1} \equiv 1\pmod{n}$，则$n$是素数或伪素数。<br>若使用模指数运算的快速算法，这个算法的运行时间是：$O(klog_{2}^3n)$<br>经验结论：</p>
 <ul>
@@ -421,13 +421,21 @@
 <h3 id="素数的筛法"><a href="#素数的筛法" class="headerlink" title="素数的筛法"></a>素数的筛法</h3><p>筛选[2..$n$]中的所有素数</p>
 <h4 id="埃拉托斯特尼筛法"><a href="#埃拉托斯特尼筛法" class="headerlink" title="埃拉托斯特尼筛法"></a>埃拉托斯特尼筛法</h4><p>按递增顺序搜索筛中的最小数，将其倍数从筛中筛去，最终筛中留下的数即为素数。<br>时间复杂度：$O(nloglogn)$</p>
 <h4 id="欧拉筛法"><a href="#欧拉筛法" class="headerlink" title="欧拉筛法"></a>欧拉筛法</h4><p>在埃式筛法上改进：每个合数仅被它最小的质因数筛去。<br>时间复杂度：$O(n)$<br>此方法可以求积性函数$f(x)$，即在$O(n)$时间复杂度内预处理$f(1)$,$f(2)$ … $f(n)$的值，典型的用途是求欧拉函数。</p>
-<h2 id="公约数问题"><a href="#公约数问题" class="headerlink" title="公约数问题"></a>公约数问题</h2><h4 id="最大公约数和最小公倍数"><a href="#最大公约数和最小公倍数" class="headerlink" title="最大公约数和最小公倍数"></a>最大公约数和最小公倍数</h4><p>若<br>$x=p_1^{e_1}p_2^{e_2}…p_k^{e_k}$<br>$y=p_1^{d_1}p_2^{d_2}…p_k^{d_k}$<br>则<br>$GCD(x,y)=p_1^{min(e_1,d_1)}p_2^{min(e_2,d_2)}…p_k^{min(e_k,d_k)}$<br>$LCM(x,y)=p_1^{max(e_1,d_1)}p_2^{max(e_2,d_2)}…p_k^{max(e_k,d_k)}$<br>同时可以得到<br>$x×y=GCD(x,y)×LCM(x,y)$</p>
+<h2 id="公约数问题"><a href="#公约数问题" class="headerlink" title="公约数问题"></a>公约数问题</h2><hr>
+<h3 id="最大公约数和最小公倍数"><a href="#最大公约数和最小公倍数" class="headerlink" title="最大公约数和最小公倍数"></a>最大公约数和最小公倍数</h3><p>若<br>$x=p_1^{e_1}p_2^{e_2}…p_k^{e_k}$<br>$y=p_1^{d_1}p_2^{d_2}…p_k^{d_k}$<br>则<br>$GCD(x,y)=p_1^{min(e_1,d_1)}p_2^{min(e_2,d_2)}…p_k^{min(e_k,d_k)}$<br>$LCM(x,y)=p_1^{max(e_1,d_1)}p_2^{max(e_2,d_2)}…p_k^{max(e_k,d_k)}$<br>同时可以得到<br>$x×y=GCD(x,y)×LCM(x,y)$</p>
 <p>若<br>$x=p×GCD(x,y)$<br>$y=q×GCD(x,y)$<br>则<br>$x+y=(p+q)×GCD(x,y)$<br>那么$GCD(x,y)=GCD(x,x+y)$<br>同理可得$GCD(x,y)=GCD(x+y,LCM(x,y))$</p>
-<h4 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h4><p>$$GCD(a,b)=<br>\begin{cases}<br>b&amp; \text{a = 0}\\<br>GCD(b,a\mod b)&amp; \text{a $\neq$ 0}<br>\end{cases}$$<br>简单证明：<br>设$g=GCD(a,b)$<br>将$a \mod b$化成$a$与$b$的线性组合，即$a \mod b=a-\lfloor{\frac{a}{b}}\rfloor *b$。由于$g$能整除$a$和$b$，那么$g$一定能整除$a$与$b$的线性组合，即$g$能整除$(a \mod b)$，所以$GCD(a,b)=GCD(b,a\mod b)$</p>
-<h4 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h4><p>已知整数$a$、$b$，扩展欧几里得算法可以在求得$a$、$b$的最大公约数的同时，能找到整数$x$、$y$（其中一个很可能是负数）满足$ax+by=GCD(a,b)$.<br>若$b=0$，则$GCD(a,b)=a$，$x=1$，$y=0$；<br>若$b\neq 0$，首先递归求解满足$bx’+(a\mod b)y’=GCD(b,a\mod b)$的$x’$、$y’$，因为$GCD(a,b)=GCD(b,a\mod b)$，所以有以下等式成立：<br>$$bx’+(a-\lfloor{\frac{a}{b}}\rfloor<em>b)</em>y’=ay’+b(x’-\lfloor{\frac{a}{b}}\rfloor<em>y’)=ax+by$$<br>选择$x=y’$，$y=x’-\lfloor{\frac{a}{b}}\rfloor</em>y’$就可以满足等式。</p>
-<p>应用扩展欧几里得算法，可以求解如下形式的二元一次不定方程：<br>$$ax+by=c$$<br>首先先求解$ax+by=GCD(a,b)$的$x$和$y$，记$g=GCD(a,b)$.<br>若$c$不能被$g$整除，则无整数解；<br>否则初始解：$x_0=x<em>\frac{c}{g}$，$y_0=y</em>\frac{c}{g}$.<br>不定方程的通解形式为：<br>$$\begin{cases}<br>x_k=x_0+k<em>\frac{b}{g} &amp; \\<br>y_k=y_0-k</em>\frac{a}{g}&amp; \text{k $\in$ Z}<br>\end{cases}$$</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><hr>
-<p><a href="https://zh.wikipedia.org/wiki/%E7%B4%A0%E6%95%B0" target="_blank" rel="external">维基百科 质数</a><br><a href="http://www.matrix67.com/blog/archives/234" target="_blank" rel="external">Matrix67 Blog</a><br><a href="https://zh.wikipedia.org/wiki/%E8%BC%BE%E8%BD%89%E7%9B%B8%E9%99%A4%E6%B3%95" target="_blank" rel="external">维基百科 辗转相除法</a><br><a href="https://zh.wikipedia.org/wiki/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95" target="_blank" rel="external">维基百科 扩展欧几里得算法</a></p>
+<h3 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h3><p>$$GCD(a,b)=<br>\begin{cases}<br>b&amp; \text{a = 0}\\<br>GCD(b,a\mod b)&amp; \text{a $\neq$ 0}<br>\end{cases}$$<br>简单证明：<br>设$g=GCD(a,b)$<br>将$a \mod b$化成$a$与$b$的线性组合，即$a \mod b=a-\lfloor{\frac{a}{b}}\rfloor *b$。由于$g$能整除$a$和$b$，那么$g$一定能整除$a$与$b$的线性组合，即$g$能整除$(a \mod b)$，所以$GCD(a,b)=GCD(b,a\mod b)$.</p>
+<h3 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h3><p>已知整数$a$、$b$，扩展欧几里得算法可以在求得$a$、$b$的最大公约数的同时，能找到整数$x$、$y$（其中一个很可能是负数）满足$ax+by=GCD(a,b)$.<br>若$b=0$，则$GCD(a,b)=a$，$x=1$，$y=0$；<br>若$b\neq 0$，首先递归求解满足$bx’+(a\mod b)y’=GCD(b,a\mod b)$的$x’$、$y’$，因为$GCD(a,b)=GCD(b,a\mod b)$，所以有以下等式成立：<br>$$bx’+(a- \lfloor{\frac{a}{b}}\rfloor b)y’=ay’+b(x’- \lfloor{\frac{a}{b}}\rfloor y’)=ax+by$$<br>选择$x=y’$，$y=x’- \lfloor{\frac{a}{b}}\rfloor y’$就可以满足等式。</p>
+<p>应用扩展欧几里得算法，可以求解如下形式的二元一次不定方程：<br>$$ax+by=c$$<br>首先先求解$ax+by=GCD(a,b)$的$x$和$y$，记$g=GCD(a,b)$.<br>若$c$不能被$g$整除，则无整数解；<br>否则初始解：$x_{0}=x\frac{c}{g}$，$y_{0}=y\frac{c}{g}$.<br>不定方程的通解形式为：<br>$$\begin{cases}<br>x_{k}=x_{0}+k\frac{b}{g} &amp; \\<br>y_{k}=y_{0}-k\frac{a}{g} &amp; \text{k $\in $ Z}<br>\end{cases}$$</p>
+<h2 id="同余问题"><a href="#同余问题" class="headerlink" title="同余问题"></a>同余问题</h2><h3 id="同余关系式"><a href="#同余关系式" class="headerlink" title="同余关系式"></a>同余关系式</h3><ul>
+<li><strong>威尔逊定理</strong>：$(p-1)! \equiv  -1 ({\mbox{mod}} p)$</li>
+<li><strong>费马小定理</strong>：${\displaystyle a^{p}\equiv a{\pmod {p}}}$</li>
+<li><strong>欧拉定理</strong>：$a^{\varphi (n)}\equiv 1{\pmod {n}}$</li>
+<li>卡迈克尔函数：$a^{\lambda (n)}\equiv 1{\pmod {n}}$</li>
+<li>阶乘幂：$(x)_{k}\equiv x(x-1)(x-2)\cdots (x-k+1)\equiv 0{\pmod {k!}}$</li>
+</ul>
+<h3 id="同余fa"><a href="#同余fa" class="headerlink" title="同余fa"></a>同余fa</h3><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><hr>
+<p><a href="https://zh.wikipedia.org/wiki/%E7%B4%A0%E6%95%B0" target="_blank" rel="external">维基百科 质数</a><br><a href="http://www.matrix67.com/blog/archives/234" target="_blank" rel="external">Matrix67 Blog</a><br><a href="https://zh.wikipedia.org/wiki/%E8%BC%BE%E8%BD%89%E7%9B%B8%E9%99%A4%E6%B3%95" target="_blank" rel="external">维基百科 辗转相除法</a><br><a href="https://zh.wikipedia.org/wiki/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95" target="_blank" rel="external">维基百科 扩展欧几里得算法</a><br><a href="https://zh.wikipedia.org/wiki/%E5%90%8C%E9%A4%98" target="_blank" rel="external">维基百科 同余</a></p>
 
       
     </div>
@@ -473,6 +481,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/11/Codeforces-Round-406-Div-2/" rel="prev" title="Codeforces Round #406 (Div. 2)">
+                Codeforces Round #406 (Div. 2) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -567,7 +579,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -585,7 +597,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -620,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#素数运算"><span class="nav-number">1.</span> <span class="nav-text">素数运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的定义"><span class="nav-number">1.1.</span> <span class="nav-text">素数的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的性质和定理"><span class="nav-number">1.2.</span> <span class="nav-text">素数的性质和定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的判定"><span class="nav-number">1.3.</span> <span class="nav-text">素数的判定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#试除法"><span class="nav-number">1.3.1.</span> <span class="nav-text">试除法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Miller-Rabin方法"><span class="nav-number">1.3.2.</span> <span class="nav-text">Miller_Rabin方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的筛法"><span class="nav-number">1.4.</span> <span class="nav-text">素数的筛法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#埃拉托斯特尼筛法"><span class="nav-number">1.4.1.</span> <span class="nav-text">埃拉托斯特尼筛法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧拉筛法"><span class="nav-number">1.4.2.</span> <span class="nav-text">欧拉筛法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公约数问题"><span class="nav-number">2.</span> <span class="nav-text">公约数问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最大公约数和最小公倍数"><span class="nav-number">2.0.1.</span> <span class="nav-text">最大公约数和最小公倍数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧几里得算法"><span class="nav-number">2.0.2.</span> <span class="nav-text">欧几里得算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展欧几里得算法"><span class="nav-number">2.0.3.</span> <span class="nav-text">扩展欧几里得算法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#素数运算"><span class="nav-number">1.</span> <span class="nav-text">素数运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的定义"><span class="nav-number">1.1.</span> <span class="nav-text">素数的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的性质和定理"><span class="nav-number">1.2.</span> <span class="nav-text">素数的性质和定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的判定"><span class="nav-number">1.3.</span> <span class="nav-text">素数的判定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#试除法"><span class="nav-number">1.3.1.</span> <span class="nav-text">试除法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Miller-Rabin方法"><span class="nav-number">1.3.2.</span> <span class="nav-text">Miller_Rabin方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#素数的筛法"><span class="nav-number">1.4.</span> <span class="nav-text">素数的筛法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#埃拉托斯特尼筛法"><span class="nav-number">1.4.1.</span> <span class="nav-text">埃拉托斯特尼筛法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧拉筛法"><span class="nav-number">1.4.2.</span> <span class="nav-text">欧拉筛法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公约数问题"><span class="nav-number">2.</span> <span class="nav-text">公约数问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最大公约数和最小公倍数"><span class="nav-number">2.1.</span> <span class="nav-text">最大公约数和最小公倍数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#欧几里得算法"><span class="nav-number">2.2.</span> <span class="nav-text">欧几里得算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展欧几里得算法"><span class="nav-number">2.3.</span> <span class="nav-text">扩展欧几里得算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同余问题"><span class="nav-number">3.</span> <span class="nav-text">同余问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同余关系式"><span class="nav-number">3.1.</span> <span class="nav-text">同余关系式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同余fa"><span class="nav-number">3.2.</span> <span class="nav-text">同余fa</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
