@@ -90,10 +90,10 @@
 <meta name="description" content="素数运算
 素数的定义质数（Prime number），又称素数，指在大于1的自然数中，除了1和该数自身外，无法被其他自然数整除的数（也可定义为只有1与该数本身两个因数的数）
 素数的性质和定理
-素数在数量上是无限的（不存在最大的素数）
+欧拉证明：素数在数量上是无限的（不存在最大的素数）
 存在任意长的一段连续数，其中的所有数都是合数（相邻素数之间的间隔任意大）
 所有大于2的素数都可以唯一地表示成两个平方数之差。
-当$n$为大于2的整数时，$2^n+1$">
+当$n$为大于2的整数时，$2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初等数论">
 <meta property="og:url" content="https://sea96.github.io/2017/04/09/初等数论/index.html">
@@ -101,20 +101,20 @@
 <meta property="og:description" content="素数运算
 素数的定义质数（Prime number），又称素数，指在大于1的自然数中，除了1和该数自身外，无法被其他自然数整除的数（也可定义为只有1与该数本身两个因数的数）
 素数的性质和定理
-素数在数量上是无限的（不存在最大的素数）
+欧拉证明：素数在数量上是无限的（不存在最大的素数）
 存在任意长的一段连续数，其中的所有数都是合数（相邻素数之间的间隔任意大）
 所有大于2的素数都可以唯一地表示成两个平方数之差。
-当$n$为大于2的整数时，$2^n+1$">
-<meta property="og:updated_time" content="2017-04-15T01:35:42.317Z">
+当$n$为大于2的整数时，$2">
+<meta property="og:updated_time" content="2017-04-20T11:06:12.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初等数论">
 <meta name="twitter:description" content="素数运算
 素数的定义质数（Prime number），又称素数，指在大于1的自然数中，除了1和该数自身外，无法被其他自然数整除的数（也可定义为只有1与该数本身两个因数的数）
 素数的性质和定理
-素数在数量上是无限的（不存在最大的素数）
+欧拉证明：素数在数量上是无限的（不存在最大的素数）
 存在任意长的一段连续数，其中的所有数都是合数（相邻素数之间的间隔任意大）
 所有大于2的素数都可以唯一地表示成两个平方数之差。
-当$n$为大于2的整数时，$2^n+1$">
+当$n$为大于2的整数时，$2">
 
 
 
@@ -397,7 +397,7 @@
         <h2 id="素数运算"><a href="#素数运算" class="headerlink" title="素数运算"></a>素数运算</h2><hr>
 <h3 id="素数的定义"><a href="#素数的定义" class="headerlink" title="素数的定义"></a>素数的定义</h3><p><strong>质数</strong>（Prime number），又称<strong>素数</strong>，指在大于1的自然数中，除了1和该数自身外，无法被其他自然数整除的数（也可定义为只有1与该数本身两个因数的数）</p>
 <h3 id="素数的性质和定理"><a href="#素数的性质和定理" class="headerlink" title="素数的性质和定理"></a>素数的性质和定理</h3><ul>
-<li>素数在数量上是无限的（不存在最大的素数）</li>
+<li><strong>欧拉证明</strong>：素数在数量上是无限的（不存在最大的素数）</li>
 <li>存在任意长的一段连续数，其中的所有数都是合数（相邻素数之间的间隔任意大）</li>
 <li>所有大于2的素数都可以唯一地表示成两个平方数之差。</li>
 <li>当$n$为大于2的整数时，$2^n+1$和$2^n-1$两个数中，如果其中一个数是素数，那么另一个数一定是合数。</li>
@@ -438,18 +438,18 @@
 <ul>
 <li>若 $ac\equiv bc\pmod n$ 且 $GCD(c,n)=d$，则$a \equiv b \pmod{ \frac {n}{d}}$</li>
 <li>若 $d \neq 0$ 且 $ad \equiv bd \pmod {nd}$，则 $a \equiv b \pmod n$</li>
-<li>若 $n$ 和 $a$ 互质，则一次同余方程 $ax+b\equiv 0 \pmod n$ 有解</li>
+<li>若 $n$ 和 $a$ 互质，则一次同余方程 $ax+b\equiv 0 \pmod n$ 有解<br>模运算满足交换律（除了除法）</li>
 </ul>
 <h3 id="同余方程"><a href="#同余方程" class="headerlink" title="同余方程"></a>同余方程</h3><ul>
 <li>求解一次同余方程 $ax\equiv b\pmod n$<br>也就是要求解二元一次方程 $ax-my=b$，使用扩展欧几里得算法求解。<br>令 $g=GCD(a,m)$，如果$b$不能被$g$整除，那么同余方程无解；否则有$g$个解，即<br>$x_k=x_0+k \frac{m}{g}(0\leq k &lt; g)$</li>
 <li>求解同余方程 $a^x\equiv b\pmod n$</li>
 <li>求解一元线性同余方程组<br>$$\begin{cases}<br>x≡a_1 \pmod {m_1} &amp; \\<br>x≡a_2 \pmod {m_2} &amp; \\<br>… \\<br>x≡a_n \pmod {m_n} &amp; \\<br>\end{cases}$$<br><strong>中国剩余定理</strong><br>若$m_1$、$m_2$ …. $m_n$ 两两互质，则对任意整数 $a_1$、$a_2$ …. $a_n$ 方程组有解。<br>令<br>$M=m_1m_2m_3…m_n$<br>$w_i=\frac{M}{m_i}$<br>$w_i’$ 为 $w_i$ 模 $m_i$ 下的逆元，即 $w_iw_i’≡1 \pmod {m_i}$<br>则<br>$x=(a_1w_1w_1’+a_2w_2w_2’+…+a_nw_nw_n’) \pmod M$</li>
 </ul>
-<h3 id="模逆元"><a href="#模逆元" class="headerlink" title="模逆元"></a>模逆元</h3><p>在求解除法取模问题 $(a / b) \mod n$ 时，我们可以转化为 $(a \% (b \cdot n))/b$。<br>但是 $b$ 范围很大时，$b*n$ 可能存不下，所以我们使用乘法逆元将除法转换为乘法。<br>在模 $n$ 的意义下，把 $a$ 的模逆元写作 $a^{-1}$，满足$aa^{-1}\equiv 1{\pmod {n}}$，那么 $\frac {a}{b}=ab^{-1} \pmod n$<br>$a$ 对模数 $n$ 之模逆元存在的充分必要条件是 $a$ 和 $n$ 互质。<br>求解模逆元的几种方法：</p>
+<h3 id="模逆元"><a href="#模逆元" class="headerlink" title="模逆元"></a>模逆元</h3><p>在求解除法取模问题 $(a / b) \% n$ 时，我们可以转化为 $(a \% (b \cdot n))/b$。<br>但是 $b$ 范围很大时，$b<em>n$ 可能存不下，所以我们使用乘法逆元将除法转换为乘法。<br>在模 $n$ 的意义下，把 $a$ 的模逆元写作 $a^{-1}$，满足$aa^{-1}\equiv 1{\pmod {n}}$，那么 $\frac {a}{b}=ab^{-1} \pmod n$<br><em>*$a$ 对模数 $n$ 之模逆元存在的充分必要条件是 $a$ 和 $n$ 互质。</em></em><br>求解模逆元的几种方法：</p>
 <ul>
 <li>使用扩展欧几里得算法<br>求解 $ax \equiv 1 \pmod n$，即 $ax-ny=1$。若 $g=GCD(a,n)=1$，该模逆元存在，且有无穷个解，选取最小正整数解即可。</li>
 <li>使用欧拉定理<br>当 $a$ 和 $n$ 互质时，有 $a^{\varphi (n)}\equiv 1{\pmod  n}$。那么分解为 $a^{\varphi (n)}=a\cdot a^{\varphi (n)-1}\equiv 1{\pmod {n}}$，其中的 $a^{\varphi (n)-1}$ 即为 $a$ 关于模 $n$ 之模逆元。特别地，若 $n$ 为素数时，$a$ 的模逆元为 $a^{n-2}$（费马小定理）</li>
-<li>使用线性递推法<br>$n$为素数时，记 $i$ 的逆元为 $inv[i]$，有递推式：<br>$$inv[i]=<br>\begin{cases}<br>1&amp; \text{i = 1}\\<br>(n-\frac{n}{i}) \cdot inv[n \% i]\% n &amp; \text{i $&gt;$ 1}<br>\end{cases}$$<br>此方法可以在 $O(n)$ 时间复杂度求解小于 $n$ 的所有模逆元。</li>
+<li>使用线性递推法<br>$n$为奇素数时，记 $i$ 的逆元为 $inv[i]$，有递推式：<br>$$inv[i]=<br>\begin{cases}<br>1&amp; \text{i = 1}\\<br>(n-\frac{n}{i}) \cdot inv[n \% i]\% n &amp; \text{i $&gt;$ 1}<br>\end{cases}$$<br>证明（略，公式移项）<br>此方法以在 $O(n)$ 时间复杂度求解小于 $n$ 的所有模逆元。</li>
 </ul>
 <h2 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h2><p>在<strong>数论</strong>中，积性函数是指一个定义域为正整数 $n$ 的算术函数 $f(n)$，有如下性质：$f(1) = 1$，且当 $a$ 和 $b$ 互质时，$f(ab) = f(a) f(b)$<br>若对于任意两个正整数 $a$ 和 $b$ ，都有 $f(ab)=f(a)f(b)$，则称此函数 $f$ 为完全积性函数。<br>显然，对于任意积性函数，$f(1)=1$<br>$GCD(a,b)$ 也是积性函数（当一个数字固定的情况下）</p>
 <h3 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h3><p>定义欧拉函数$φ(n)$，表示小于等于 $n$ 且与 $n$ 互质的正整数的个数。<br>例如：$φ(1)=φ(2)=1$，$φ(3)=φ(4)=2$<br>欧拉函数是积性函数，即当 $n$、$m$ 互质时，$φ(nm)=φ(n)φ(m)$。但不是完全积性函数。</p>
@@ -458,7 +458,7 @@
 <li>当 $n$ 是合数时，$φ(n)&lt;n-1$，且 $φ(n) \leq n- \sqrt n$</li>
 </ul>
 <p>若 $n$ 是素数 $p$ 的 $k$ 次幂，$φ(n)=φ(p^{k})=p^{k}-p^{k-1}=(p-1)p^{k-1}$，因为除了 $p$ 的倍数外，其他数都跟 $n$ 互质。</p>
-<p>一般地，若$n=p_1^{k_1}p_2^{k_2}…p_r^{k_r}$<br>则<br>$$φ(n)=\prod_{i=1}^{r}p_{i}^{k_{i}-1}(p_{i}-1)=n \prod_{p|n} \left(1-{\frac {1}{p}} \right)$$</p>
+<p>一般地，设 $n=p_1^{k_1}p_2^{k_2}…p_r^{k_r}$<br>则<br>$$φ(n)=\prod_{i=1}^{r}p_{i}^{k_{i}-1}(p_{i}-1)=n \prod_{p|n} \left(1-{\frac {1}{p}} \right)$$</p>
 <h4 id="欧拉定理"><a href="#欧拉定理" class="headerlink" title="欧拉定理"></a>欧拉定理</h4><p>若两个正整数 $n$ 和 $a$ 互质，则 $a^{φ(n)} \equiv 1 \pmod n$<br>推论：$a^{φ(n)+1} \equiv a \pmod n$<br>欧拉定理的一个特例是费马小定理（若 $n$ 是素数，则 $φ(n)=n-1$）。</p>
 <h4 id="欧拉函数的性质"><a href="#欧拉函数的性质" class="headerlink" title="欧拉函数的性质"></a>欧拉函数的性质</h4><ul>
 <li>$n$ 的欧拉函数 $\varphi (n)$ 也是循环群 $C_n$ 的生成元的个数，即<br>$$ \sum_{d \mid n}  varphi (d)=n $$<br>其中的 $d$ 为 $n$ 的正约数。<br>运用莫比乌斯反演来“翻转”这个和，就可以得到另一个关于 $\varphi (n)$ 的公式：<br>$$ \varphi (n)=\sum _{d \mid n} {d\cdot \mu (n/d)}$$<br>其中 $μ$ 是所谓的<strong>莫比乌斯函数</strong>，定义在正整数上。</li>
@@ -611,7 +611,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">32</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
