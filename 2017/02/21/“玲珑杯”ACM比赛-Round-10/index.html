@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -107,7 +107,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Pisces',
     sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -134,7 +134,7 @@
 
 
   <title> “玲珑杯”ACM比赛 Round #10 | 清逸 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</head>
+<link rel="stylesheet" href="/css/prism-okaidia.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -392,10 +392,109 @@
       
         <h2 id="A-Black-and-White"><a href="#A-Black-and-White" class="headerlink" title="A. Black and White"></a>A. Black and White</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>$n(\leq 10^6)$个格子从左到右排列，每个格子可以填黑色或者白色，但是不能有连续$a(\leq 10^6)$个黑色或者连续$b(\leq 10^6)$个白色，问填完$n$个格子的方案数。</p>
 <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>一下子联想到<a href="http://bestcoder.hdu.edu.cn/contests/contest_chineseproblem.php?cid=677&amp;pid=1003" target="_blank" rel="external">BestCoder Round #75 1003 King’s Order</a>（不超过$3$个连续相同的），那题的做法：定义$f[i]$表示前$i$个满足条件的方案数，则$$f[i]=\sum_{j=1}^{3}f[i-j]*25$$意思是使得最后$j$个连续相同。<br>但是这题$a$和$b$范围太大，显然不是这么做的，但是思想可以借鉴。定义$f[i][0/1]$表示前$i$个最后一个是$0$（白色）或$1$（黑色）的方案数。状态转移方程：$$f[i][1]=f[i-1][0]+f[i-1][1]-f[i-1-(b-1)][0]$$意思是如果第$i$块填黑色，第$i-1$块当然可以填白色，但是如果填黑色的话，去掉连续$b$个相同的方案数。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">5</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span> + <span class="number">7</span>;</div><div class="line">ll f[N][<span class="number">2</span>];</div><div class="line"><span class="keyword">int</span> n, a, b;</div><div class="line"></div><div class="line"><span class="function">ll <span class="title">pow_mod</span><span class="params">(ll x, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    ll ret = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (; n; n&gt;&gt;=<span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (n &amp; <span class="number">1</span>) ret = ret * x % MOD;</div><div class="line">        x = x * x % MOD;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</div><div class="line">    <span class="keyword">while</span> (T--) &#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;a, &amp;b, &amp;n);</div><div class="line">        <span class="keyword">if</span> (a &gt; b) swap(a, b);</div><div class="line">        <span class="keyword">if</span> (b == <span class="number">1</span>) &#123;</div><div class="line">            <span class="built_in">puts</span>(<span class="string">"0"</span>);</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (a &gt; n) &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, pow_mod(<span class="number">2L</span>L, n));</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a == <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (b &lt;= n) <span class="built_in">puts</span>(<span class="string">"0"</span>);</div><div class="line">            <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"1\n"</span>);</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line">        f[<span class="number">0</span>][<span class="number">0</span>] = f[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> m = a - <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=m; ++i) &#123;</div><div class="line">            f[i][<span class="number">0</span>] = f[i][<span class="number">1</span>] = pow_mod(<span class="number">2L</span>L, i<span class="number">-1</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=m+<span class="number">1</span>; i&lt;=n; ++i) &#123;</div><div class="line">            f[i][<span class="number">1</span>] = (f[i<span class="number">-1</span>][<span class="number">0</span>]+f[i<span class="number">-1</span>][<span class="number">1</span>])%MOD;</div><div class="line">            <span class="keyword">if</span> (i<span class="number">-1</span> &gt;= b<span class="number">-1</span>) f[i][<span class="number">1</span>] = (f[i][<span class="number">1</span>]-f[i<span class="number">-1</span>-(b<span class="number">-1</span>)][<span class="number">0</span>]+MOD)%MOD;</div><div class="line">            f[i][<span class="number">0</span>] = (f[i<span class="number">-1</span>][<span class="number">1</span>]+f[i<span class="number">-1</span>][<span class="number">0</span>])%MOD;</div><div class="line">            <span class="keyword">if</span> (i<span class="number">-1</span> &gt;= a<span class="number">-1</span>) f[i][<span class="number">0</span>] = (f[i][<span class="number">0</span>]-f[i<span class="number">-1</span>-(a<span class="number">-1</span>)][<span class="number">1</span>]+MOD)%MOD;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, (f[n][<span class="number">0</span>]+f[n][<span class="number">1</span>])%MOD);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-C++"><code class="language-C++">#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+const int N = 1e6 + 5;
+const int MOD = 1e9 + 7;
+ll f[N][2];
+int n, a, b;
+
+ll pow_mod(ll x, int n) {
+    ll ret = 1;
+    for (; n; n>>=1) {
+        if (n & 1) ret = ret * x % MOD;
+        x = x * x % MOD;
+    }
+    return ret;
+}
+
+int main() {
+    int T;
+    scanf("%d", &T);
+    while (T--) {
+        scanf("%d%d%d", &a, &b, &n);
+        if (a > b) swap(a, b);
+        if (b == 1) {
+            puts("0");
+            continue;
+        }
+        if (a > n) {
+            printf("%lld\n", pow_mod(2LL, n));
+            continue;
+        } else if (a == 1) {
+            if (b <= n) puts("0");
+            else printf("1\n");
+            continue;
+        }
+        f[0][0] = f[0][1] = 1;
+        int m = a - 1;
+        for (int i=1; i<=m; ++i) {
+            f[i][0] = f[i][1] = pow_mod(2LL, i-1);
+        }
+        for (int i=m+1; i<=n; ++i) {
+            f[i][1] = (f[i-1][0]+f[i-1][1])%MOD;
+            if (i-1 >= b-1) f[i][1] = (f[i][1]-f[i-1-(b-1)][0]+MOD)%MOD;
+            f[i][0] = (f[i-1][1]+f[i-1][0])%MOD;
+            if (i-1 >= a-1) f[i][0] = (f[i][0]-f[i-1-(a-1)][1]+MOD)%MOD;
+        }
+        printf("%lld\n", (f[n][0]+f[n][1])%MOD);
+    }
+    return 0;
+}
+</code></pre>
 <h2 id="E-Six-and-One"><a href="#E-Six-and-One" class="headerlink" title="E. Six and One"></a>E. Six and One</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>定义$n=\prod a_i$，$a_i$只由1或者6组成，问$[L,R]$范围内$(L,R\leq 10^{10})$，有多少个$n$。</p>
 <h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>可以发现其实满足条件的$n$并不多，先打表出所有$a_i$，然后DFS处理出所有$n$，排好序后二分查询即可。</p>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">5</span>;</div><div class="line"><span class="built_in">vector</span>&lt;ll&gt; a;</div><div class="line"><span class="keyword">int</span> sz;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(ll x)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (x &gt; (ll)(<span class="number">1e10</span>)) <span class="keyword">return</span> ;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (x != <span class="number">0</span>) a.push_back(x);</div><div class="line">    DFS(x*<span class="number">10</span>+<span class="number">1</span>);</div><div class="line">    DFS(x*<span class="number">10</span>+<span class="number">6</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS2</span><span class="params">(<span class="keyword">int</span> i, ll x)</span> </span>&#123;</div><div class="line">    a.push_back(x);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j=i; j&lt;sz; ++j) &#123;</div><div class="line">        <span class="keyword">if</span> (x &lt;= (ll)(<span class="number">1e10</span>)/a[j]) DFS2(j, x*a[j]);</div><div class="line">        <span class="keyword">else</span> <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">    </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</div><div class="line">    DFS(<span class="number">0</span>);</div><div class="line">    sort(a.begin(), a.end());</div><div class="line">    sz = a.size();</div><div class="line">    DFS2(<span class="number">1</span>, <span class="number">1L</span>L);</div><div class="line">    sort(a.begin(), a.end());</div><div class="line">    <span class="built_in">vector</span>&lt;ll&gt;::iterator it = unique(a.begin(), a.end());</div><div class="line">    <span class="keyword">if</span> (it != a.end()) a.erase(it, a.end());</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    init();</div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</div><div class="line">    <span class="keyword">while</span> (T--) &#123;</div><div class="line">        ll L, R;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>, &amp;L, &amp;R);</div><div class="line">        <span class="keyword">int</span> p1 = lower_bound(a.begin(), a.end(), L) - a.begin();</div><div class="line">        <span class="keyword">int</span> p2 = upper_bound(a.begin(), a.end(), R) - a.begin();</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, p2-p1);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><pre class=" language-C++"><code class="language-C++">#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+const int N = 1e5 + 5;
+vector<ll> a;
+int sz;
+
+void DFS(ll x) {
+    if (x > (ll)(1e10)) return ;
+    else if (x != 0) a.push_back(x);
+    DFS(x*10+1);
+    DFS(x*10+6);
+}
+
+void DFS2(int i, ll x) {
+    a.push_back(x);
+    for (int j=i; j<sz; ++j) {
+        if (x <= (ll)(1e10)/a[j]) DFS2(j, x*a[j]);
+        else break;
+    }
+}
+
+
+void init() {
+    DFS(0);
+    sort(a.begin(), a.end());
+    sz = a.size();
+    DFS2(1, 1LL);
+    sort(a.begin(), a.end());
+    vector<ll>::iterator it = unique(a.begin(), a.end());
+    if (it != a.end()) a.erase(it, a.end());
+}
+
+int main() {
+    init();
+    int T;
+    scanf("%d", &T);
+    while (T--) {
+        ll L, R;
+        scanf("%lld%lld", &L, &R);
+        int p1 = lower_bound(a.begin(), a.end(), L) - a.begin();
+        int p2 = upper_bound(a.begin(), a.end(), R) - a.begin();
+        printf("%d\n", p2-p1);
+    }
+    return 0;
+}
+</code></pre>
+
       
     </div>
 
@@ -614,7 +713,7 @@
   &copy; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">清逸</span>
 </div>
@@ -627,7 +726,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
@@ -698,6 +797,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>

@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -105,7 +105,7 @@
 存在任意长的一段连续数，其中的所有数都是合数（相邻素数之间的间隔任意大）
 所有大于2的素数都可以唯一地表示成两个平方数之差。
 当$n$为大于2的整数时，$2">
-<meta property="og:updated_time" content="2017-04-20T11:06:12.498Z">
+<meta property="og:updated_time" content="2017-04-21T08:03:45.919Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初等数论">
 <meta name="twitter:description" content="素数运算
@@ -122,7 +122,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Pisces',
     sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -149,7 +149,7 @@
 
 
   <title> 初等数论 | 清逸 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</head>
+<link rel="stylesheet" href="/css/prism-okaidia.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -461,7 +461,7 @@
 <p>一般地，设 $n=p_1^{k_1}p_2^{k_2}…p_r^{k_r}$<br>则<br>$$φ(n)=\prod_{i=1}^{r}p_{i}^{k_{i}-1}(p_{i}-1)=n \prod_{p|n} \left(1-{\frac {1}{p}} \right)$$</p>
 <h4 id="欧拉定理"><a href="#欧拉定理" class="headerlink" title="欧拉定理"></a>欧拉定理</h4><p>若两个正整数 $n$ 和 $a$ 互质，则 $a^{φ(n)} \equiv 1 \pmod n$<br>推论：$a^{φ(n)+1} \equiv a \pmod n$<br>欧拉定理的一个特例是费马小定理（若 $n$ 是素数，则 $φ(n)=n-1$）。</p>
 <h4 id="欧拉函数的性质"><a href="#欧拉函数的性质" class="headerlink" title="欧拉函数的性质"></a>欧拉函数的性质</h4><ul>
-<li>$n$ 的欧拉函数 $\varphi (n)$ 也是循环群 $C_n$ 的生成元的个数，即<br>$$ \sum_{d \mid n}  varphi (d)=n $$<br>其中的 $d$ 为 $n$ 的正约数。<br>运用莫比乌斯反演来“翻转”这个和，就可以得到另一个关于 $\varphi (n)$ 的公式：<br>$$ \varphi (n)=\sum _{d \mid n} {d\cdot \mu (n/d)}$$<br>其中 $μ$ 是所谓的<strong>莫比乌斯函数</strong>，定义在正整数上。</li>
+<li>$n$ 的欧拉函数 $\varphi (n)$ 也是循环群 $C_n$ 的生成元的个数，即<br>$$ \sum_{d \mid n} \varphi (d)=n $$<br>其中的 $d$ 为 $n$ 的正约数。<br>运用莫比乌斯反演来“翻转”这个和，就可以得到另一个关于 $\varphi (n)$ 的公式：<br>$$ \varphi (n)=\sum _{d \mid n} {d\cdot \mu (n/d)}$$<br>其中 $μ$ 是所谓的<strong>莫比乌斯函数</strong>，定义在正整数上。</li>
 <li>当 $n&gt;1$ 时，$1…n$ 中与 $n$ 互质的整数和为 $\frac{n\varphi (n)}{2}$</li>
 <li>当 $n$ 为奇数时，有 $\varphi (2n)= \varphi (n)$</li>
 </ul>
@@ -689,7 +689,7 @@
   &copy; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">清逸</span>
 </div>
@@ -702,7 +702,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
@@ -773,6 +773,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
