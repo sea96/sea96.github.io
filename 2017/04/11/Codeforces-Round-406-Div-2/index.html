@@ -6,22 +6,16 @@
   
   <title>Codeforces Round #406 (Div. 2) | 清逸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A. The Monster给定$a,b,c,d$，问是否存在$k_1,k_2$，使得$b+k_1a=d+k_2c$.暴力枚举其中一个$k$判断是否能整除即可。
-B. Not Afraid两个宇宙，每一个人在两个宇宙里一个是忠诚者，另一个是叛徒。将他们分组，问是否可能存在一个组里的人都是叛徒。如果一个数的正负数都在同一个组里，那么这个组一定有一个是忠诚者，否则可能都是叛徒。
-C. Berzerk题">
+  <meta name="description" content="A. The Monster给定$a,b,c,d$，问是否存在$k_1,k_2$，使得$b+k_1a=d+k_2c$.暴力枚举其中一个$k$判断是否能整除即可。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces Round #406 (Div. 2)">
 <meta property="og:url" content="https://sea96.github.io/2017/04/11/Codeforces-Round-406-Div-2/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="A. The Monster给定$a,b,c,d$，问是否存在$k_1,k_2$，使得$b+k_1a=d+k_2c$.暴力枚举其中一个$k$判断是否能整除即可。
-B. Not Afraid两个宇宙，每一个人在两个宇宙里一个是忠诚者，另一个是叛徒。将他们分组，问是否可能存在一个组里的人都是叛徒。如果一个数的正负数都在同一个组里，那么这个组一定有一个是忠诚者，否则可能都是叛徒。
-C. Berzerk题">
-<meta property="og:updated_time" content="2017-04-11T14:33:05.932Z">
+<meta property="og:description" content="A. The Monster给定$a,b,c,d$，问是否存在$k_1,k_2$，使得$b+k_1a=d+k_2c$.暴力枚举其中一个$k$判断是否能整除即可。">
+<meta property="og:updated_time" content="2017-05-03T03:14:15.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces Round #406 (Div. 2)">
-<meta name="twitter:description" content="A. The Monster给定$a,b,c,d$，问是否存在$k_1,k_2$，使得$b+k_1a=d+k_2c$.暴力枚举其中一个$k$判断是否能整除即可。
-B. Not Afraid两个宇宙，每一个人在两个宇宙里一个是忠诚者，另一个是叛徒。将他们分组，问是否可能存在一个组里的人都是叛徒。如果一个数的正负数都在同一个组里，那么这个组一定有一个是忠诚者，否则可能都是叛徒。
-C. Berzerk题">
+<meta name="twitter:description" content="A. The Monster给定$a,b,c,d$，问是否存在$k_1,k_2$，使得$b+k_1a=d+k_2c$.暴力枚举其中一个$k$判断是否能整除即可。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -99,6 +93,7 @@ C. Berzerk题">
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="A-The-Monster"><a href="#A-The-Monster" class="headerlink" title="A. The Monster"></a>A. The Monster</h2><p>给定$a,b,c,d$，问是否存在$k_1,k_2$，使得$b+k_1a=d+k_2c$.<br>暴力枚举其中一个$k$判断是否能整除即可。</p>
+<a id="more"></a>
 <h2 id="B-Not-Afraid"><a href="#B-Not-Afraid" class="headerlink" title="B. Not Afraid"></a>B. Not Afraid</h2><p>两个宇宙，每一个人在两个宇宙里一个是忠诚者，另一个是叛徒。将他们分组，问是否可能存在一个组里的人都是叛徒。<br>如果一个数的正负数都在同一个组里，那么这个组一定有一个是忠诚者，否则可能都是叛徒。</p>
 <h2 id="C-Berzerk"><a href="#C-Berzerk" class="headerlink" title="C. Berzerk"></a>C. Berzerk</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>$n$个点形成环，两个玩家分别有$k_1,k_2$个数字$s_i$，每次都可以选择一个数字$s_i$，顺时针跳到后面第$s_i$个位置，谁先跳到第1位置谁就获胜，问从两个人从每个位置出发的最优结局。</p>
 <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>正方向DFS的话，因为后继不能保证在有限次数后到达终点，那么选择从终点逆推，定义$f[2][i]$表示玩家走到$i$位置的结局是<strong>win</strong> or <strong>Lose</strong>，一个状态判为$Win$的条件是至少存在一个后继是$Lose$；一个状态判为$Lose$的条件是后继都是<strong>Win</strong>。使用记忆化搜索，每个状态只遍历一次，时间复杂度：$O(n)$.<br><a href="http://codeforces.com/contest/787/submission/26255433" target="_blank" rel="external">code</a></p>

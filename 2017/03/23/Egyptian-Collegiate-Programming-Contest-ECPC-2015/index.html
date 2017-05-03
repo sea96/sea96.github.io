@@ -6,22 +6,16 @@
   
   <title>Egyptian Collegiate Programming Contest (ECPC 2015) | 清逸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A. Arcade Game题意给一个$n$位的数字，每一次等概率地变成按照数位全排列的某一个排列（各个位的数不同），要求变换后的数字比之前的大，问最终变成最大排列形式的数字的概率。
-数据$1 \leq n \leq 9$
-题解设数字在全排列的位置为$k$，它最终变成最大数字的概率为$p_k$，那么$p_k = (\sum_{j=k+1}^{n!}p_j) \frac {1}{n!}$，$p_{n">
+  <meta name="description" content="A. Arcade Game题意给一个$n$位的数字，每一次等概率地变成按照数位全排列的某一个排列（各个位的数不同），要求变换后的数字比之前的大，问最终变成最大排列形式的数字的概率。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Egyptian Collegiate Programming Contest (ECPC 2015)">
 <meta property="og:url" content="https://sea96.github.io/2017/03/23/Egyptian-Collegiate-Programming-Contest-ECPC-2015/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="A. Arcade Game题意给一个$n$位的数字，每一次等概率地变成按照数位全排列的某一个排列（各个位的数不同），要求变换后的数字比之前的大，问最终变成最大排列形式的数字的概率。
-数据$1 \leq n \leq 9$
-题解设数字在全排列的位置为$k$，它最终变成最大数字的概率为$p_k$，那么$p_k = (\sum_{j=k+1}^{n!}p_j) \frac {1}{n!}$，$p_{n">
-<meta property="og:updated_time" content="2017-03-23T09:00:04.501Z">
+<meta property="og:description" content="A. Arcade Game题意给一个$n$位的数字，每一次等概率地变成按照数位全排列的某一个排列（各个位的数不同），要求变换后的数字比之前的大，问最终变成最大排列形式的数字的概率。">
+<meta property="og:updated_time" content="2017-05-03T03:14:07.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Egyptian Collegiate Programming Contest (ECPC 2015)">
-<meta name="twitter:description" content="A. Arcade Game题意给一个$n$位的数字，每一次等概率地变成按照数位全排列的某一个排列（各个位的数不同），要求变换后的数字比之前的大，问最终变成最大排列形式的数字的概率。
-数据$1 \leq n \leq 9$
-题解设数字在全排列的位置为$k$，它最终变成最大数字的概率为$p_k$，那么$p_k = (\sum_{j=k+1}^{n!}p_j) \frac {1}{n!}$，$p_{n">
+<meta name="twitter:description" content="A. Arcade Game题意给一个$n$位的数字，每一次等概率地变成按照数位全排列的某一个排列（各个位的数不同），要求变换后的数字比之前的大，问最终变成最大排列形式的数字的概率。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -99,6 +93,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="A-Arcade-Game"><a href="#A-Arcade-Game" class="headerlink" title="A. Arcade Game"></a>A. Arcade Game</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给一个$n$位的数字，每一次等概率地变成按照数位全排列的某一个排列（各个位的数不同），要求变换后的数字比之前的大，问最终变成最大排列形式的数字的概率。</p>
+<a id="more"></a>
 <h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><p>$1 \leq n \leq 9$</p>
 <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>设数字在全排列的位置为$k$，它最终变成最大数字的概率为$p_k$，那么$p_k = (\sum_{j=k+1}^{n!}p_j) \frac {1}{n!}$，$p_{n!}=1.0$（如果一开始的数字就是最大值，那么概率为0）。发现公式是关于计算后缀的和，可以迭代计算，每次更新后缀概率总和，在$O(n!-k)$时间复杂度解决。<br><a href="http://paste.ubuntu.com/24233005/" target="_blank" rel="external">code</a></p>
 <h2 id="B-Unlucky-Teacher"><a href="#B-Unlucky-Teacher" class="headerlink" title="B. Unlucky Teacher"></a>B. Unlucky Teacher</h2><p>判断选择题哪个是正确答案，因为答案唯一，所以如果答案已给出，或者知道有三个选项是错误的就能知道答案。</p>

@@ -6,19 +6,16 @@
   
   <title>Codeforces 732D Exams | 清逸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题意你需要在$n$天内通过$m$门课程(n,m \leq 10^5)，每天可以考完一科科目，或者准备一门科目，或者休息。第$i$天可以考的科目为$d_i$，$d_i=0$表示这天不能考试，复习第$i$门课需要花费的时间为$a_i$。问复习完所有课程需要花费的最小天数是多少天，如果复习不完，输出$-1$。
-题解二分枚举出可行的天数，贪心地将每门课程复习时间放在考试的前几天，check下是否能复习完。">
+  <meta name="description" content="题意你需要在$n$天内通过$m$门课程(n,m \leq 10^5)，每天可以考完一科科目，或者准备一门科目，或者休息。第$i$天可以考的科目为$d_i$，$d_i=0$表示这天不能考试，复习第$i$门课需要花费的时间为$a_i$。问复习完所有课程需要花费的最小天数是多少天，如果复习不完，输出$-1$。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces 732D Exams">
 <meta property="og:url" content="https://sea96.github.io/2017/02/24/Codeforces-732D-Exams/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="题意你需要在$n$天内通过$m$门课程(n,m \leq 10^5)，每天可以考完一科科目，或者准备一门科目，或者休息。第$i$天可以考的科目为$d_i$，$d_i=0$表示这天不能考试，复习第$i$门课需要花费的时间为$a_i$。问复习完所有课程需要花费的最小天数是多少天，如果复习不完，输出$-1$。
-题解二分枚举出可行的天数，贪心地将每门课程复习时间放在考试的前几天，check下是否能复习完。">
-<meta property="og:updated_time" content="2017-02-24T02:32:52.808Z">
+<meta property="og:description" content="题意你需要在$n$天内通过$m$门课程(n,m \leq 10^5)，每天可以考完一科科目，或者准备一门科目，或者休息。第$i$天可以考的科目为$d_i$，$d_i=0$表示这天不能考试，复习第$i$门课需要花费的时间为$a_i$。问复习完所有课程需要花费的最小天数是多少天，如果复习不完，输出$-1$。">
+<meta property="og:updated_time" content="2017-05-03T03:14:33.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces 732D Exams">
-<meta name="twitter:description" content="题意你需要在$n$天内通过$m$门课程(n,m \leq 10^5)，每天可以考完一科科目，或者准备一门科目，或者休息。第$i$天可以考的科目为$d_i$，$d_i=0$表示这天不能考试，复习第$i$门课需要花费的时间为$a_i$。问复习完所有课程需要花费的最小天数是多少天，如果复习不完，输出$-1$。
-题解二分枚举出可行的天数，贪心地将每门课程复习时间放在考试的前几天，check下是否能复习完。">
+<meta name="twitter:description" content="题意你需要在$n$天内通过$m$门课程(n,m \leq 10^5)，每天可以考完一科科目，或者准备一门科目，或者休息。第$i$天可以考的科目为$d_i$，$d_i=0$表示这天不能考试，复习第$i$门课需要花费的时间为$a_i$。问复习完所有课程需要花费的最小天数是多少天，如果复习不完，输出$-1$。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -96,6 +93,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>你需要在$n$天内通过$m$门课程(n,m \leq 10^5)，每天可以考完一科科目，或者准备一门科目，或者休息。第$i$天可以考的科目为$d_i$，$d_i=0$表示这天不能考试，复习第$i$门课需要花费的时间为$a_i$。<br>问复习完所有课程需要花费的最小天数是多少天，如果复习不完，输出$-1$。</p>
+<a id="more"></a>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>二分枚举出可行的天数，贪心地将每门课程复习时间放在考试的前几天，check下是否能复习完。</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>

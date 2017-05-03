@@ -6,25 +6,16 @@
   
   <title>Kattis Boxes | 清逸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题意给出$n$$(n\leq 2\times 10^5)$个盒子，其中一些盒子可能会被放进另一些盒子里，$q$$(q \leq 10^5)$次询问，每次询问给出$m$$(m\leq 20)$个盒子序号，求这$m$个盒子包含的盒子总数。
-题解盒子显然有树的结构（注意：可能不止一棵树），有两种做法：
-
-求森林的DFS序，根据DFS序将子树映射到区间，那么问题就变成了区间染色点记数问题，用线段树（区间更">
+  <meta name="description" content="题意给出$n$$(n\leq 2\times 10^5)$个盒子，其中一些盒子可能会被放进另一些盒子里，$q$$(q \leq 10^5)$次询问，每次询问给出$m$$(m\leq 20)$个盒子序号，求这$m$个盒子包含的盒子总数。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kattis Boxes">
 <meta property="og:url" content="https://sea96.github.io/2017/03/02/Kattis-Boxes/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="题意给出$n$$(n\leq 2\times 10^5)$个盒子，其中一些盒子可能会被放进另一些盒子里，$q$$(q \leq 10^5)$次询问，每次询问给出$m$$(m\leq 20)$个盒子序号，求这$m$个盒子包含的盒子总数。
-题解盒子显然有树的结构（注意：可能不止一棵树），有两种做法：
-
-求森林的DFS序，根据DFS序将子树映射到区间，那么问题就变成了区间染色点记数问题，用线段树（区间更">
-<meta property="og:updated_time" content="2017-03-02T11:22:54.801Z">
+<meta property="og:description" content="题意给出$n$$(n\leq 2\times 10^5)$个盒子，其中一些盒子可能会被放进另一些盒子里，$q$$(q \leq 10^5)$次询问，每次询问给出$m$$(m\leq 20)$个盒子序号，求这$m$个盒子包含的盒子总数。">
+<meta property="og:updated_time" content="2017-05-03T03:12:57.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kattis Boxes">
-<meta name="twitter:description" content="题意给出$n$$(n\leq 2\times 10^5)$个盒子，其中一些盒子可能会被放进另一些盒子里，$q$$(q \leq 10^5)$次询问，每次询问给出$m$$(m\leq 20)$个盒子序号，求这$m$个盒子包含的盒子总数。
-题解盒子显然有树的结构（注意：可能不止一棵树），有两种做法：
-
-求森林的DFS序，根据DFS序将子树映射到区间，那么问题就变成了区间染色点记数问题，用线段树（区间更">
+<meta name="twitter:description" content="题意给出$n$$(n\leq 2\times 10^5)$个盒子，其中一些盒子可能会被放进另一些盒子里，$q$$(q \leq 10^5)$次询问，每次询问给出$m$$(m\leq 20)$个盒子序号，求这$m$个盒子包含的盒子总数。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -102,6 +93,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给出$n$$(n\leq 2\times 10^5)$个盒子，其中一些盒子可能会被放进另一些盒子里，$q$$(q \leq 10^5)$次询问，每次询问给出$m$$(m\leq 20)$个盒子序号，求这$m$个盒子包含的盒子总数。</p>
+<a id="more"></a>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>盒子显然有树的结构（<strong>注意：可能不止一棵树</strong>），有两种做法：</p>
 <ul>
 <li>求森林的DFS序，根据DFS序将子树映射到区间，那么问题就变成了区间染色点记数问题，用线段树（区间更新，lazy标记）解决。</li>

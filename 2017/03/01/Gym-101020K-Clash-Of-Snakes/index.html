@@ -6,19 +6,16 @@
   
   <title>Gym 101020K Clash Of Snakes | 清逸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题意有$n\times m$$(2\leq n,m \leq 10^5)$的格子，有两条蛇长度分别为$k$和$s$$(2\leq k,s \leq min(n,m))$垂直或者水平地放置在格子里，要求两蛇不重叠，问放置的方案数（mod $10^9+7$）。
-题解易得长度为$L$的方格放置长度为$k$的蛇的方案数为$L-k+1$。记长度$k$的蛇水平放置的方案数为$tot_k$，则$tot_k=(m">
+  <meta name="description" content="题意有$n\times m$$(2\leq n,m \leq 10^5)$的格子，有两条蛇长度分别为$k$和$s$$(2\leq k,s \leq min(n,m))$垂直或者水平地放置在格子里，要求两蛇不重叠，问放置的方案数（mod $10^9+7$）。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gym 101020K Clash Of Snakes">
 <meta property="og:url" content="https://sea96.github.io/2017/03/01/Gym-101020K-Clash-Of-Snakes/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="题意有$n\times m$$(2\leq n,m \leq 10^5)$的格子，有两条蛇长度分别为$k$和$s$$(2\leq k,s \leq min(n,m))$垂直或者水平地放置在格子里，要求两蛇不重叠，问放置的方案数（mod $10^9+7$）。
-题解易得长度为$L$的方格放置长度为$k$的蛇的方案数为$L-k+1$。记长度$k$的蛇水平放置的方案数为$tot_k$，则$tot_k=(m">
-<meta property="og:updated_time" content="2017-03-04T13:00:38.861Z">
+<meta property="og:description" content="题意有$n\times m$$(2\leq n,m \leq 10^5)$的格子，有两条蛇长度分别为$k$和$s$$(2\leq k,s \leq min(n,m))$垂直或者水平地放置在格子里，要求两蛇不重叠，问放置的方案数（mod $10^9+7$）。">
+<meta property="og:updated_time" content="2017-05-03T03:13:32.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gym 101020K Clash Of Snakes">
-<meta name="twitter:description" content="题意有$n\times m$$(2\leq n,m \leq 10^5)$的格子，有两条蛇长度分别为$k$和$s$$(2\leq k,s \leq min(n,m))$垂直或者水平地放置在格子里，要求两蛇不重叠，问放置的方案数（mod $10^9+7$）。
-题解易得长度为$L$的方格放置长度为$k$的蛇的方案数为$L-k+1$。记长度$k$的蛇水平放置的方案数为$tot_k$，则$tot_k=(m">
+<meta name="twitter:description" content="题意有$n\times m$$(2\leq n,m \leq 10^5)$的格子，有两条蛇长度分别为$k$和$s$$(2\leq k,s \leq min(n,m))$垂直或者水平地放置在格子里，要求两蛇不重叠，问放置的方案数（mod $10^9+7$）。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -96,6 +93,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有$n\times m$$(2\leq n,m \leq 10^5)$的格子，有两条蛇长度分别为$k$和$s$$(2\leq k,s \leq min(n,m))$垂直或者水平地放置在格子里，要求两蛇不重叠，问放置的方案数（mod $10^9+7$）。</p>
+<a id="more"></a>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>易得长度为$L$的方格放置长度为$k$的蛇的方案数为$L-k+1$。<br>记长度$k$的蛇水平放置的方案数为$tot_k$，则$tot_k=(m-k+1)\times n$。<br>先考虑长度$k$的蛇水平放置在第$i$行，长度为$s$的蛇也水平放置的方案数$A$：</p>
 <ul>
 <li>$sum_1=tot_k\times (n-1)\times (m-s+1)$，长度为$s$的蛇不在第$i$行</li>

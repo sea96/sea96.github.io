@@ -6,25 +6,16 @@
   
   <title>Codeforces 468C Hack it! | 清逸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题意定义$f(n)$表示$n$的数位和，求一组$[l,r]$$(1 \leq l,r &amp;lt; 10^{200})$，使得$\sum\limits_{i=l}^rf(i)\equiv 0\pmod a$$(1\leq a\leq 10^{18})$。
-题解记$s(n)=\sum\limits_{i=1}^{n}f(i)$，计算$s(n)$只要把每一个数位对答案的贡献加起来即可。
-
-构造：注意到$f">
+  <meta name="description" content="题意定义$f(n)$表示$n$的数位和，求一组$[l,r]$$(1 \leq l,r &amp;lt; 10^{200})$，使得$\sum\limits_{i=l}^rf(i)\equiv 0\pmod a$$(1\leq a\leq 10^{18})$。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces 468C Hack it!">
 <meta property="og:url" content="https://sea96.github.io/2017/03/03/Codeforces-468C-Hack-it/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="题意定义$f(n)$表示$n$的数位和，求一组$[l,r]$$(1 \leq l,r &amp;lt; 10^{200})$，使得$\sum\limits_{i=l}^rf(i)\equiv 0\pmod a$$(1\leq a\leq 10^{18})$。
-题解记$s(n)=\sum\limits_{i=1}^{n}f(i)$，计算$s(n)$只要把每一个数位对答案的贡献加起来即可。
-
-构造：注意到$f">
-<meta property="og:updated_time" content="2017-03-04T00:30:36.767Z">
+<meta property="og:description" content="题意定义$f(n)$表示$n$的数位和，求一组$[l,r]$$(1 \leq l,r &amp;lt; 10^{200})$，使得$\sum\limits_{i=l}^rf(i)\equiv 0\pmod a$$(1\leq a\leq 10^{18})$。">
+<meta property="og:updated_time" content="2017-05-03T03:16:19.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces 468C Hack it!">
-<meta name="twitter:description" content="题意定义$f(n)$表示$n$的数位和，求一组$[l,r]$$(1 \leq l,r &amp;lt; 10^{200})$，使得$\sum\limits_{i=l}^rf(i)\equiv 0\pmod a$$(1\leq a\leq 10^{18})$。
-题解记$s(n)=\sum\limits_{i=1}^{n}f(i)$，计算$s(n)$只要把每一个数位对答案的贡献加起来即可。
-
-构造：注意到$f">
+<meta name="twitter:description" content="题意定义$f(n)$表示$n$的数位和，求一组$[l,r]$$(1 \leq l,r &amp;lt; 10^{200})$，使得$\sum\limits_{i=l}^rf(i)\equiv 0\pmod a$$(1\leq a\leq 10^{18})$。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -102,6 +93,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>定义$f(n)$表示$n$的数位和，求一组$[l,r]$$(1 \leq l,r &lt; 10^{200})$，使得$\sum\limits_{i=l}^rf(i)\equiv 0\pmod a$$(1\leq a\leq 10^{18})$。</p>
+<a id="more"></a>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>记$s(n)=\sum\limits_{i=1}^{n}f(i)$，计算$s(n)$只要把每一个数位对答案的贡献加起来即可。</p>
 <ul>
 <li>构造：<br>注意到$f(x+10^{18})=f(x)+1$，那么$s(x+10^{18})=s(10^{18})+s(x)+x$，即$s(x+10^{18})-s(x)=s(10^{18})+x$。令$s(10^{18})+x=a$，即$x=a-s(10^{18})$，构造出一组解：$L=x+1$，$R=x+10^{18}$。</li>

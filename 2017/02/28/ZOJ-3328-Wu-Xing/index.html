@@ -6,22 +6,16 @@
   
   <title>ZOJ 3328 Wu Xing | 清逸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题意给一张完全图，用$k$个$n(\leq 10^6)$元简单环去覆盖所有边，问$k$的最小值。
-题解
-我们可以看到，他说要是任意两个点都有联系，看到这里，马上可以想到，要满足这个条件， 必须需要$\frac {n(n-1)}{2}$条边，于是，换一种思考，该题目就可以理解为，在$\frac {n(n-1)}{2}$条边中可以构成几个环。如果想到这里，你又开始去画点画边，那估计最后结果还是要悲剧。">
+  <meta name="description" content="题意给一张完全图，用$k$个$n(\leq 10^6)$元简单环去覆盖所有边，问$k$的最小值。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ZOJ 3328 Wu Xing">
 <meta property="og:url" content="https://sea96.github.io/2017/02/28/ZOJ-3328-Wu-Xing/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="题意给一张完全图，用$k$个$n(\leq 10^6)$元简单环去覆盖所有边，问$k$的最小值。
-题解
-我们可以看到，他说要是任意两个点都有联系，看到这里，马上可以想到，要满足这个条件， 必须需要$\frac {n(n-1)}{2}$条边，于是，换一种思考，该题目就可以理解为，在$\frac {n(n-1)}{2}$条边中可以构成几个环。如果想到这里，你又开始去画点画边，那估计最后结果还是要悲剧。">
-<meta property="og:updated_time" content="2017-03-16T00:41:20.135Z">
+<meta property="og:description" content="题意给一张完全图，用$k$个$n(\leq 10^6)$元简单环去覆盖所有边，问$k$的最小值。">
+<meta property="og:updated_time" content="2017-05-03T03:12:46.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ZOJ 3328 Wu Xing">
-<meta name="twitter:description" content="题意给一张完全图，用$k$个$n(\leq 10^6)$元简单环去覆盖所有边，问$k$的最小值。
-题解
-我们可以看到，他说要是任意两个点都有联系，看到这里，马上可以想到，要满足这个条件， 必须需要$\frac {n(n-1)}{2}$条边，于是，换一种思考，该题目就可以理解为，在$\frac {n(n-1)}{2}$条边中可以构成几个环。如果想到这里，你又开始去画点画边，那估计最后结果还是要悲剧。">
+<meta name="twitter:description" content="题意给一张完全图，用$k$个$n(\leq 10^6)$元简单环去覆盖所有边，问$k$的最小值。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -99,6 +93,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给一张完全图，用$k$个$n(\leq 10^6)$元简单环去覆盖所有边，问$k$的最小值。</p>
+<a id="more"></a>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><blockquote>
 <p>我们可以看到，他说要是任意两个点都有联系，看到这里，马上可以想到，要满足这个条件， 必须需要$\frac {n(n-1)}{2}$条边，于是，换一种思考，该题目就可以理解为，在$\frac {n(n-1)}{2}$条边中可以构成几个环。如果想到这里，你又开始去画点画边，那估计最后结果还是要悲剧。至少我是画不出，就算画出了也不知道到底是否是最小个数的环。 所以我们接着继续分析。。。抛开怎么连线不管， 往整体方向想，要构成一个环， $n$个点必须要$n$条边，可以理解，最终所有环所构成的边，都不会超过$\frac {n(n-1)}{2}$条边。 所以每条边都在一个或几个环内，（其中不同的环可以共用一条边）。 所以至少有$\frac {(n-1)}{2}$个环， 如果可以整除，那么商就是答案。如果不能整除呢？ 那么余下的边必定可以再组成一个环（必定的嘛）。所以如果$(n-1)%2 != 0$，那么答案就等于$\frac {(n-1)}{2}+1$;结果就是和$\frac {n}{2}$的结果一样，如果有些同学，开玩笑地试了这个公式，恭喜你，你ac了。（踩到狗屎了，呵呵！）</p>
 </blockquote>

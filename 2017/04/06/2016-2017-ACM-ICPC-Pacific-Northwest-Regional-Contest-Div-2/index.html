@@ -6,31 +6,16 @@
   
   <title>2016-2017 ACM-ICPC Pacific Northwest Regional Contest (Div. 2) | 清逸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A. Alphabet裸LIS
-B. Barbells问杠铃和盘子有多少种不同的搭配方式。关键求出左右相等且不重复使用盘子的方案数，因为数据范围小，考虑状态压缩，用map&amp;lt;ll, vector&amp;lt;int&amp;gt;&amp;gt;存储每一个重量对应的各个mask值。
-#include &amp;lt;bits/stdc++.h&amp;gt;
-using namespace std;
-
-typedef long long">
+  <meta name="description" content="A. Alphabet裸LIS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2016-2017 ACM-ICPC Pacific Northwest Regional Contest (Div. 2)">
 <meta property="og:url" content="https://sea96.github.io/2017/04/06/2016-2017-ACM-ICPC-Pacific-Northwest-Regional-Contest-Div-2/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="A. Alphabet裸LIS
-B. Barbells问杠铃和盘子有多少种不同的搭配方式。关键求出左右相等且不重复使用盘子的方案数，因为数据范围小，考虑状态压缩，用map&amp;lt;ll, vector&amp;lt;int&amp;gt;&amp;gt;存储每一个重量对应的各个mask值。
-#include &amp;lt;bits/stdc++.h&amp;gt;
-using namespace std;
-
-typedef long long">
-<meta property="og:updated_time" content="2017-04-06T05:51:58.376Z">
+<meta property="og:description" content="A. Alphabet裸LIS">
+<meta property="og:updated_time" content="2017-05-03T03:17:27.043Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2016-2017 ACM-ICPC Pacific Northwest Regional Contest (Div. 2)">
-<meta name="twitter:description" content="A. Alphabet裸LIS
-B. Barbells问杠铃和盘子有多少种不同的搭配方式。关键求出左右相等且不重复使用盘子的方案数，因为数据范围小，考虑状态压缩，用map&amp;lt;ll, vector&amp;lt;int&amp;gt;&amp;gt;存储每一个重量对应的各个mask值。
-#include &amp;lt;bits/stdc++.h&amp;gt;
-using namespace std;
-
-typedef long long">
+<meta name="twitter:description" content="A. Alphabet裸LIS">
   
   
     <link rel="icon" href="/favicon.png">
@@ -108,6 +93,7 @@ typedef long long">
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="A-Alphabet"><a href="#A-Alphabet" class="headerlink" title="A. Alphabet"></a>A. Alphabet</h2><p>裸LIS</p>
+<a id="more"></a>
 <h2 id="B-Barbells"><a href="#B-Barbells" class="headerlink" title="B. Barbells"></a>B. Barbells</h2><p>问杠铃和盘子有多少种不同的搭配方式。<br>关键求出左右相等且不重复使用盘子的方案数，因为数据范围小，考虑状态压缩，用<code>map&lt;ll, vector&lt;int&gt;&gt;</code>存储每一个重量对应的各个mask值。</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>

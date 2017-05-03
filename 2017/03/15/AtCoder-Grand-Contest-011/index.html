@@ -6,22 +6,16 @@
   
   <title> AtCoder Grand Contest 011 | 清逸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A. Airport Bus题意有$n$个人在等车，第$i$个人的等车时间为$[t_i,t_i+k]$，每辆车最多能载$c$个人。问所有人都上车最少需要多少辆车。
-数据$2≤n≤10^5$$1≤c≤10^9$$1≤k≤10^9$$1≤ti≤10^9$
-题解贪心的策略：凑齐$c$个人或者有人等不了就上车。显然上车时间在$t_i$或者$t_i+k$端点上更优。对$t_i$从小到大排序，双指针扫描一遍即">
+  <meta name="description" content="A. Airport Bus题意有$n$个人在等车，第$i$个人的等车时间为$[t_i,t_i+k]$，每辆车最多能载$c$个人。问所有人都上车最少需要多少辆车。">
 <meta property="og:type" content="article">
 <meta property="og:title" content=" AtCoder Grand Contest 011">
 <meta property="og:url" content="https://sea96.github.io/2017/03/15/AtCoder-Grand-Contest-011/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="A. Airport Bus题意有$n$个人在等车，第$i$个人的等车时间为$[t_i,t_i+k]$，每辆车最多能载$c$个人。问所有人都上车最少需要多少辆车。
-数据$2≤n≤10^5$$1≤c≤10^9$$1≤k≤10^9$$1≤ti≤10^9$
-题解贪心的策略：凑齐$c$个人或者有人等不了就上车。显然上车时间在$t_i$或者$t_i+k$端点上更优。对$t_i$从小到大排序，双指针扫描一遍即">
-<meta property="og:updated_time" content="2017-03-23T09:01:44.021Z">
+<meta property="og:description" content="A. Airport Bus题意有$n$个人在等车，第$i$个人的等车时间为$[t_i,t_i+k]$，每辆车最多能载$c$个人。问所有人都上车最少需要多少辆车。">
+<meta property="og:updated_time" content="2017-05-03T03:17:21.933Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=" AtCoder Grand Contest 011">
-<meta name="twitter:description" content="A. Airport Bus题意有$n$个人在等车，第$i$个人的等车时间为$[t_i,t_i+k]$，每辆车最多能载$c$个人。问所有人都上车最少需要多少辆车。
-数据$2≤n≤10^5$$1≤c≤10^9$$1≤k≤10^9$$1≤ti≤10^9$
-题解贪心的策略：凑齐$c$个人或者有人等不了就上车。显然上车时间在$t_i$或者$t_i+k$端点上更优。对$t_i$从小到大排序，双指针扫描一遍即">
+<meta name="twitter:description" content="A. Airport Bus题意有$n$个人在等车，第$i$个人的等车时间为$[t_i,t_i+k]$，每辆车最多能载$c$个人。问所有人都上车最少需要多少辆车。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -99,6 +93,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="A-Airport-Bus"><a href="#A-Airport-Bus" class="headerlink" title="A. Airport Bus"></a>A. Airport Bus</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>有$n$个人在等车，第$i$个人的等车时间为$[t_i,t_i+k]$，每辆车最多能载$c$个人。问所有人都上车最少需要多少辆车。</p>
+<a id="more"></a>
 <h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><p>$2≤n≤10^5$<br>$1≤c≤10^9$<br>$1≤k≤10^9$<br>$1≤ti≤10^9$</p>
 <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>贪心的策略：凑齐$c$个人或者有人等不了就上车。<br>显然上车时间在$t_i$或者$t_i+k$端点上更优。<br>对$t_i$从小到大排序，双指针扫描一遍即可，时间复杂度：$O(nlogn)$<br><a href="http://agc011.contest.atcoder.jp/submissions/1158305" target="_blank" rel="external">code</a></p>
 <h2 id="B-Colorful-Creatures"><a href="#B-Colorful-Creatures" class="headerlink" title="B. Colorful Creatures"></a>B. Colorful Creatures</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>有$n$个生物，每个生物的大小为$a_i$。一个生物$i$能吸收另一个生物$j$的条件是：$2a_i\geq a_j$，吸收后生物$i$的大小变成$a_i+a_j$，问有多少个生物可以吸收其他所有生物。</p>

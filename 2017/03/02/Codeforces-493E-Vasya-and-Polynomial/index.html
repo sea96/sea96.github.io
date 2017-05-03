@@ -6,19 +6,16 @@
   
   <title>Codeforces 493E Vasya and Polynomial | 清逸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题意有一个多项式$P(x) = a_0 + a_1x^1 + … + a_nx^n$，$a_i$为非负整数。给定$t$,$a$,$b$ $(0 &amp;lt; t,a,b \leq 10^{18})$，问存在多少多项式满足$P(t) = a$, $P(P(t)) = b$，对方案数 mod $10^9+7$，如果有无穷多个，那么输出inf。
-题解根据$P(t)=a$，并且$t&amp;gt;0$，可知$\sum">
+  <meta name="description" content="题意有一个多项式$P(x) = a_0 + a_1x^1 + … + a_nx^n$，$a_i$为非负整数。给定$t$,$a$,$b$ $(0 &amp;lt; t,a,b \leq 10^{18})$，问存在多少多项式满足$P(t) = a$, $P(P(t)) = b$，对方案数 mod $10^9+7$，如果有无穷多个，那么输出inf。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces 493E Vasya and Polynomial">
 <meta property="og:url" content="https://sea96.github.io/2017/03/02/Codeforces-493E-Vasya-and-Polynomial/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="题意有一个多项式$P(x) = a_0 + a_1x^1 + … + a_nx^n$，$a_i$为非负整数。给定$t$,$a$,$b$ $(0 &amp;lt; t,a,b \leq 10^{18})$，问存在多少多项式满足$P(t) = a$, $P(P(t)) = b$，对方案数 mod $10^9+7$，如果有无穷多个，那么输出inf。
-题解根据$P(t)=a$，并且$t&amp;gt;0$，可知$\sum">
-<meta property="og:updated_time" content="2017-03-03T00:37:06.381Z">
+<meta property="og:description" content="题意有一个多项式$P(x) = a_0 + a_1x^1 + … + a_nx^n$，$a_i$为非负整数。给定$t$,$a$,$b$ $(0 &amp;lt; t,a,b \leq 10^{18})$，问存在多少多项式满足$P(t) = a$, $P(P(t)) = b$，对方案数 mod $10^9+7$，如果有无穷多个，那么输出inf。">
+<meta property="og:updated_time" content="2017-05-03T03:16:14.011Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces 493E Vasya and Polynomial">
-<meta name="twitter:description" content="题意有一个多项式$P(x) = a_0 + a_1x^1 + … + a_nx^n$，$a_i$为非负整数。给定$t$,$a$,$b$ $(0 &amp;lt; t,a,b \leq 10^{18})$，问存在多少多项式满足$P(t) = a$, $P(P(t)) = b$，对方案数 mod $10^9+7$，如果有无穷多个，那么输出inf。
-题解根据$P(t)=a$，并且$t&amp;gt;0$，可知$\sum">
+<meta name="twitter:description" content="题意有一个多项式$P(x) = a_0 + a_1x^1 + … + a_nx^n$，$a_i$为非负整数。给定$t$,$a$,$b$ $(0 &amp;lt; t,a,b \leq 10^{18})$，问存在多少多项式满足$P(t) = a$, $P(P(t)) = b$，对方案数 mod $10^9+7$，如果有无穷多个，那么输出inf。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -96,6 +93,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有一个多项式$P(x) = a_0 + a_1x^1 + … + a_nx^n$，$a_i$为非负整数。给定$t$,$a$,$b$ $(0 &lt; t,a,b \leq 10^{18})$，问存在多少多项式满足$P(t) = a$, $P(P(t)) = b$，对方案数 mod $10^9+7$，如果有无穷多个，那么输出inf。</p>
+<a id="more"></a>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>根据$P(t)=a$，并且$t&gt;0$，可知$\sum_{i=0}^{n}a_i \leq a$。</p>
 <ul>
 <li>当$t&gt;1$时，所有系数$a_i&lt;a$，$P(P(t)) = P(a) = b$，相当于告诉了$b$在$a$进制的表示，且是唯一的，所以可以先求出所有系数$a_i$，然后验证$P(t)=a$是否成立即可。</li>

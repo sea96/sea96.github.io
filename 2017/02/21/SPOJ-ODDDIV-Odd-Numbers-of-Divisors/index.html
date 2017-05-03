@@ -6,19 +6,16 @@
   
   <title>SPOJ ODDDIV Odd Numbers of Divisors | 清逸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题意给出一个正奇数$K(\leq 1o^4)$，两个正整数$low$, $high(0&amp;lt; low \leq high &amp;lt; 10^{10})$。问有多少个整数属于$[low, high]$，且包含$K$个因子。
-题解满足条件的数字一定是完全平方数。假设$n=p_1^{m_1}p_2^{m_2}…p_k^{m_k}$，那么$n$的约数个数为$(m_1+1)(m_2+1)…(m_k+1)$，">
+  <meta name="description" content="题意给出一个正奇数$K(\leq 1o^4)$，两个正整数$low$, $high(0&amp;lt; low \leq high &amp;lt; 10^{10})$。问有多少个整数属于$[low, high]$，且包含$K$个因子。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SPOJ ODDDIV Odd Numbers of Divisors">
 <meta property="og:url" content="https://sea96.github.io/2017/02/21/SPOJ-ODDDIV-Odd-Numbers-of-Divisors/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="题意给出一个正奇数$K(\leq 1o^4)$，两个正整数$low$, $high(0&amp;lt; low \leq high &amp;lt; 10^{10})$。问有多少个整数属于$[low, high]$，且包含$K$个因子。
-题解满足条件的数字一定是完全平方数。假设$n=p_1^{m_1}p_2^{m_2}…p_k^{m_k}$，那么$n$的约数个数为$(m_1+1)(m_2+1)…(m_k+1)$，">
-<meta property="og:updated_time" content="2017-03-04T00:34:22.215Z">
+<meta property="og:description" content="题意给出一个正奇数$K(\leq 1o^4)$，两个正整数$low$, $high(0&amp;lt; low \leq high &amp;lt; 10^{10})$。问有多少个整数属于$[low, high]$，且包含$K$个因子。">
+<meta property="og:updated_time" content="2017-05-03T03:11:07.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SPOJ ODDDIV Odd Numbers of Divisors">
-<meta name="twitter:description" content="题意给出一个正奇数$K(\leq 1o^4)$，两个正整数$low$, $high(0&amp;lt; low \leq high &amp;lt; 10^{10})$。问有多少个整数属于$[low, high]$，且包含$K$个因子。
-题解满足条件的数字一定是完全平方数。假设$n=p_1^{m_1}p_2^{m_2}…p_k^{m_k}$，那么$n$的约数个数为$(m_1+1)(m_2+1)…(m_k+1)$，">
+<meta name="twitter:description" content="题意给出一个正奇数$K(\leq 1o^4)$，两个正整数$low$, $high(0&amp;lt; low \leq high &amp;lt; 10^{10})$。问有多少个整数属于$[low, high]$，且包含$K$个因子。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -96,6 +93,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给出一个正奇数$K(\leq 1o^4)$，两个正整数$low$, $high(0&lt; low \leq high &lt; 10^{10})$。问有多少个整数属于$[low, high]$，且包含$K$个因子。</p>
+<a id="more"></a>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>满足条件的数字一定是完全平方数。假设$n=p_1^{m_1}p_2^{m_2}…p_k^{m_k}$，那么$n$的约数个数为$(m_1+1)(m_2+1)…(m_k+1)$，那么$n^2$的约数个数为$(2m_1+1)(2m_2+1)…(2m_k+1)$。所以我们只要预处理将$[1,10^5]$所有数字分解质因数，用vec[k]从小到大，存下所有的，有k个约数的完全平方数，询问时二分即可。</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>

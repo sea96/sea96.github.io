@@ -6,19 +6,16 @@
   
   <title>Codeforces 396B On Sum of Fractions | 清逸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题意定义$v(n)$是不大于$n$的最大素数，$u(n)$是大于$n$的最小素数，求$\sum_{i=2}^{n}\frac {1}{v(i)u(i)}$。
-题解$$ans=\sum_{k=2}^{p_{k}\leq n}(\frac {p_k-p_{k-1}}{p_k p_{k-1}})+\frac {n-p_k+1}{p_{k+1}p_k}=\frac {1}{p_1}-\frac {1}{p">
+  <meta name="description" content="题意定义$v(n)$是不大于$n$的最大素数，$u(n)$是大于$n$的最小素数，求$\sum_{i=2}^{n}\frac {1}{v(i)u(i)}$。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces 396B On Sum of Fractions">
 <meta property="og:url" content="https://sea96.github.io/2017/02/24/Codeforces-396B-On-Sum-of-Fractions/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="题意定义$v(n)$是不大于$n$的最大素数，$u(n)$是大于$n$的最小素数，求$\sum_{i=2}^{n}\frac {1}{v(i)u(i)}$。
-题解$$ans=\sum_{k=2}^{p_{k}\leq n}(\frac {p_k-p_{k-1}}{p_k p_{k-1}})+\frac {n-p_k+1}{p_{k+1}p_k}=\frac {1}{p_1}-\frac {1}{p">
-<meta property="og:updated_time" content="2017-02-24T02:59:32.037Z">
+<meta property="og:description" content="题意定义$v(n)$是不大于$n$的最大素数，$u(n)$是大于$n$的最小素数，求$\sum_{i=2}^{n}\frac {1}{v(i)u(i)}$。">
+<meta property="og:updated_time" content="2017-05-03T03:16:38.328Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces 396B On Sum of Fractions">
-<meta name="twitter:description" content="题意定义$v(n)$是不大于$n$的最大素数，$u(n)$是大于$n$的最小素数，求$\sum_{i=2}^{n}\frac {1}{v(i)u(i)}$。
-题解$$ans=\sum_{k=2}^{p_{k}\leq n}(\frac {p_k-p_{k-1}}{p_k p_{k-1}})+\frac {n-p_k+1}{p_{k+1}p_k}=\frac {1}{p_1}-\frac {1}{p">
+<meta name="twitter:description" content="题意定义$v(n)$是不大于$n$的最大素数，$u(n)$是大于$n$的最小素数，求$\sum_{i=2}^{n}\frac {1}{v(i)u(i)}$。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -96,6 +93,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>定义$v(n)$是不大于$n$的最大素数，$u(n)$是大于$n$的最小素数，求$\sum_{i=2}^{n}\frac {1}{v(i)u(i)}$。</p>
+<a id="more"></a>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>$$ans=\sum_{k=2}^{p_{k}\leq n}(\frac {p_k-p_{k-1}}{p_k p_{k-1}})+\frac {n-p_k+1}{p_{k+1}p_k}=\frac {1}{p_1}-\frac {1}{p_{k}}+\frac {n-p_k+1}{p_{k+1}p_{k}}=\frac {p_{k+1}(p_{k}-2)+2(n-p_{k}+1)}{2p_{k}p_{k+1}}$$<br>再用GCD约分即可。</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
