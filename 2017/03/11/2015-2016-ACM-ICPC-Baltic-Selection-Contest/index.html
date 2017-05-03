@@ -107,7 +107,7 @@ C. Minimax Tree题意有$n$个点的一颗树，叶子结点上有权值$a_i$，
 <h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><p>$2 \leq n \leq 10^5$<br>$0 \leq a_i \leq 10^9$<br>$k+l \leq n$</p>
 <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>简单的思路是：二分答案，dp求得获得该值最少需要多少个最值标签，判断是否小于给定的数量。<br>另一种贪心思路是：如果某个最大值要传到根节点，那么到根节点的路径上，有分叉处只能贴上max标签，那么其余的地方贴上min标签。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>dp+binary search</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
@@ -167,9 +167,9 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %d\n"</span><span class="token punctuation">,</span> ans1<span class="token punctuation">,</span> ans2<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>greedy</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
@@ -214,12 +214,12 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %d\n"</span><span class="token punctuation">,</span> ans1<span class="token punctuation">,</span> ans2<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="D-Journey"><a href="#D-Journey" class="headerlink" title="D. Journey"></a>D. Journey</h2><p>简单BFS即可。</p>
 <h2 id="E-Permutation-Polygon"><a href="#E-Permutation-Polygon" class="headerlink" title="E. Permutation Polygon"></a>E. Permutation Polygon</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>有$n$个点的正多边形，每一个顶点i都和另一个顶点$p_i$有线段相连，$p_1，p_2…p_n$是$n$的一个排列。问线段相交点的数量（重叠的算多个）。</p>
 <h3 id="数据-1"><a href="#数据-1" class="headerlink" title="数据"></a>数据</h3><p>$3\leq n \leq 10^5$<br>$i \neq p_i$</p>
 <h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>定义一条线段为：$(x,y)$，并且$x&lt;y$。线段相交的条件是：若$x_1&lt;x_2$，则$y_1&lt;y2$<br>按照线段的$x$从小到大排序，对于当前的线段(x,y)，只要统计y’的数量，满足条件：$x&lt;y’&lt;y$，就能知道有多少个相交点，可以用树状数组维护。</p>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">typedef</span> pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> pii<span class="token punctuation">;</span>
@@ -271,7 +271,7 @@ vector<span class="token operator">&lt;</span>pii<span class="token operator">><
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="F-Unusual-Sum"><a href="#F-Unusual-Sum" class="headerlink" title="F. Unusual Sum"></a>F. Unusual Sum</h2><p>定义$s(n)=\sum \limits_{k=1}^{n}\frac{1}{k^2+k}=\frac{n-1}{n}$<br>$\sum \limits_{k=l_i}^{r_i}\frac{1}{k^2+k}=s(r_i)-s(l_i-1)$</p>
 <h2 id="G-Robot-Walk"><a href="#G-Robot-Walk" class="headerlink" title="G. Robot Walk"></a>G. Robot Walk</h2><p>简单模拟</p>
 <h2 id="H-Game-of-Corners"><a href="#H-Game-of-Corners" class="headerlink" title="H. Game of Corners"></a>H. Game of Corners</h2><p>$ans=n*m+min(n,m)$<br>智商题？</p>
@@ -284,7 +284,7 @@ vector<span class="token operator">&lt;</span>pii<span class="token operator">><
 </ul>
 <h3 id="数据-2"><a href="#数据-2" class="headerlink" title="数据"></a>数据</h3><p>$1\leq n \leq 10^5$</p>
 <h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><p>用Splay的序列分裂和合并模拟这个过程。</p>
-<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
@@ -396,7 +396,7 @@ Node<span class="token operator">*</span> id<span class="token punctuation">[</s
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="K-Profact"><a href="#K-Profact" class="headerlink" title="K. Profact"></a>K. Profact</h2><p>判断一个数是否为一个或若干个数的阶乘的乘积。<br>注意到 $20！&gt; 10^{18} $，预处理出所有符合情况的答案，用set保存和查询即可。</p>
 <h2 id="L-Emoticons"><a href="#L-Emoticons" class="headerlink" title="L. Emoticons"></a>L. Emoticons</h2><p>相邻两项判断即可。</p>
 
@@ -404,7 +404,7 @@ Node<span class="token operator">*</span> id<span class="token punctuation">[</s
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/03/11/2015-2016-ACM-ICPC-Baltic-Selection-Contest/" data-id="cj268gv6k0000vouv69hphc66" class="article-share-link" data-share="baidu" data-title="2015-2016 ACM ICPC Baltic Selection Contest">Share</a>
+        <a data-url="https://sea96.github.io/2017/03/11/2015-2016-ACM-ICPC-Baltic-Selection-Contest/" data-id="cj277aoqh00009kuv60cwdsvm" class="article-share-link" data-share="baidu" data-title="2015-2016 ACM ICPC Baltic Selection Contest">Share</a>
       
 
       
@@ -567,7 +567,7 @@ Node<span class="token operator">*</span> id<span class="token punctuation">[</s
 
 <!-- 多说公共js代码 start -->
 <script type="text/javascript">
-var duoshuoQuery = {short_name:"xxx"};
+var duoshuoQuery = {short_name:"sea96"};
   (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;

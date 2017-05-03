@@ -101,7 +101,7 @@
         <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>一个人要读$n$个topic，每天一个topic。在第$k$天读第$x$个topic得到的level是$k*w[x]$，现在有$m$个约束，即读topic的顺序，问得到的最大的level是多少。</p>
 <h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><p>$1 \leq n \leq 18$<br>$ 1 \leq w \leq 100$</p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>很容易想到是拓扑排序，如果使用贪心策略每次取出$w$最小的，用优先队列实现，但是这个是错误的，因为只保证了当前的最优解，没有保证全局最优解。<br>所以考虑dp的方法，注意到$n$的数据范围很小，自然想到用状态压缩dp，状态转移的条件和拓扑排序一样，入度为0的时候才能转移。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
@@ -179,13 +179,13 @@ vector<span class="token operator">&lt;</span>Edge<span class="token operator">>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/03/16/Gym-100676G-Training-Camp/" data-id="cj268gvhu001gvouvoa2qhfg9" class="article-share-link" data-share="baidu" data-title="Gym 100676G Training Camp">Share</a>
+        <a data-url="https://sea96.github.io/2017/03/16/Gym-100676G-Training-Camp/" data-id="cj277aov9001g9kuv0zr0roar" class="article-share-link" data-share="baidu" data-title="Gym 100676G Training Camp">Share</a>
       
 
       
@@ -348,7 +348,7 @@ vector<span class="token operator">&lt;</span>Edge<span class="token operator">>
 
 <!-- 多说公共js代码 start -->
 <script type="text/javascript">
-var duoshuoQuery = {short_name:"xxx"};
+var duoshuoQuery = {short_name:"sea96"};
   (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;

@@ -97,7 +97,7 @@
       
         <h2 id="A-Black-and-White"><a href="#A-Black-and-White" class="headerlink" title="A. Black and White"></a>A. Black and White</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>$n(\leq 10^6)$个格子从左到右排列，每个格子可以填黑色或者白色，但是不能有连续$a(\leq 10^6)$个黑色或者连续$b(\leq 10^6)$个白色，问填完$n$个格子的方案数。</p>
 <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>一下子联想到<a href="http://bestcoder.hdu.edu.cn/contests/contest_chineseproblem.php?cid=677&amp;pid=1003" target="_blank" rel="external">BestCoder Round #75 1003 King’s Order</a>（不超过$3$个连续相同的），那题的做法：定义$f[i]$表示前$i$个满足条件的方案数，则$$f[i]=\sum_{j=1}^{3}f[i-j]*25$$意思是使得最后$j$个连续相同。<br>但是这题$a$和$b$范围太大，显然不是这么做的，但是思想可以借鉴。定义$f[i][0/1]$表示前$i$个最后一个是$0$（白色）或$1$（黑色）的方案数。状态转移方程：$$f[i][1]=f[i-1][0]+f[i-1][1]-f[i-1-(b-1)][0]$$意思是如果第$i$块填黑色，第$i-1$块当然可以填白色，但是如果填黑色的话，去掉连续$b$个相同的方案数。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-C++"><code class="language-C++">#include <bits/stdc++.h>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-C++"><code class="language-C++">#include <bits/stdc++.h>
 using namespace std;
 
 typedef long long ll;
@@ -148,10 +148,10 @@ int main() {
     }
     return 0;
 }
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="E-Six-and-One"><a href="#E-Six-and-One" class="headerlink" title="E. Six and One"></a>E. Six and One</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>定义$n=\prod a_i$，$a_i$只由1或者6组成，问$[L,R]$范围内$(L,R\leq 10^{10})$，有多少个$n$。</p>
 <h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>可以发现其实满足条件的$n$并不多，先打表出所有$a_i$，然后DFS处理出所有$n$，排好序后二分查询即可。</p>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><pre class=" language-C++"><code class="language-C++">#include <bits/stdc++.h>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-C++"><code class="language-C++">#include <bits/stdc++.h>
 using namespace std;
 
 typedef long long ll;
@@ -198,13 +198,13 @@ int main() {
     }
     return 0;
 }
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/02/21/“玲珑杯”ACM比赛-Round-10/" data-id="cj268gvmm0020vouvwsi0710f" class="article-share-link" data-share="baidu" data-title="“玲珑杯”ACM比赛 Round #10">Share</a>
+        <a data-url="https://sea96.github.io/2017/02/21/“玲珑杯”ACM比赛-Round-10/" data-id="cj277aowz00209kuvjeuevkco" class="article-share-link" data-share="baidu" data-title="“玲珑杯”ACM比赛 Round #10">Share</a>
       
 
       
@@ -362,7 +362,7 @@ int main() {
 
 <!-- 多说公共js代码 start -->
 <script type="text/javascript">
-var duoshuoQuery = {short_name:"xxx"};
+var duoshuoQuery = {short_name:"sea96"};
   (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;

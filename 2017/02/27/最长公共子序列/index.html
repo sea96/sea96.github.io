@@ -111,7 +111,7 @@
 <p>从两序列中找出对应的相同元素，以位置数对表示。这些位置数对可以排出的最长严格递增序列，即是两序列的$LCS $。<br>首先將所有数对排序，规则是第一个维度由小到大排序，当第一个维度相等时，第二个維度由大到小排序。排序之后，第二个维度的$1D$ $LIS$，就对应到原数对们的$2D$ $LIS$。</p>
 </blockquote>
 <p>记数对的总数目为$K$，时间复杂度：$O(Klog |S|)$<br>如果出现类似于：$S_1=aaaa$，$S_2=aaaaaa$，时间复杂度退化成：$O(|S|^2log |S|)$</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//DP</span>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//DP</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     now <span class="token operator">^</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">&lt;=</span>m<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -119,8 +119,8 @@
         <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> t<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> dp<span class="token punctuation">[</span>now<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>now<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>now<span class="token operator">^</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>  <span class="token comment" spellcheck="true">//lcs = dp[now][m];</span>
-</code></pre>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//2D LIS</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//2D LIS</span>
 <span class="token keyword">int</span> <span class="token function">LCS</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>s<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">&amp;</span>t<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token function">strlen</span><span class="token punctuation">(</span>s<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> m <span class="token operator">=</span> <span class="token function">strlen</span><span class="token punctuation">(</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> pos<span class="token punctuation">[</span><span class="token number">128</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -138,7 +138,7 @@
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> lcs<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><p><a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=47" target="_blank" rel="external">UVA 111</a>（简单题）<br><a href="http://www.cnblogs.com/Running-Time/p/4466906.html" target="_blank" rel="external">POJ 2250</a>（打印LCS）<br><a href="http://www.cnblogs.com/Running-Time/p/4466923.html" target="_blank" rel="external">POJ 1159</a>（滚动数组优化）<br><a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=1576" target="_blank" rel="external">UVA 10635</a>  <a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=1890" target="_blank" rel="external">UVA 10949</a>（2D LIS）<br><a href="http://www.ifrog.cc/acm/problem/1097" target="_blank" rel="external">玲珑学院OJ 1097</a> （2D LIS）</p>
 <h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><p>最长公共上升子序列<br>最长回文子序列<br>最长公共子串</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.csie.ntnu.edu.tw/~u91029/LongestCommonSubsequence.html#1" target="_blank" rel="external">演算法笔记 - Longest Common Subsequence</a></p>
@@ -147,7 +147,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/02/27/最长公共子序列/" data-id="cj268gvpo002mvouvec5sh5o6" class="article-share-link" data-share="baidu" data-title="最长公共子序列">Share</a>
+        <a data-url="https://sea96.github.io/2017/02/27/最长公共子序列/" data-id="cj277aoxu002m9kuvxzquilpi" class="article-share-link" data-share="baidu" data-title="最长公共子序列">Share</a>
       
 
       
@@ -310,7 +310,7 @@
 
 <!-- 多说公共js代码 start -->
 <script type="text/javascript">
-var duoshuoQuery = {short_name:"xxx"};
+var duoshuoQuery = {short_name:"sea96"};
   (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;

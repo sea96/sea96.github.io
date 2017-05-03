@@ -102,7 +102,7 @@
 </blockquote>
 <p>利用偏移量来确定状态，优化内存时间。定义$dp[i][j][k][s]$表示考虑了i个’2’和j个’3’，花费k代价，后缀为s状态（0：前面没有’2’或者有足够多’3’；1：前一个’2’后面跟着1个’3’：2：跟着2个’3’）最多获得的”233”个数，状态转移方程：<br>放一个’2’：<br>$$Max(dp[i+1][j][k2][1],dp[i][j][k][s]),k2=k+|i+j+1-a[i+1]|$$<br>放一个’3’：<br>$$Max(dp[i][j+1][k][s2],dp[i][j][k][s]+add)$$<br>放3时不增加代价，我的理解是移动’2’的同时相当于移动了’3’，如果原来的位置放了’2’，那么放’3’的代价会在放’2’的时候计算。</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>$O(n^4)$</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e2</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
@@ -145,9 +145,9 @@
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>$O(n^3)$</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e2</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
@@ -204,13 +204,13 @@
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/02/26/BestCoder-92C-Girls-Love-233/" data-id="cj268gva10009vouv7lyf5bft" class="article-share-link" data-share="baidu" data-title="BestCoder 92C Girls Love 233">Share</a>
+        <a data-url="https://sea96.github.io/2017/02/26/BestCoder-92C-Girls-Love-233/" data-id="cj277aos700099kuvhz3htsn6" class="article-share-link" data-share="baidu" data-title="BestCoder 92C Girls Love 233">Share</a>
       
 
       
@@ -373,7 +373,7 @@
 
 <!-- 多说公共js代码 start -->
 <script type="text/javascript">
-var duoshuoQuery = {short_name:"xxx"};
+var duoshuoQuery = {short_name:"sea96"};
   (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;

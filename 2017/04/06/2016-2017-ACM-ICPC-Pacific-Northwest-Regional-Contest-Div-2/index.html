@@ -109,7 +109,7 @@ typedef long long">
       
         <h2 id="A-Alphabet"><a href="#A-Alphabet" class="headerlink" title="A. Alphabet"></a>A. Alphabet</h2><p>裸LIS</p>
 <h2 id="B-Barbells"><a href="#B-Barbells" class="headerlink" title="B. Barbells"></a>B. Barbells</h2><p>问杠铃和盘子有多少种不同的搭配方式。<br>关键求出左右相等且不重复使用盘子的方案数，因为数据范围小，考虑状态压缩，用<code>map&lt;ll, vector&lt;int&gt;&gt;</code>存储每一个重量对应的各个mask值。</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
@@ -149,9 +149,9 @@ ll b<span class="token punctuation">[</span><span class="token number">15</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="C-Buggy-Robot"><a href="#C-Buggy-Robot" class="headerlink" title="C. Buggy Robot"></a>C. Buggy Robot</h2><p>一个机器人走迷宫，给定指令序列，问最少插入或删除多少指令能使得机器人走出迷宫。<br>转化为最短路问题，每一个坐标看成一个点，相邻坐标之间有边，权值为0或1，如果按照指令进行边权值为0，否则为1。</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">55</span><span class="token punctuation">;</span>
@@ -225,7 +225,7 @@ ll b<span class="token punctuation">[</span><span class="token number">15</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="D-Cameras"><a href="#D-Cameras" class="headerlink" title="D. Cameras"></a>D. Cameras</h2><p>每$r$个有2个相机，如果不够贪心地放在最后面，用树状数组动态维护区间和即可。</p>
 <h2 id="E-Contest-Score"><a href="#E-Contest-Score" class="headerlink" title="E. Contest Score"></a>E. Contest Score</h2><p>优先队列模拟即可</p>
 <h2 id="F-Equality"><a href="#F-Equality" class="headerlink" title="F. Equality"></a>F. Equality</h2><p>模拟签到题</p>
@@ -233,7 +233,7 @@ ll b<span class="token punctuation">[</span><span class="token number">15</span>
 <h2 id="H-Islands"><a href="#H-Islands" class="headerlink" title="H. Islands"></a>H. Islands</h2><p>求连通块数量。<br>DFS求出连通块数量，剩下可能是陆地的当作海处理。</p>
 <h2 id="I-Mismatched-Socks"><a href="#I-Mismatched-Socks" class="headerlink" title="I. Mismatched Socks"></a>I. Mismatched Socks</h2><p>问最多能有多少颜色不同的袜子。<br>如果数量最多的某种颜色的袜子不超过$\frac {sum}{2}$，那么全部都可以错误搭配，搭配的方法：$(0,\frac {sum}{2})$，$(1,\frac {sum}{2}+1)$… $ans=\frac {sum}{2}$<br>否则除了数量最多的袜子外，其他的都能找到错误匹配，$ans=sum-mx$</p>
 <h2 id="J-Postman"><a href="#J-Postman" class="headerlink" title="J. Postman"></a>J. Postman</h2><p>问邮递员送信的最短路程。<br>贪心策略：从最远点往里面遍历，如果当前点数量不超过容量，那么在搭上相邻位置的信封数量。</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
@@ -294,11 +294,11 @@ ll b<span class="token punctuation">[</span><span class="token number">15</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%I64d\n"</span><span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="K-Six-Sides"><a href="#K-Six-Sides" class="headerlink" title="K. Six Sides"></a>K. Six Sides</h2><p>抛六面的骰子，问第一个人赢的概率。<br>简单概率计算，注意总局数去掉平局的次数。</p>
 <h2 id="L-Three-Square"><a href="#L-Three-Square" class="headerlink" title="L. Three Square"></a>L. Three Square</h2><p>三个矩形能否组成正四边形。<br>简单暴力枚举。</p>
 <h2 id="M-Zigzag"><a href="#M-Zigzag" class="headerlink" title="M. Zigzag"></a>M. Zigzag</h2><p>求最长折线子序列。<br>$dp[i][0/1]$表示从$i$开始下降/上升的最长长度，记忆化搜索即可。</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">50</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
@@ -346,13 +346,13 @@ ll b<span class="token punctuation">[</span><span class="token number">15</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/04/06/2016-2017-ACM-ICPC-Pacific-Northwest-Regional-Contest-Div-2/" data-id="cj268gv700002vouvhcr3jc1f" class="article-share-link" data-share="baidu" data-title="2016-2017 ACM-ICPC Pacific Northwest Regional Contest (Div. 2)">Share</a>
+        <a data-url="https://sea96.github.io/2017/04/06/2016-2017-ACM-ICPC-Pacific-Northwest-Regional-Contest-Div-2/" data-id="cj277aoqw00029kuv8vvtuo5q" class="article-share-link" data-share="baidu" data-title="2016-2017 ACM-ICPC Pacific Northwest Regional Contest (Div. 2)">Share</a>
       
 
       
@@ -515,7 +515,7 @@ ll b<span class="token punctuation">[</span><span class="token number">15</span>
 
 <!-- 多说公共js代码 start -->
 <script type="text/javascript">
-var duoshuoQuery = {short_name:"xxx"};
+var duoshuoQuery = {short_name:"sea96"};
   (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;

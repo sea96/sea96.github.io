@@ -97,7 +97,7 @@
       
         <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>定义$v(n)$是不大于$n$的最大素数，$u(n)$是大于$n$的最小素数，求$\sum_{i=2}^{n}\frac {1}{v(i)u(i)}$。</p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>$$ans=\sum_{k=2}^{p_{k}\leq n}(\frac {p_k-p_{k-1}}{p_k p_{k-1}})+\frac {n-p_k+1}{p_{k+1}p_k}=\frac {1}{p_1}-\frac {1}{p_{k}}+\frac {n-p_k+1}{p_{k+1}p_{k}}=\frac {p_{k+1}(p_{k}-2)+2(n-p_{k}+1)}{2p_{k}p_{k+1}}$$<br>再用GCD约分即可。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
@@ -129,13 +129,13 @@ ll <span class="token function">GCD</span><span class="token punctuation">(</spa
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/02/24/Codeforces-396B-On-Sum-of-Fractions/" data-id="cj268gvbc000hvouvziawlkmu" class="article-share-link" data-share="baidu" data-title="Codeforces 396B On Sum of Fractions">Share</a>
+        <a data-url="https://sea96.github.io/2017/02/24/Codeforces-396B-On-Sum-of-Fractions/" data-id="cj277aot2000h9kuvxijk9236" class="article-share-link" data-share="baidu" data-title="Codeforces 396B On Sum of Fractions">Share</a>
       
 
       
@@ -298,7 +298,7 @@ ll <span class="token function">GCD</span><span class="token punctuation">(</spa
 
 <!-- 多说公共js代码 start -->
 <script type="text/javascript">
-var duoshuoQuery = {short_name:"xxx"};
+var duoshuoQuery = {short_name:"sea96"};
   (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;

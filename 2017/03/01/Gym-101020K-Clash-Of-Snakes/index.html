@@ -108,7 +108,7 @@
 <li>$sum_4=(\sum_{L=s}^{n-1}(L-s+1)+\sum_{L=0}^{n-1-s}(n-L-1-s+1))\times k \times (m-k+1)$，长度为$s$的蛇在$[j,j+k-1]$范围内</li>
 </ul>
 <p>$$B=sum_3+sum_4$$<br>那么要计算长度$k$的蛇垂直放置以及长度$s$的蛇两种的放置的方案数$A’$和$B’$，只要swap(n,m)后重复上面的计算即可。<br>但是$sum_2$和$sum_4$的计算，用$O(n)$复杂度会TLE，要用求和公式来$O(1)$计算。<br>最后头尾的组合有4种，所以最终答案：<br>$$ans=4\times (A+B+A’+B’)$$</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
@@ -180,13 +180,13 @@
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/03/01/Gym-101020K-Clash-Of-Snakes/" data-id="cj268gvjl001lvouvt54pfgnr" class="article-share-link" data-share="baidu" data-title="Gym 101020K Clash Of Snakes">Share</a>
+        <a data-url="https://sea96.github.io/2017/03/01/Gym-101020K-Clash-Of-Snakes/" data-id="cj277aovo001l9kuvlh25e4ea" class="article-share-link" data-share="baidu" data-title="Gym 101020K Clash Of Snakes">Share</a>
       
 
       
@@ -349,7 +349,7 @@
 
 <!-- 多说公共js代码 start -->
 <script type="text/javascript">
-var duoshuoQuery = {short_name:"xxx"};
+var duoshuoQuery = {short_name:"sea96"};
   (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;

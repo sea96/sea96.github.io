@@ -67,6 +67,60 @@
     <div class="outer">
       <section id="main">
   
+    <article id="post-AtCoder-Grand-Contest-011" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/15/AtCoder-Grand-Contest-011/" class="article-date">
+  <time datetime="2017-03-15T03:20:18.000Z" itemprop="datePublished">2017-03-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ACM解题报告/">ACM解题报告</a>►<a class="article-category-link" href="/categories/ACM解题报告/Contest/">Contest</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/AtCoder-Grand-Contest-011/"> AtCoder Grand Contest 011</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="A-Airport-Bus"><a href="#A-Airport-Bus" class="headerlink" title="A. Airport Bus"></a>A. Airport Bus</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>有$n$个人在等车，第$i$个人的等车时间为$[t_i,t_i+k]$，每辆车最多能载$c$个人。问所有人都上车最少需要多少辆车。</p>
+<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><p>$2≤n≤10^5$<br>$1≤c≤10^9$<br>$1≤k≤10^9$<br>$1≤ti≤10^9$</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>贪心的策略：凑齐$c$个人或者有人等不了就上车。<br>显然上车时间在$t_i$或者$t_i+k$端点上更优。<br>对$t_i$从小到大排序，双指针扫描一遍即可，时间复杂度：$O(nlogn)$<br><a href="http://agc011.contest.atcoder.jp/submissions/1158305" target="_blank" rel="external">code</a></p>
+<h2 id="B-Colorful-Creatures"><a href="#B-Colorful-Creatures" class="headerlink" title="B. Colorful Creatures"></a>B. Colorful Creatures</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>有$n$个生物，每个生物的大小为$a_i$。一个生物$i$能吸收另一个生物$j$的条件是：$2a_i\geq a_j$，吸收后生物$i$的大小变成$a_i+a_j$，问有多少个生物可以吸收其他所有生物。</p>
+<h3 id="数据-1"><a href="#数据-1" class="headerlink" title="数据"></a>数据</h3><p>$2≤n≤10^5$<br>$1≤a_i≤10^9$</p>
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>对$a_i$从小到大排序，那么也就是要找到最小的$j$，满足第$j$个生物可以吸收其他所有生物（吸收的顺序从小到大最优），符合二分的性质，所以答案就是$n-j+1$，时间复杂度：$O(nlogn)$<br>更好的做法是求最大的$k$满足$2\sum_{k=1}^{i} a_k &lt; a_{k+1}$，也就是求满足条件的最大的后缀长度，可以在$O(n)$时间复杂度解决。<br><a href="http://agc011.contest.atcoder.jp/submissions/1160124" target="_blank" rel="external">code</a></p>
+<h2 id="C-Squared-Graph"><a href="#C-Squared-Graph" class="headerlink" title="C. Squared Graph"></a>C. Squared Graph</h2><h2 id="D-Half-Reflector"><a href="#D-Half-Reflector" class="headerlink" title="D. Half Reflector"></a>D. Half Reflector</h2><h2 id="E-Increasing-Numbers"><a href="#E-Increasing-Numbers" class="headerlink" title="E. Increasing Numbers"></a>E. Increasing Numbers</h2>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://sea96.github.io/2017/03/15/AtCoder-Grand-Contest-011/" data-id="cj277aorc00069kuvp1fldoii" class="article-share-link" data-share="baidu" data-title=" AtCoder Grand Contest 011">Share</a>
+      
+
+      
+        <a href="https://sea96.github.io/2017/03/15/AtCoder-Grand-Contest-011/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/binary-search/">binary search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/combinatorics/">combinatorics</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graphs/">graphs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/">math</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2015-2016-ACM-ICPC-Baltic-Selection-Contest" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/03/11/2015-2016-ACM-ICPC-Baltic-Selection-Contest/" class="article-date">
@@ -99,7 +153,7 @@
 <h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><p>$2 \leq n \leq 10^5$<br>$0 \leq a_i \leq 10^9$<br>$k+l \leq n$</p>
 <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>简单的思路是：二分答案，dp求得获得该值最少需要多少个最值标签，判断是否小于给定的数量。<br>另一种贪心思路是：如果某个最大值要传到根节点，那么到根节点的路径上，有分叉处只能贴上max标签，那么其余的地方贴上min标签。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>dp+binary search</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
@@ -159,9 +213,9 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %d\n"</span><span class="token punctuation">,</span> ans1<span class="token punctuation">,</span> ans2<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>greedy</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
@@ -206,12 +260,12 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %d\n"</span><span class="token punctuation">,</span> ans1<span class="token punctuation">,</span> ans2<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="D-Journey"><a href="#D-Journey" class="headerlink" title="D. Journey"></a>D. Journey</h2><p>简单BFS即可。</p>
 <h2 id="E-Permutation-Polygon"><a href="#E-Permutation-Polygon" class="headerlink" title="E. Permutation Polygon"></a>E. Permutation Polygon</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>有$n$个点的正多边形，每一个顶点i都和另一个顶点$p_i$有线段相连，$p_1，p_2…p_n$是$n$的一个排列。问线段相交点的数量（重叠的算多个）。</p>
 <h3 id="数据-1"><a href="#数据-1" class="headerlink" title="数据"></a>数据</h3><p>$3\leq n \leq 10^5$<br>$i \neq p_i$</p>
 <h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>定义一条线段为：$(x,y)$，并且$x&lt;y$。线段相交的条件是：若$x_1&lt;x_2$，则$y_1&lt;y2$<br>按照线段的$x$从小到大排序，对于当前的线段(x,y)，只要统计y’的数量，满足条件：$x&lt;y’&lt;y$，就能知道有多少个相交点，可以用树状数组维护。</p>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">typedef</span> pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> pii<span class="token punctuation">;</span>
@@ -263,7 +317,7 @@ vector<span class="token operator">&lt;</span>pii<span class="token operator">><
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="F-Unusual-Sum"><a href="#F-Unusual-Sum" class="headerlink" title="F. Unusual Sum"></a>F. Unusual Sum</h2><p>定义$s(n)=\sum \limits_{k=1}^{n}\frac{1}{k^2+k}=\frac{n-1}{n}$<br>$\sum \limits_{k=l_i}^{r_i}\frac{1}{k^2+k}=s(r_i)-s(l_i-1)$</p>
 <h2 id="G-Robot-Walk"><a href="#G-Robot-Walk" class="headerlink" title="G. Robot Walk"></a>G. Robot Walk</h2><p>简单模拟</p>
 <h2 id="H-Game-of-Corners"><a href="#H-Game-of-Corners" class="headerlink" title="H. Game of Corners"></a>H. Game of Corners</h2><p>$ans=n*m+min(n,m)$<br>智商题？</p>
@@ -276,7 +330,7 @@ vector<span class="token operator">&lt;</span>pii<span class="token operator">><
 </ul>
 <h3 id="数据-2"><a href="#数据-2" class="headerlink" title="数据"></a>数据</h3><p>$1\leq n \leq 10^5$</p>
 <h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><p>用Splay的序列分裂和合并模拟这个过程。</p>
-<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
@@ -388,7 +442,7 @@ Node<span class="token operator">*</span> id<span class="token punctuation">[</s
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="K-Profact"><a href="#K-Profact" class="headerlink" title="K. Profact"></a>K. Profact</h2><p>判断一个数是否为一个或若干个数的阶乘的乘积。<br>注意到 $20！&gt; 10^{18} $，预处理出所有符合情况的答案，用set保存和查询即可。</p>
 <h2 id="L-Emoticons"><a href="#L-Emoticons" class="headerlink" title="L. Emoticons"></a>L. Emoticons</h2><p>相邻两项判断即可。</p>
 
@@ -396,7 +450,7 @@ Node<span class="token operator">*</span> id<span class="token punctuation">[</s
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/03/11/2015-2016-ACM-ICPC-Baltic-Selection-Contest/" data-id="cj268gv6k0000vouv69hphc66" class="article-share-link" data-share="baidu" data-title="2015-2016 ACM ICPC Baltic Selection Contest">Share</a>
+        <a data-url="https://sea96.github.io/2017/03/11/2015-2016-ACM-ICPC-Baltic-Selection-Contest/" data-id="cj277aoqh00009kuv60cwdsvm" class="article-share-link" data-share="baidu" data-title="2015-2016 ACM ICPC Baltic Selection Contest">Share</a>
       
 
       
@@ -440,7 +494,7 @@ Node<span class="token operator">*</span> id<span class="token punctuation">[</s
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有一个排序算法伪码如下：</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token function">lena_sort</span><span class="token punctuation">(</span>array nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token function">lena_sort</span><span class="token punctuation">(</span>array nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">.</span>size <span class="token operator">&lt;=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> nums<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -462,11 +516,11 @@ Node<span class="token operator">*</span> id<span class="token punctuation">[</s
 
     <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>有$q$次询问，构造一组长度为$len$的序列，使其排序完成后恰好与pivot比较$c$次，无解输出 -1。</p>
 <h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><p>$1 \leq q\leq 10^5$<br>$1 \leq len \leq 10^5$<br>$1\leq a_i \leq 10^9$<br>$0 \leq c \leq 10^9$</p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p><a href="https://www.hackerrank.com/contests/101hack46/challenges/lena-sort/editorial" target="_blank" rel="external">官方题解</a><br>官方题解说得很详细了，把每个数字看成一个节点，节点的左儿子比它小，右儿子比它大，变成一棵二叉树，那么<strong>比较次数总和为所有节点在树的深度和</strong>。那么次数总和的上界情况是树退化成一条链（序列是单调序列），下界情况是完全二叉树。预处理出所有长度对应比较次数的上下界，如果在范围内，总能构造出一棵比较次数为$c$的二叉树。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">//#define DEBUG(x) cout &lt;&lt; #x &lt;&lt; " = " &lt;&lt; x &lt;&lt; endl</span>
@@ -508,13 +562,13 @@ ll c<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/03/04/HackRank-Lena-Sort/" data-id="cj268gvk1001ovouvra9psz82" class="article-share-link" data-share="baidu" data-title="HackRank Lena Sort">Share</a>
+        <a data-url="https://sea96.github.io/2017/03/04/HackRank-Lena-Sort/" data-id="cj277aow4001o9kuvvux9uuhc" class="article-share-link" data-share="baidu" data-title="HackRank Lena Sort">Share</a>
       
 
       
@@ -569,7 +623,7 @@ ll c<span class="token punctuation">;</span>
 </li>
 </ul>
 <p><a href="http://codeforces.com/blog/entry/13896" target="_blank" rel="external">官方题解</a></p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
@@ -584,13 +638,13 @@ ll a<span class="token punctuation">;</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%I64d %I64d\n"</span><span class="token punctuation">,</span> L<span class="token punctuation">,</span> R<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/03/03/Codeforces-468C-Hack-it/" data-id="cj268gvc7000qvouv7y8fdvhn" class="article-share-link" data-share="baidu" data-title="Codeforces 468C Hack it!">Share</a>
+        <a data-url="https://sea96.github.io/2017/03/03/Codeforces-468C-Hack-it/" data-id="cj277aoti000q9kuv6c1sqk8v" class="article-share-link" data-share="baidu" data-title="Codeforces 468C Hack it!">Share</a>
       
 
       
@@ -648,7 +702,7 @@ ll a<span class="token punctuation">;</span>
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/03/02/Codeforces-493E-Vasya-and-Polynomial/" data-id="cj268gvdy000uvouv1as51daz" class="article-share-link" data-share="baidu" data-title="Codeforces 493E Vasya and Polynomial">Share</a>
+        <a data-url="https://sea96.github.io/2017/03/02/Codeforces-493E-Vasya-and-Polynomial/" data-id="cj277aoty000u9kuvnjuh79a6" class="article-share-link" data-share="baidu" data-title="Codeforces 493E Vasya and Polynomial">Share</a>
       
 
       
@@ -699,7 +753,7 @@ ll a<span class="token punctuation">;</span>
 <blockquote>
 <p>另外一种比较zuo的做法是LCA搞。首先求出所有的树上节点对应的子树的大小sz，节点深度 dep，以及LCA的初始化fa。然后按照节点深度对 M个节点按照节点排序。然后，对于 M 个点，LCA去重，依次加上节点为根节点的子树的大小即可。</p>
 </blockquote>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -784,13 +838,13 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/03/02/Kattis-Boxes/" data-id="cj268gvk1001qvouvrre3wcto" class="article-share-link" data-share="baidu" data-title="Kattis Boxes">Share</a>
+        <a data-url="https://sea96.github.io/2017/03/02/Kattis-Boxes/" data-id="cj277aow4001q9kuv0no8qfpr" class="article-share-link" data-share="baidu" data-title="Kattis Boxes">Share</a>
       
 
       
@@ -846,7 +900,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 <li>$sum_4=(\sum_{L=s}^{n-1}(L-s+1)+\sum_{L=0}^{n-1-s}(n-L-1-s+1))\times k \times (m-k+1)$，长度为$s$的蛇在$[j,j+k-1]$范围内</li>
 </ul>
 <p>$$B=sum_3+sum_4$$<br>那么要计算长度$k$的蛇垂直放置以及长度$s$的蛇两种的放置的方案数$A’$和$B’$，只要swap(n,m)后重复上面的计算即可。<br>但是$sum_2$和$sum_4$的计算，用$O(n)$复杂度会TLE，要用求和公式来$O(1)$计算。<br>最后头尾的组合有4种，所以最终答案：<br>$$ans=4\times (A+B+A’+B’)$$</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
@@ -918,13 +972,13 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/03/01/Gym-101020K-Clash-Of-Snakes/" data-id="cj268gvjl001lvouvt54pfgnr" class="article-share-link" data-share="baidu" data-title="Gym 101020K Clash Of Snakes">Share</a>
+        <a data-url="https://sea96.github.io/2017/03/01/Gym-101020K-Clash-Of-Snakes/" data-id="cj277aovo001l9kuvlh25e4ea" class="article-share-link" data-share="baidu" data-title="Gym 101020K Clash Of Snakes">Share</a>
       
 
       
@@ -978,7 +1032,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/02/28/ZOJ-3328-Wu-Xing/" data-id="cj268gvmm001yvouv2is12diy" class="article-share-link" data-share="baidu" data-title="ZOJ 3328 Wu Xing">Share</a>
+        <a data-url="https://sea96.github.io/2017/02/28/ZOJ-3328-Wu-Xing/" data-id="cj277aowz001y9kuvo18h5lgo" class="article-share-link" data-share="baidu" data-title="ZOJ 3328 Wu Xing">Share</a>
       
 
       
@@ -1023,7 +1077,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
       
         <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有$k(\leq 10^6)$种不同的语言，每个人只说一种语言。<br>现在有$n$$(\leq 5\times 10^4)$个男性和$n$个女性，每个人都想找一个和自己用同一种语言的异性，第$i$个男性的语言是$a_i$,，第$i$个女性的语言是$b_i$。<br>现在给出$m$$(\leq 5\times 10^4)$个区间作为询问，每次需要回答在$[L, R]$区间的男女最多能够配对成多少对情侣。</p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>离线处理，使用莫队算法解决，$O(1)$维护相同语言的情侣对数。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">5e4</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
@@ -1099,13 +1153,13 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
         <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> ans<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/02/28/Kattis-Curious-Cupid/" data-id="cj268gvkw001tvouv4jh23wcz" class="article-share-link" data-share="baidu" data-title="Kattis Curious Cupid">Share</a>
+        <a data-url="https://sea96.github.io/2017/02/28/Kattis-Curious-Cupid/" data-id="cj277aowj001t9kuv32ptacee" class="article-share-link" data-share="baidu" data-title="Kattis Curious Cupid">Share</a>
       
 
       
@@ -1114,112 +1168,6 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mo-s-Algorithm/">Mo's Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structures/">data structures</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-最长公共子序列" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/02/27/最长公共子序列/" class="article-date">
-  <time datetime="2017-02-27T06:38:08.000Z" itemprop="datePublished">2017-02-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/算法总结/">算法总结</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/最长公共子序列/">最长公共子序列</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>求两个字符串的最长公共子序列（Longest Common Subsequence ( LCS )）。</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/02/27/最长公共子序列/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="https://sea96.github.io/2017/02/27/最长公共子序列/" data-id="cj268gvpo002mvouvec5sh5o6" class="article-share-link" data-share="baidu" data-title="最长公共子序列">Share</a>
-      
-
-      
-        <a href="https://sea96.github.io/2017/02/27/最长公共子序列/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCS/">LCS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-动态规划的各种类型" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/02/27/动态规划的各种类型/" class="article-date">
-  <time datetime="2017-02-27T06:22:00.000Z" itemprop="datePublished">2017-02-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/算法总结/">算法总结</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/动态规划的各种类型/">动态规划的各种类型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="子序列DP"><a href="#子序列DP" class="headerlink" title="子序列DP"></a>子序列DP</h2><h3 id="最长公共子序列"><a href="#最长公共子序列" class="headerlink" title="最长公共子序列"></a>最长公共子序列</h3><h3 id="http-m-blog-csdn-net-article-details-id-6918848"><a href="#http-m-blog-csdn-net-article-details-id-6918848" class="headerlink" title="http://m.blog.csdn.net/article/details?id=6918848"></a><a href="http://m.blog.csdn.net/article/details?id=6918848">http://m.blog.csdn.net/article/details?id=6918848</a></h3>
-        
-          <p class="article-more-link">
-            <a href="/2017/02/27/动态规划的各种类型/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="https://sea96.github.io/2017/02/27/动态规划的各种类型/" data-id="cj268gvni002avouvyb8kxxh8" class="article-share-link" data-share="baidu" data-title="动态规划的各种类型">Share</a>
-      
-
-      
-        <a href="https://sea96.github.io/2017/02/27/动态规划的各种类型/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li></ul>
 
     </footer>
   </div>
@@ -1356,7 +1304,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 
 <!-- 多说公共js代码 start -->
 <script type="text/javascript">
-var duoshuoQuery = {short_name:"xxx"};
+var duoshuoQuery = {short_name:"sea96"};
   (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;

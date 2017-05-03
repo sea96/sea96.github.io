@@ -97,7 +97,7 @@
       
         <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定$n(\leq 10^5)$个数字，从1到n，问最多能组成多少对不互质的数对（每个数字只用一次，且公约数大于1）。</p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>大于$\lfloor \frac {n}{2} \rfloor $的素数不用考虑。<br>找出小于$\lfloor \frac {n}{2} \rfloor $的所有素数，从大到小，对于每一个素数$p$找出所有没有访问过且是$p$的倍数，如果个数为偶数，两两匹配即可；否则暂时不考虑$2p$，直到$p=2$时一起考虑。<br>不会证明为什么是最优的。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
@@ -149,13 +149,13 @@ vector<span class="token operator">&lt;</span>pair<span class="token operator">&
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/02/26/Codeforces-449C-Jzzhu-and-Apples/" data-id="cj268gvc7000nvouv5y01jrxp" class="article-share-link" data-share="baidu" data-title="Codeforces 449C Jzzhu and Apples">Share</a>
+        <a data-url="https://sea96.github.io/2017/02/26/Codeforces-449C-Jzzhu-and-Apples/" data-id="cj277aoti000n9kuvvrcbstnm" class="article-share-link" data-share="baidu" data-title="Codeforces 449C Jzzhu and Apples">Share</a>
       
 
       
@@ -318,7 +318,7 @@ vector<span class="token operator">&lt;</span>pair<span class="token operator">&
 
 <!-- 多说公共js代码 start -->
 <script type="text/javascript">
-var duoshuoQuery = {short_name:"xxx"};
+var duoshuoQuery = {short_name:"sea96"};
   (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;
