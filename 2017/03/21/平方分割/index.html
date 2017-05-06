@@ -7,18 +7,18 @@
   <title>平方分割 | 清逸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="概述
-平方分割又叫做分桶法或者分块法，把排成一排的N个元素每$\sqrt N $分在一个块（桶）里，这样的分割方法可以把对区间的操作的复杂度降至$O(\sqrt N)$。">
+平方分割又叫做分桶法或者分块法，把排成一排的 $N$ 个元素每 $\sqrt N $ 分在一个块（桶）里，这样的分割方法可以把对区间的操作的复杂度降至 $O(\sqrt N)$。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="平方分割">
 <meta property="og:url" content="https://sea96.github.io/2017/03/21/平方分割/index.html">
 <meta property="og:site_name" content="清逸">
 <meta property="og:description" content="概述
-平方分割又叫做分桶法或者分块法，把排成一排的N个元素每$\sqrt N $分在一个块（桶）里，这样的分割方法可以把对区间的操作的复杂度降至$O(\sqrt N)$。">
-<meta property="og:updated_time" content="2017-05-03T02:56:54.132Z">
+平方分割又叫做分桶法或者分块法，把排成一排的 $N$ 个元素每 $\sqrt N $ 分在一个块（桶）里，这样的分割方法可以把对区间的操作的复杂度降至 $O(\sqrt N)$。">
+<meta property="og:updated_time" content="2017-05-06T13:34:58.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="平方分割">
 <meta name="twitter:description" content="概述
-平方分割又叫做分桶法或者分块法，把排成一排的N个元素每$\sqrt N $分在一个块（桶）里，这样的分割方法可以把对区间的操作的复杂度降至$O(\sqrt N)$。">
+平方分割又叫做分桶法或者分块法，把排成一排的 $N$ 个元素每 $\sqrt N $ 分在一个块（桶）里，这样的分割方法可以把对区间的操作的复杂度降至 $O(\sqrt N)$。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -96,7 +96,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><hr>
-<p>平方分割又叫做分桶法或者分块法，把排成一排的N个元素每$\sqrt N $分在一个块（桶）里，这样的分割方法可以把对区间的操作的复杂度降至$O(\sqrt N)$。</p>
+<p>平方分割又叫做分桶法或者分块法，把排成一排的 $N$ 个元素每 $\sqrt N $ 分在一个块（桶）里，这样的分割方法可以把对区间的操作的复杂度降至 $O(\sqrt N)$。</p>
 <a id="more"></a>
 <h2 id="对序列平方分割"><a href="#对序列平方分割" class="headerlink" title="对序列平方分割"></a>对序列平方分割</h2><hr>
 <p>一般的做法是预设一个整数$S$（$S=\lceil \sqrt {N} \rceil$），将序列分成$B（B=\lceil \frac{N}{S} \rceil）$块，每块$S$个元素。对于一个区间的操作分为块内操作和块间操作，块内的暴力求解，块间的高效求解（排序后二分，lazy标记，预处理，数据结构维护等）。</p>
@@ -119,7 +119,7 @@
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><h4 id="POJ-2104-K-th-Number"><a href="#POJ-2104-K-th-Number" class="headerlink" title="POJ 2104 K-th Number"></a><a href="http://poj.org/problem?id=2104" target="_blank" rel="external">POJ 2104 K-th Number</a></h4><h5 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h5><p>有$n$个数字，$m$次询问，询问$[l,r]$区间里第$k$大的数字。</p>
-<h5 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h5><p>这题是主席树的经典题目，在本文中尝试用分块的方法求解。<br>对元素的位置分块，每块分别排好序，二分第$k$大的数字$v$，对于一个区间$[l,r]$查询小于$v$的个数分为块内查询和块间查询，块内元素一个一个判断是否小于$v$；块间用二分查找来统计小于$v$的个数。<br>二分复杂度：$O(logN)$，单次查询复杂度：$O(S+BlogS)$<br>总时间复杂度：$O(M(logN(S+BlogS)))$<br><a href="http://paste.ubuntu.com/24285945/" target="_blank" rel="external">code</a></p>
+<h5 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h5><p>这题是主席树的经典题目，在本文中尝试用分块的方法求解。<br>对元素的位置分块，每块分别排好序，二分第$k​$大的数字$v​$，对于一个区间$[l,r]​$查询小于$v​$的个数分为块内查询和块间查询，块内元素一个一个判断是否小于$v​$；块间用二分查找来统计小于$v​$的个数。<br>二分复杂度：$O(logN)$，单次查询复杂度：$O(S+BlogS)$<br>总时间复杂度：$O(M(logN(S+BlogS)))$<br><a href="http://paste.ubuntu.com/24285945/" target="_blank" rel="external">code</a></p>
 <h4 id="UVA-12003-Array-Transformer"><a href="#UVA-12003-Array-Transformer" class="headerlink" title="UVA 12003 Array Transformer"></a><a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=3154" target="_blank" rel="external">UVA 12003 Array Transformer</a></h4><h5 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h5><p>有一个数组$A[1,…,n]$和$m$条指令和一个数字$u$，每条指令形如$(l,r,v,p)$，统计出$A[l],A[l+1],…,A[r]$中严格小于$v$的元素的个数为$k$，然后把$A[p]$改为$\frac {u*k}{r-l+1}$。问变换后的最终数组。</p>
 <h5 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h5><p>对元素的位置分块，每块分别排序。询问的操作同<code>POJ 2104</code>，修改的操作则在$p$所在的块里进行，因为修改后块内元素基本有序，所以用插入排序的方法使得被修改的元素移动到正确的位置。<br>单次修改的复杂度：$O(logS+S)$，单次查询的复杂度：$O(S+BlogS)$<br>总时间复杂度：$O(M(S+BlogS))$<br>类题：<a href="http://www.spoj.com/problems/RACETIME/en/" target="_blank" rel="external">SPOJ RACETIME Race Against Time</a><br><a href="http://paste.ubuntu.com/24225925/" target="_blank" rel="external">code</a></p>
 <h4 id="BZOJ-2957-楼房重建"><a href="#BZOJ-2957-楼房重建" class="headerlink" title="BZOJ 2957 楼房重建"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2957" target="_blank" rel="external">BZOJ 2957 楼房重建</a></h4><h5 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h5><p>一个人在坐标(0,0)看楼房，楼房定义为$(x_i,y_i)$表示位置在$x_i$，高度为$y_i$。如果这栋楼房上任何一个高度大于0的点与(0,0)的连线没有与之前的线段相交，那么这栋楼房就被认为是可见的。起初所有楼房的高度都为0，有M次操作，每次修改某个楼房的高度，问每次操作结束后能从(0,0)看到多少栋楼房。</p>
@@ -143,7 +143,10 @@
 <h4 id="HDU-4391-Paint-The-Wall"><a href="#HDU-4391-Paint-The-Wall" class="headerlink" title="HDU 4391 Paint The Wall"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4391" target="_blank" rel="external">HDU 4391 Paint The Wall</a></h4><h5 id="题意-10"><a href="#题意-10" class="headerlink" title="题意"></a>题意</h5><p>有 $n$ 个数字，$q$ 次操作，1. 将 $[l,r]$ 里的所有元素涂成颜色 $z$；2. 询问 $[l,r]$ 里 颜色 $z$ 的个数。</p>
 <h5 id="题解-10"><a href="#题解-10" class="headerlink" title="题解"></a>题解</h5><p>颜色范围很大，如果使用朴素的线段树空间上无法承受。<br>线段树套分块哈希：考虑线段树维护的不是单个元素，而是整块元素，每块用 <code>map</code> 维护每种颜色的数量，再加上懒惰标记后可以通过此题。<br>总时间复杂度：$O(Q(B+SlogS)$<br><a href="http://paste.ubuntu.com/24502639/" target="_blank" rel="external">code</a></p>
 <h2 id="对集合平方分割"><a href="#对集合平方分割" class="headerlink" title="对集合平方分割"></a>对集合平方分割</h2><hr>
-<p>HDU 4467 Graph 对集合<br>HDU 4858 项目管理 对集合<br>ZOJ 3749    Chameleon 对集合<br>CodeForces 348C     Subset Sums 对集合<br>CodeForces 576C     Points on Plane 对集合<br>CodeForces 398D Instant Messanger 对集合</p>
+<p>通常在图中使用，具体做法是预设一个整数$S$（$S=\lceil \sqrt {E} \rceil$），将度数超过 $S$ 的点记为<strong>重点</strong>，其余的点记为<strong>轻点</strong>。重新建图：<strong>重点</strong>只与相邻的<strong>重点</strong>连边，<strong>重点</strong>与相邻的<strong>轻点</strong>的边的信息使用预处理或者数据结构等手段高效维护，使得对点的遍历和边的修改的复杂度降至 $O(\sqrt E)$。</p>
+<h3 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h3><h4 id="HDU-4467-Graph"><a href="#HDU-4467-Graph" class="headerlink" title="HDU 4467 Graph"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4467" target="_blank" rel="external">HDU 4467 Graph</a></h4><h5 id="题意-11"><a href="#题意-11" class="headerlink" title="题意"></a>题意</h5><p>有 $n$ 个点，$m$ 条边的无向图，每条边有权值 $w$，每个点有颜色 $(0/1)$，有 $Q$ 次操作，1. 第 $x$ 个点的颜色反转；2. 问端点的颜色是 $(A,B)$ 的边的权值和。（$A(B)=0/1$）</p>
+<h5 id="题解-11"><a href="#题解-11" class="headerlink" title="题解"></a>题解</h5><p>根据<strong>重点</strong>和<strong>轻点</strong>的定义，将原图重新建图，预处理若干信息，若 $u$ 是重点，$sum[u][0/1]$ 保存与 $u$ 相邻的 <strong>重点（轻）点</strong> 的边权和，$ans[0-0/0-1/1-1]$ 保存统一类型的边权总和，修改只要交换信息即可，查询能 $O(1)$ 得到答案。<br><a href="http://paste.ubuntu.com/24523491/" target="_blank" rel="external">code</a></p>
+<p>HDU 4858 项目管理 对集合<br>ZOJ 3749    Chameleon 对集合<br>CodeForces 348C     Subset Sums 对集合<br>CodeForces 576C     Points on Plane 对集合<br>CodeForces 398D Instant Messanger 对集合</p>
 <h2 id="对询问平方分割"><a href="#对询问平方分割" class="headerlink" title="对询问平方分割"></a>对询问平方分割</h2><hr>
 <p>莫队算法用到了分块的思想，一般是给$Q$个区间$[l,r]$来进行的一些操作和询问。<br>将序列分成$\sqrt N $块，每块的大小为$\sqrt N $。离线处理$Q$个区间：首先对左端点$l$所在的块号从小到大排序，如果块号相同则按右端点$r$从小到大排序。然后用双指针移动到当前区间位置，每次移动更新对结果的贡献。</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span>Q<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -162,7 +165,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://sea96.github.io/2017/03/21/平方分割/" data-id="cj277aoxu002h9kuvibrvw4ls" class="article-share-link" data-share="baidu" data-title="平方分割">Share</a>
+        <a data-url="https://sea96.github.io/2017/03/21/平方分割/" data-id="cj2bmhnhp002gwkuvoxyrcuqc" class="article-share-link" data-share="baidu" data-title="平方分割">Share</a>
       
 
       
@@ -210,7 +213,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ACM解题报告/">ACM解题报告</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ACM解题报告/Contest/">Contest</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ACM解题报告/套题/">套题</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法总结/">算法总结</a><span class="category-list-count">6</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ACM解题报告/">ACM解题报告</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ACM解题报告/Contest/">Contest</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ACM解题报告/套题/">套题</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法总结/">算法总结</a><span class="category-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -219,7 +222,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/">DFS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCS/">LCS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mo-s-Algorithm/">Mo's Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary search</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-tree/">binary tree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitmasks/">bitmasks</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/combinatorics/">combinatorics</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/constructive-algorithms/">constructive algorithms</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structures/">data structures</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dsu/">dsu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/expression-parsing/">expression parsing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/games/">games</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graphs/">graphs</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/number-theory/">number theory</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/optimization/">optimization</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/probabilities/">probabilities</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shortest-paths/">shortest paths</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/splay/">splay</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqrt-decomposition/">sqrt decomposition</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trees/">trees</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/">DFS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCS/">LCS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mo-s-Algorithm/">Mo's Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary search</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-tree/">binary tree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitmasks/">bitmasks</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/combinatorics/">combinatorics</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/constructive-algorithms/">constructive algorithms</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structures/">data structures</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dsu/">dsu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/expression-parsing/">expression parsing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/games/">games</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graphs/">graphs</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/number-theory/">number theory</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/optimization/">optimization</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/probabilities/">probabilities</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shortest-paths/">shortest paths</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/splay/">splay</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqrt-decomposition/">sqrt decomposition</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/strings/">strings</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trees/">trees</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -228,7 +231,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/DFS/" style="font-size: 12.5px;">DFS</a> <a href="/tags/LCS/" style="font-size: 10px;">LCS</a> <a href="/tags/Mo-s-Algorithm/" style="font-size: 10px;">Mo's Algorithm</a> <a href="/tags/STL/" style="font-size: 11.25px;">STL</a> <a href="/tags/binary-search/" style="font-size: 18.75px;">binary search</a> <a href="/tags/binary-tree/" style="font-size: 10px;">binary tree</a> <a href="/tags/bitmasks/" style="font-size: 13.75px;">bitmasks</a> <a href="/tags/combinatorics/" style="font-size: 12.5px;">combinatorics</a> <a href="/tags/constructive-algorithms/" style="font-size: 13.75px;">constructive algorithms</a> <a href="/tags/data-structures/" style="font-size: 16.25px;">data structures</a> <a href="/tags/dp/" style="font-size: 20px;">dp</a> <a href="/tags/dsu/" style="font-size: 10px;">dsu</a> <a href="/tags/expression-parsing/" style="font-size: 10px;">expression parsing</a> <a href="/tags/games/" style="font-size: 11.25px;">games</a> <a href="/tags/graphs/" style="font-size: 16.25px;">graphs</a> <a href="/tags/greedy/" style="font-size: 17.5px;">greedy</a> <a href="/tags/math/" style="font-size: 16.25px;">math</a> <a href="/tags/number-theory/" style="font-size: 15px;">number theory</a> <a href="/tags/optimization/" style="font-size: 11.25px;">optimization</a> <a href="/tags/probabilities/" style="font-size: 12.5px;">probabilities</a> <a href="/tags/shortest-paths/" style="font-size: 10px;">shortest paths</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a> <a href="/tags/splay/" style="font-size: 10px;">splay</a> <a href="/tags/sqrt-decomposition/" style="font-size: 10px;">sqrt decomposition</a> <a href="/tags/trees/" style="font-size: 11.25px;">trees</a>
+      <a href="/tags/DFS/" style="font-size: 12.5px;">DFS</a> <a href="/tags/LCS/" style="font-size: 10px;">LCS</a> <a href="/tags/Mo-s-Algorithm/" style="font-size: 10px;">Mo's Algorithm</a> <a href="/tags/STL/" style="font-size: 11.25px;">STL</a> <a href="/tags/binary-search/" style="font-size: 18.75px;">binary search</a> <a href="/tags/binary-tree/" style="font-size: 10px;">binary tree</a> <a href="/tags/bitmasks/" style="font-size: 13.75px;">bitmasks</a> <a href="/tags/combinatorics/" style="font-size: 12.5px;">combinatorics</a> <a href="/tags/constructive-algorithms/" style="font-size: 13.75px;">constructive algorithms</a> <a href="/tags/data-structures/" style="font-size: 16.25px;">data structures</a> <a href="/tags/dp/" style="font-size: 20px;">dp</a> <a href="/tags/dsu/" style="font-size: 10px;">dsu</a> <a href="/tags/expression-parsing/" style="font-size: 10px;">expression parsing</a> <a href="/tags/games/" style="font-size: 11.25px;">games</a> <a href="/tags/graphs/" style="font-size: 16.25px;">graphs</a> <a href="/tags/greedy/" style="font-size: 17.5px;">greedy</a> <a href="/tags/math/" style="font-size: 16.25px;">math</a> <a href="/tags/number-theory/" style="font-size: 15px;">number theory</a> <a href="/tags/optimization/" style="font-size: 11.25px;">optimization</a> <a href="/tags/probabilities/" style="font-size: 12.5px;">probabilities</a> <a href="/tags/shortest-paths/" style="font-size: 10px;">shortest paths</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a> <a href="/tags/splay/" style="font-size: 10px;">splay</a> <a href="/tags/sqrt-decomposition/" style="font-size: 10px;">sqrt decomposition</a> <a href="/tags/strings/" style="font-size: 10px;">strings</a> <a href="/tags/trees/" style="font-size: 11.25px;">trees</a>
     </div>
   </div>
 
@@ -237,7 +240,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">16</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">16</span></li></ul>
     </div>
   </div>
 
@@ -247,6 +250,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/05/05/后缀数组/">后缀数组</a>
+          </li>
         
           <li>
             <a href="/2017/04/20/单调栈/">单调栈</a>
@@ -262,10 +269,6 @@
         
           <li>
             <a href="/2017/04/06/2016-2017-ACM-ICPC-Pacific-Northwest-Regional-Contest-Div-2/">2016-2017 ACM-ICPC Pacific Northwest Regional Contest (Div. 2)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/23/Egyptian-Collegiate-Programming-Contest-ECPC-2015/">Egyptian Collegiate Programming Contest (ECPC 2015)</a>
           </li>
         
       </ul>

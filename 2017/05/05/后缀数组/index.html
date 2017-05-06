@@ -4,17 +4,32 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>清逸</title>
+  <title>后缀数组 | 清逸</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="知者不言，言者不知。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="清逸">
-<meta property="og:url" content="https://sea96.github.io/index.html">
+  <meta name="description" content="后缀数组是处理字符串的有力工具。后缀数组是后缀树的一个非常精巧的替代品，它比后缀树容易编程实现，能够实现后缀树的很多功能，而时间复杂度也并不逊色，而且它比后缀树所占用的内存空间小很多。
+
+概念
+后缀：设一个字符串为S[0 ~ |S|-1]，后缀i表示S[i ~ |S|-1]。举例：有一个字符串BANANA，后缀3就是ANA。
+后缀数组：后缀数组sa保存的是所有后缀按字典序从小到大排序的结果（在字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="后缀数组">
+<meta property="og:url" content="https://sea96.github.io/2017/05/05/后缀数组/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="知者不言，言者不知。">
+<meta property="og:description" content="后缀数组是处理字符串的有力工具。后缀数组是后缀树的一个非常精巧的替代品，它比后缀树容易编程实现，能够实现后缀树的很多功能，而时间复杂度也并不逊色，而且它比后缀树所占用的内存空间小很多。
+
+概念
+后缀：设一个字符串为S[0 ~ |S|-1]，后缀i表示S[i ~ |S|-1]。举例：有一个字符串BANANA，后缀3就是ANA。
+后缀数组：后缀数组sa保存的是所有后缀按字典序从小到大排序的结果（在字">
+<meta property="og:image" content="http://a.hiphotos.baidu.com/baike/pic/item/c2cec3fdfc03924586f1a8948694a4c27c1e25e0.jpg">
+<meta property="og:updated_time" content="2017-05-05T09:17:13.489Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="清逸">
-<meta name="twitter:description" content="知者不言，言者不知。">
+<meta name="twitter:title" content="后缀数组">
+<meta name="twitter:description" content="后缀数组是处理字符串的有力工具。后缀数组是后缀树的一个非常精巧的替代品，它比后缀树容易编程实现，能够实现后缀树的很多功能，而时间复杂度也并不逊色，而且它比后缀树所占用的内存空间小很多。
+
+概念
+后缀：设一个字符串为S[0 ~ |S|-1]，后缀i表示S[i ~ |S|-1]。举例：有一个字符串BANANA，后缀3就是ANA。
+后缀数组：后缀数组sa保存的是所有后缀按字典序从小到大排序的结果（在字">
+<meta name="twitter:image" content="http://a.hiphotos.baidu.com/baike/pic/item/c2cec3fdfc03924586f1a8948694a4c27c1e25e0.jpg">
   
   
     <link rel="icon" href="/favicon.png">
@@ -65,9 +80,7 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main">
-  
-    <article id="post-后缀数组" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-后缀数组" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/05/后缀数组/" class="article-date">
   <time datetime="2017-05-05T09:05:53.000Z" itemprop="datePublished">2017-05-05</time>
@@ -84,8 +97,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/05/后缀数组/">后缀数组</a>
+    <h1 class="article-title" itemprop="name">
+      后缀数组
     </h1>
   
 
@@ -159,445 +172,24 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-单调栈" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/20/单调栈/" class="article-date">
-  <time datetime="2017-04-20T11:05:29.000Z" itemprop="datePublished">2017-04-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/算法总结/">算法总结</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/20/单调栈/">单调栈</a>
-    </h1>
+    <a href="/2017/04/20/单调栈/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">单调栈</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>单调栈就是栈，满足栈内的元素是单调的。</p>
-<ul>
-<li>单调递减栈：从栈顶到栈底单调递减的栈</li>
-<li>单调递减栈：从栈顶到栈底单调递减的栈</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2017/04/20/单调栈/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="https://sea96.github.io/2017/04/20/单调栈/" data-id="cj2bmhngb001zwkuvrmy7vmxt" class="article-share-link" data-share="baidu" data-title="单调栈">Share</a>
-      
-
-      
-        <a href="https://sea96.github.io/2017/04/20/单调栈/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structures/">data structures</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
 
-  
-    <article id="post-Codeforces-Round-406-Div-2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/11/Codeforces-Round-406-Div-2/" class="article-date">
-  <time datetime="2017-04-11T13:17:10.000Z" itemprop="datePublished">2017-04-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ACM解题报告/">ACM解题报告</a>►<a class="article-category-link" href="/categories/ACM解题报告/Contest/">Contest</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/11/Codeforces-Round-406-Div-2/">Codeforces Round #406 (Div. 2)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="A-The-Monster"><a href="#A-The-Monster" class="headerlink" title="A. The Monster"></a>A. The Monster</h2><p>给定$a,b,c,d$，问是否存在$k_1,k_2$，使得$b+k_1a=d+k_2c$.<br>暴力枚举其中一个$k$判断是否能整除即可。</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/04/11/Codeforces-Round-406-Div-2/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="https://sea96.github.io/2017/04/11/Codeforces-Round-406-Div-2/" data-id="cj2bmhnam0010wkuvutv70g2c" class="article-share-link" data-share="baidu" data-title="Codeforces Round #406 (Div. 2)">Share</a>
-      
-
-      
-        <a href="https://sea96.github.io/2017/04/11/Codeforces-Round-406-Div-2/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structures/">data structures</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/games/">games</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shortest-paths/">shortest paths</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/trees/">trees</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-初等数论" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/09/初等数论/" class="article-date">
-  <time datetime="2017-04-09T01:37:58.000Z" itemprop="datePublished">2017-04-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/算法总结/">算法总结</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/初等数论/">初等数论</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="素数运算"><a href="#素数运算" class="headerlink" title="素数运算"></a>素数运算</h2><hr>
-<h3 id="素数的定义"><a href="#素数的定义" class="headerlink" title="素数的定义"></a>素数的定义</h3><p><strong>质数</strong>（Prime number），又称<strong>素数</strong>，指在大于1的自然数中，除了1和该数自身外，无法被其他自然数整除的数（也可定义为只有1与该数本身两个因数的数）</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/04/09/初等数论/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="https://sea96.github.io/2017/04/09/初等数论/" data-id="cj2bmhnfj001twkuvn6q8r2lt" class="article-share-link" data-share="baidu" data-title="初等数论">Share</a>
-      
-
-      
-        <a href="https://sea96.github.io/2017/04/09/初等数论/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/number-theory/">number theory</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2016-2017-ACM-ICPC-Pacific-Northwest-Regional-Contest-Div-2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/06/2016-2017-ACM-ICPC-Pacific-Northwest-Regional-Contest-Div-2/" class="article-date">
-  <time datetime="2017-04-06T05:04:09.000Z" itemprop="datePublished">2017-04-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ACM解题报告/">ACM解题报告</a>►<a class="article-category-link" href="/categories/ACM解题报告/套题/">套题</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/06/2016-2017-ACM-ICPC-Pacific-Northwest-Regional-Contest-Div-2/">2016-2017 ACM-ICPC Pacific Northwest Regional Contest (Div. 2)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="A-Alphabet"><a href="#A-Alphabet" class="headerlink" title="A. Alphabet"></a>A. Alphabet</h2><p>裸LIS</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/04/06/2016-2017-ACM-ICPC-Pacific-Northwest-Regional-Contest-Div-2/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="https://sea96.github.io/2017/04/06/2016-2017-ACM-ICPC-Pacific-Northwest-Regional-Contest-Div-2/" data-id="cj2bmhmxu0003wkuvzdjed5v2" class="article-share-link" data-share="baidu" data-title="2016-2017 ACM-ICPC Pacific Northwest Regional Contest (Div. 2)">Share</a>
-      
-
-      
-        <a href="https://sea96.github.io/2017/04/06/2016-2017-ACM-ICPC-Pacific-Northwest-Regional-Contest-Div-2/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STL/">STL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bitmasks/">bitmasks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structures/">data structures</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/probabilities/">probabilities</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Egyptian-Collegiate-Programming-Contest-ECPC-2015" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/23/Egyptian-Collegiate-Programming-Contest-ECPC-2015/" class="article-date">
-  <time datetime="2017-03-23T01:11:10.000Z" itemprop="datePublished">2017-03-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ACM解题报告/">ACM解题报告</a>►<a class="article-category-link" href="/categories/ACM解题报告/套题/">套题</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/23/Egyptian-Collegiate-Programming-Contest-ECPC-2015/">Egyptian Collegiate Programming Contest (ECPC 2015)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="A-Arcade-Game"><a href="#A-Arcade-Game" class="headerlink" title="A. Arcade Game"></a>A. Arcade Game</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给一个$n$位的数字，每一次等概率地变成按照数位全排列的某一个排列（各个位的数不同），要求变换后的数字比之前的大，问最终变成最大排列形式的数字的概率。</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/03/23/Egyptian-Collegiate-Programming-Contest-ECPC-2015/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="https://sea96.github.io/2017/03/23/Egyptian-Collegiate-Programming-Contest-ECPC-2015/" data-id="cj2bmhnat0014wkuv2nd5oxni" class="article-share-link" data-share="baidu" data-title="Egyptian Collegiate Programming Contest (ECPC 2015)">Share</a>
-      
-
-      
-        <a href="https://sea96.github.io/2017/03/23/Egyptian-Collegiate-Programming-Contest-ECPC-2015/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/binary-search/">binary search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dsu/">dsu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/games/">games</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graphs/">graphs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/probabilities/">probabilities</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-平方分割" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/21/平方分割/" class="article-date">
-  <time datetime="2017-03-21T12:02:57.000Z" itemprop="datePublished">2017-03-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/算法总结/">算法总结</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/21/平方分割/">平方分割</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><hr>
-<p>平方分割又叫做分桶法或者分块法，把排成一排的 $N$ 个元素每 $\sqrt N $ 分在一个块（桶）里，这样的分割方法可以把对区间的操作的复杂度降至 $O(\sqrt N)$。</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/03/21/平方分割/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="https://sea96.github.io/2017/03/21/平方分割/" data-id="cj2bmhnhp002gwkuvoxyrcuqc" class="article-share-link" data-share="baidu" data-title="平方分割">Share</a>
-      
-
-      
-        <a href="https://sea96.github.io/2017/03/21/平方分割/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structures/">data structures</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sqrt-decomposition/">sqrt decomposition</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-AtCoder-Regular-Contest-070" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/20/AtCoder-Regular-Contest-070/" class="article-date">
-  <time datetime="2017-03-20T00:16:43.000Z" itemprop="datePublished">2017-03-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ACM解题报告/">ACM解题报告</a>►<a class="article-category-link" href="/categories/ACM解题报告/Contest/">Contest</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/20/AtCoder-Regular-Contest-070/">AtCoder Regular Contest 070</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="C-Go-Home"><a href="#C-Go-Home" class="headerlink" title="C. Go Home"></a>C. Go Home</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>从0的位置出发，第$i$秒能往前或往后跳$i$步，也可以选择不跳，问跳到$X$位置的最短时间。</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/03/20/AtCoder-Regular-Contest-070/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="https://sea96.github.io/2017/03/20/AtCoder-Regular-Contest-070/" data-id="cj2bmhn110008wkuvyavgigpp" class="article-share-link" data-share="baidu" data-title="AtCoder Regular Contest 070">Share</a>
-      
-
-      
-        <a href="https://sea96.github.io/2017/03/20/AtCoder-Regular-Contest-070/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/binary-search/">binary search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bitmasks/">bitmasks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Gym-100676H-Capital-City" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/16/Gym-100676H-Capital-City/" class="article-date">
-  <time datetime="2017-03-16T01:08:02.000Z" itemprop="datePublished">2017-03-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ACM解题报告/">ACM解题报告</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/16/Gym-100676H-Capital-City/">Gym 100676H Capital City</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有$n$个点$m$条边的无向图，每条边上有权值$w$，问一个点的序号，满足从这个点出发到其他点的最大距离最小（在环上走的距离为0），如果有多个，取序号最小的点。</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/03/16/Gym-100676H-Capital-City/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="https://sea96.github.io/2017/03/16/Gym-100676H-Capital-City/" data-id="cj2bmhndr001dwkuv0v4egb2m" class="article-share-link" data-share="baidu" data-title="Gym 100676H Capital City">Share</a>
-      
-
-      
-        <a href="https://sea96.github.io/2017/03/16/Gym-100676H-Capital-City/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graphs/">graphs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/trees/">trees</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-  </nav>
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2017/05/05/后缀数组/" data-title="后缀数组" data-url="https://sea96.github.io/2017/05/05/后缀数组/"></div>
+  </section>
 </section>
       
       <aside id="sidebar">
