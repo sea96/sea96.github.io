@@ -12,7 +12,7 @@
 
 
 
-  <meta name="description" content="单调栈"/>
+  <meta name="description" content="单调栈就是满足元素是单调的栈"/>
 
 
 
@@ -22,7 +22,7 @@
 
 
 
-  <link rel="alternate" href="/default" title="清逸">
+  <link rel="alternate" href="/atom.xml" title="清逸">
 
 
 
@@ -34,25 +34,16 @@
 <link rel="canonical" href="https://sea96.github.io/2017/04/20/单调栈/"/>
 
 
-<meta name="description" content="定义单调栈就是栈，满足栈内的元素是单调的。
-
-单调递减栈：从栈顶到栈底单调递减的栈
-单调递减栈：从栈顶到栈底单调递减的栈">
+<meta name="description" content="单调栈就是满足元素是单调的栈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="单调栈">
 <meta property="og:url" content="https://sea96.github.io/2017/04/20/单调栈/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="定义单调栈就是栈，满足栈内的元素是单调的。
-
-单调递减栈：从栈顶到栈底单调递减的栈
-单调递减栈：从栈顶到栈底单调递减的栈">
-<meta property="og:updated_time" content="2017-05-13T01:05:43.109Z">
+<meta property="og:description" content="单调栈就是满足元素是单调的栈">
+<meta property="og:updated_time" content="2017-05-13T14:25:51.420Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单调栈">
-<meta name="twitter:description" content="定义单调栈就是栈，满足栈内的元素是单调的。
-
-单调递减栈：从栈顶到栈底单调递减的栈
-单调递减栈：从栈顶到栈底单调递减的栈">
+<meta name="twitter:description" content="单调栈就是满足元素是单调的栈">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -103,7 +94,7 @@
         <li class="mobile-menu-item">
           
           
-            Home
+            首页
           
         </li>
       </a>
@@ -112,7 +103,7 @@
         <li class="mobile-menu-item">
           
           
-            Archives
+            归档
           
         </li>
       </a>
@@ -121,7 +112,7 @@
         <li class="mobile-menu-item">
           
           
-            Categories
+            分类
           
         </li>
       </a>
@@ -130,7 +121,7 @@
         <li class="mobile-menu-item">
           
           
-            Tags
+            标签
           
         </li>
       </a>
@@ -139,7 +130,7 @@
         <li class="mobile-menu-item">
           
           
-            About
+            关于
           
         </li>
       </a>
@@ -160,7 +151,7 @@
           <a class="menu-item-link" href="/">
             
             
-              Home
+              首页
             
           </a>
         </li>
@@ -169,7 +160,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              Archives
+              归档
             
           </a>
         </li>
@@ -178,7 +169,7 @@
           <a class="menu-item-link" href="/categories/">
             
             
-              Categories
+              分类
             
           </a>
         </li>
@@ -187,7 +178,7 @@
           <a class="menu-item-link" href="/tags/">
             
             
-              Tags
+              标签
             
           </a>
         </li>
@@ -196,7 +187,7 @@
           <a class="menu-item-link" href="/about/">
             
             
-              About
+              关于
             
           </a>
         </li>
@@ -248,12 +239,10 @@
 
     <div class="post-content">
       
-        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>单调栈就是栈，满足栈内的元素是单调的。</p>
-<ul>
-<li>单调递减栈：从栈顶到栈底单调递减的栈</li>
-<li>单调递减栈：从栈顶到栈底单调递减的栈</li>
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><ul>
+<li>单调递减栈：元素从栈顶到栈底单调递减的栈</li>
+<li>单调递减栈：元素从栈顶到栈底单调递减的栈</li>
 </ul>
-<a id="more"></a>
 <h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>单调栈最常用的功能是可以求出一个元素向左（或向右）所能扩展到的最大长度，并不是说在这一段区间内是单调的，而是保证在该区间内该元素一定是最大或最小。</p>
 <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="POJ-3250-Bad-Hair-Day"><a href="#POJ-3250-Bad-Hair-Day" class="headerlink" title="POJ 3250 Bad Hair Day"></a>POJ 3250 Bad Hair Day</h3><h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>有$n$个人，问每一个人向右看能看到人的数量的总和（能看到的人身高比当前的人矮）。</p>
 <h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><p>从后往前，维护一个单调递减栈来求每一个人右边的高度比它小的最近的位置即可。<br><a href="http://paste.ubuntu.com/24419793/" target="_blank" rel="external">code</a></p>
@@ -269,33 +258,13 @@
       
       
 
-  <div class="post-copyright">
-    <p class="copyright-item">
-      <span>Author: </span>
-      <span>清逸</span>
-    </p>
-    <p class="copyright-item">
-      <span>Origin: </span>
-      <a href="https://sea96.github.io">https://sea96.github.io</a>
-    </p>
-    <p class="copyright-item">
-      <span>Link: </span>
-      <a href="https://sea96.github.io/2017/04/20/单调栈/">https://sea96.github.io/2017/04/20/单调栈/</a>
-    </p>
-
-    <p class="copyright-item lincese">
-      
-      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
-    </p>
-  </div>
-
 
 
       
       
   <div class="post-reward">
     <input type="checkbox" name="reward" id="reward" hidden />
-    <label class="reward-button" for="reward">Reward</label>
+    <label class="reward-button" for="reward">赞赏支持</label>
     <div class="qr-code">
       
       
@@ -305,7 +274,7 @@
       
       
         <label class="qr-code-image" for="reward">
-          <img class="image" src="/image/reward/alipay.png" title="alipay">
+          <img class="image" src="/image/reward/alipay.jpg" title="alipay">
         </label>
       
     </div>
@@ -397,9 +366,6 @@
       
     
     
-    
-      
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
     
   </div>
 

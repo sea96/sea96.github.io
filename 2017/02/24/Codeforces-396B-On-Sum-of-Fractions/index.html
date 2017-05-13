@@ -22,7 +22,7 @@
 
 
 
-  <link rel="alternate" href="/default" title="清逸">
+  <link rel="alternate" href="/atom.xml" title="清逸">
 
 
 
@@ -94,7 +94,7 @@
         <li class="mobile-menu-item">
           
           
-            Home
+            首页
           
         </li>
       </a>
@@ -103,7 +103,7 @@
         <li class="mobile-menu-item">
           
           
-            Archives
+            归档
           
         </li>
       </a>
@@ -112,7 +112,7 @@
         <li class="mobile-menu-item">
           
           
-            Categories
+            分类
           
         </li>
       </a>
@@ -121,7 +121,7 @@
         <li class="mobile-menu-item">
           
           
-            Tags
+            标签
           
         </li>
       </a>
@@ -130,7 +130,7 @@
         <li class="mobile-menu-item">
           
           
-            About
+            关于
           
         </li>
       </a>
@@ -151,7 +151,7 @@
           <a class="menu-item-link" href="/">
             
             
-              Home
+              首页
             
           </a>
         </li>
@@ -160,7 +160,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              Archives
+              归档
             
           </a>
         </li>
@@ -169,7 +169,7 @@
           <a class="menu-item-link" href="/categories/">
             
             
-              Categories
+              分类
             
           </a>
         </li>
@@ -178,7 +178,7 @@
           <a class="menu-item-link" href="/tags/">
             
             
-              Tags
+              标签
             
           </a>
         </li>
@@ -187,7 +187,7 @@
           <a class="menu-item-link" href="/about/">
             
             
-              About
+              关于
             
           </a>
         </li>
@@ -242,7 +242,40 @@
         <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>定义$v(n)$是不大于$n$的最大素数，$u(n)$是大于$n$的最小素数，求$\sum_{i=2}^{n}\frac {1}{v(i)u(i)}$。</p>
 <a id="more"></a>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>$$ans=\sum_{k=2}^{p_{k}\leq n}(\frac {p_k-p_{k-1}}{p_k p_{k-1}})+\frac {n-p_k+1}{p_{k+1}p_k}=\frac {1}{p_1}-\frac {1}{p_{k}}+\frac {n-p_k+1}{p_{k+1}p_{k}}=\frac {p_{k+1}(p_{k}-2)+2(n-p_{k}+1)}{2p_{k}p_{k+1}}$$<br>再用GCD约分即可。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line"></div><div class="line"><span class="function">ll <span class="title">GCD</span><span class="params">(ll a, ll b)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> b ? GCD(b, a%b) : a;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_prime</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>; i*i&lt;=n; ++i) &#123;</div><div class="line">        <span class="keyword">if</span> (n % i == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</div><div class="line">    <span class="keyword">while</span> (T--) &#123;</div><div class="line">        <span class="keyword">int</span> n;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</div><div class="line">        <span class="keyword">int</span> p1 = n, p2 = n+<span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (!is_prime(p1)) p1--;</div><div class="line">        <span class="keyword">while</span> (!is_prime(p2)) p2++;</div><div class="line">        ll a = (ll)p2*(p1<span class="number">-2</span>) + <span class="number">2L</span>L*(n-p1+<span class="number">1</span>);</div><div class="line">        ll b = <span class="number">2L</span>L * p1 * p2;</div><div class="line">        ll c = GCD(a, b);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%I64d/%I64d\n"</span>, a/c, b/c);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
+
+ll <span class="token function">GCD</span><span class="token punctuation">(</span>ll a<span class="token punctuation">,</span> ll b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> b <span class="token operator">?</span> <span class="token function">GCD</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> a<span class="token operator">%</span>b<span class="token punctuation">)</span> <span class="token operator">:</span> a<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">bool</span> <span class="token function">is_prime</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">*</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> T<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>T<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>T<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> p1 <span class="token operator">=</span> n<span class="token punctuation">,</span> p2 <span class="token operator">=</span> n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">is_prime</span><span class="token punctuation">(</span>p1<span class="token punctuation">)</span><span class="token punctuation">)</span> p1<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">is_prime</span><span class="token punctuation">(</span>p2<span class="token punctuation">)</span><span class="token punctuation">)</span> p2<span class="token operator">++</span><span class="token punctuation">;</span>
+        ll a <span class="token operator">=</span> <span class="token punctuation">(</span>ll<span class="token punctuation">)</span>p2<span class="token operator">*</span><span class="token punctuation">(</span>p1<span class="token number">-2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">2LL</span><span class="token operator">*</span><span class="token punctuation">(</span>n<span class="token operator">-</span>p1<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ll b <span class="token operator">=</span> <span class="token number">2LL</span> <span class="token operator">*</span> p1 <span class="token operator">*</span> p2<span class="token punctuation">;</span>
+        ll c <span class="token operator">=</span> <span class="token function">GCD</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%I64d/%I64d\n"</span><span class="token punctuation">,</span> a<span class="token operator">/</span>c<span class="token punctuation">,</span> b<span class="token operator">/</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
       
     </div>
 
@@ -250,33 +283,13 @@
       
       
 
-  <div class="post-copyright">
-    <p class="copyright-item">
-      <span>Author: </span>
-      <span>清逸</span>
-    </p>
-    <p class="copyright-item">
-      <span>Origin: </span>
-      <a href="https://sea96.github.io">https://sea96.github.io</a>
-    </p>
-    <p class="copyright-item">
-      <span>Link: </span>
-      <a href="https://sea96.github.io/2017/02/24/Codeforces-396B-On-Sum-of-Fractions/">https://sea96.github.io/2017/02/24/Codeforces-396B-On-Sum-of-Fractions/</a>
-    </p>
-
-    <p class="copyright-item lincese">
-      
-      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
-    </p>
-  </div>
-
 
 
       
       
   <div class="post-reward">
     <input type="checkbox" name="reward" id="reward" hidden />
-    <label class="reward-button" for="reward">Reward</label>
+    <label class="reward-button" for="reward">赞赏支持</label>
     <div class="qr-code">
       
       
@@ -286,7 +299,7 @@
       
       
         <label class="qr-code-image" for="reward">
-          <img class="image" src="/image/reward/alipay.png" title="alipay">
+          <img class="image" src="/image/reward/alipay.jpg" title="alipay">
         </label>
       
     </div>
@@ -378,9 +391,6 @@
       
     
     
-    
-      
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
     
   </div>
 

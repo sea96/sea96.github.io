@@ -12,7 +12,7 @@
 
 
 
-  <meta name="description" content="后缀数组"/>
+  <meta name="description" content="后缀数组是处理字符串的有力工具"/>
 
 
 
@@ -22,7 +22,7 @@
 
 
 
-  <link rel="alternate" href="/default" title="清逸">
+  <link rel="alternate" href="/atom.xml" title="清逸">
 
 
 
@@ -34,17 +34,17 @@
 <link rel="canonical" href="https://sea96.github.io/2017/05/05/后缀数组/"/>
 
 
-<meta name="description" content="后缀数组是处理字符串的有力工具。后缀数组是后缀树的一个非常精巧的替代品，它比后缀树容易编程实现，能够实现后缀树的很多功能，而时间复杂度也并不逊色，而且它比后缀树所占用的内存空间小很多。">
+<meta name="description" content="后缀数组是处理字符串的有力工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="后缀数组">
 <meta property="og:url" content="https://sea96.github.io/2017/05/05/后缀数组/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="后缀数组是处理字符串的有力工具。后缀数组是后缀树的一个非常精巧的替代品，它比后缀树容易编程实现，能够实现后缀树的很多功能，而时间复杂度也并不逊色，而且它比后缀树所占用的内存空间小很多。">
+<meta property="og:description" content="后缀数组是处理字符串的有力工具">
 <meta property="og:image" content="http://a.hiphotos.baidu.com/baike/pic/item/c2cec3fdfc03924586f1a8948694a4c27c1e25e0.jpg">
-<meta property="og:updated_time" content="2017-05-13T01:44:35.726Z">
+<meta property="og:updated_time" content="2017-05-13T14:22:07.756Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="后缀数组">
-<meta name="twitter:description" content="后缀数组是处理字符串的有力工具。后缀数组是后缀树的一个非常精巧的替代品，它比后缀树容易编程实现，能够实现后缀树的很多功能，而时间复杂度也并不逊色，而且它比后缀树所占用的内存空间小很多。">
+<meta name="twitter:description" content="后缀数组是处理字符串的有力工具">
 <meta name="twitter:image" content="http://a.hiphotos.baidu.com/baike/pic/item/c2cec3fdfc03924586f1a8948694a4c27c1e25e0.jpg">
 
 
@@ -96,7 +96,7 @@
         <li class="mobile-menu-item">
           
           
-            Home
+            首页
           
         </li>
       </a>
@@ -105,7 +105,7 @@
         <li class="mobile-menu-item">
           
           
-            Archives
+            归档
           
         </li>
       </a>
@@ -114,7 +114,7 @@
         <li class="mobile-menu-item">
           
           
-            Categories
+            分类
           
         </li>
       </a>
@@ -123,7 +123,7 @@
         <li class="mobile-menu-item">
           
           
-            Tags
+            标签
           
         </li>
       </a>
@@ -132,7 +132,7 @@
         <li class="mobile-menu-item">
           
           
-            About
+            关于
           
         </li>
       </a>
@@ -153,7 +153,7 @@
           <a class="menu-item-link" href="/">
             
             
-              Home
+              首页
             
           </a>
         </li>
@@ -162,7 +162,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              Archives
+              归档
             
           </a>
         </li>
@@ -171,7 +171,7 @@
           <a class="menu-item-link" href="/categories/">
             
             
-              Categories
+              分类
             
           </a>
         </li>
@@ -180,7 +180,7 @@
           <a class="menu-item-link" href="/tags/">
             
             
-              Tags
+              标签
             
           </a>
         </li>
@@ -189,7 +189,7 @@
           <a class="menu-item-link" href="/about/">
             
             
-              About
+              关于
             
           </a>
         </li>
@@ -244,7 +244,6 @@
         <blockquote>
 <p>后缀数组是处理字符串的有力工具。后缀数组是后缀树的一个非常精巧的替代品，它比后缀树容易编程实现，能够实现后缀树的很多功能，而时间复杂度也并不逊色，而且它比后缀树所占用的内存空间小很多。</p>
 </blockquote>
-<a id="more"></a>
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
 <li>后缀：设一个字符串为S[0 ~ |S|-1]，后缀i表示S[i ~ |S|-1]。举例：有一个字符串BANANA，后缀3就是ANA。</li>
 <li>后缀数组：后缀数组sa保存的是<strong>所有后缀按字典序从小到大排序的结果</strong>（在字符串S的下标）。 举例：BANANA的后缀数组sa[]={5,3,1,0,4,2}，更详细点就是后缀5（A），后缀3（ANA），后缀1（ANANA）。。。</li>
@@ -254,7 +253,32 @@
 <h2 id="求法"><a href="#求法" class="headerlink" title="求法"></a>求法</h2><h3 id="后缀数组"><a href="#后缀数组" class="headerlink" title="后缀数组"></a>后缀数组</h3><ul>
 <li>DA算法：倍增思想+基数排序（双关键字排序），复杂度 $O(nlogn)$<br><img src="http://a.hiphotos.baidu.com/baike/pic/item/c2cec3fdfc03924586f1a8948694a4c27c1e25e0.jpg" alt="倍增过程"></li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">build_sa</span><span class="params">(<span class="keyword">int</span> m = <span class="number">128</span>)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> i, j, p, *x = tmp_one, *y = tmp_two;</div><div class="line">    <span class="comment">//对于单字符S[i~i]的基数排序</span></div><div class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;m; ++i) c[i] = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;n; ++i) c[x[i]=s[i]]++;</div><div class="line">    <span class="keyword">for</span> (i=<span class="number">1</span>; i&lt;m; ++i) c[i] += c[i<span class="number">-1</span>];</div><div class="line">    <span class="keyword">for</span> (i=n<span class="number">-1</span>; i&gt;=<span class="number">0</span>; --i) sa[--c[x[i]]] = i;</div><div class="line">    <span class="comment">//对于长度j，关键字为(S[i~(i+j-1)],S[(i+j)~(i+j+j-1)])进行基数排序</span></div><div class="line">    <span class="keyword">for</span> (j=<span class="number">1</span>, p=<span class="number">0</span>; j&lt;=n; j&lt;&lt;=<span class="number">1</span>) &#123;</div><div class="line">        <span class="comment">//直接利用sa数组排序第二关键字</span></div><div class="line">        <span class="keyword">for</span> (p=<span class="number">0</span>, i=n-j; i&lt;n; ++i) y[p++] = i;</div><div class="line">        <span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;n; ++i) <span class="keyword">if</span> (sa[i] &gt;= j) y[p++] = sa[i] - j;</div><div class="line">        <span class="comment">//基数排序第一关键字</span></div><div class="line">        <span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;m; ++i) c[i] = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;n; ++i) c[x[y[i]]]++;</div><div class="line">        <span class="keyword">for</span> (i=<span class="number">1</span>; i&lt;m; ++i) c[i] += c[i<span class="number">-1</span>];</div><div class="line">        <span class="keyword">for</span> (i=n<span class="number">-1</span>; i&gt;=<span class="number">0</span>; --i) sa[--c[x[y[i]]]] = y[i];</div><div class="line">        swap(x, y);</div><div class="line">        <span class="comment">//根据sa和y数组计算新的x数组</span></div><div class="line">        <span class="keyword">for</span> (p=<span class="number">1</span>, x[sa[<span class="number">0</span>]]=<span class="number">0</span>, i=<span class="number">1</span>; i&lt;n; ++i) &#123;</div><div class="line">            x[sa[i]] = (y[sa[i<span class="number">-1</span>]] == y[sa[i]] &amp;&amp; y[sa[i<span class="number">-1</span>]+j] == y[sa[i]+j] ? p<span class="number">-1</span> : p++);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> ((m=p) &gt;= n) <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">build_sa</span><span class="token punctuation">(</span><span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token number">128</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">,</span> j<span class="token punctuation">,</span> p<span class="token punctuation">,</span> <span class="token operator">*</span>x <span class="token operator">=</span> tmp_one<span class="token punctuation">,</span> <span class="token operator">*</span>y <span class="token operator">=</span> tmp_two<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//对于单字符S[i~i]的基数排序</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>m<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> c<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> c<span class="token punctuation">[</span>x<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>m<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> c<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> c<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span>n<span class="token number">-1</span><span class="token punctuation">;</span> i<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token operator">--</span>i<span class="token punctuation">)</span> sa<span class="token punctuation">[</span><span class="token operator">--</span>c<span class="token punctuation">[</span>x<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//对于长度j，关键字为(S[i~(i+j-1)],S[(i+j)~(i+j+j-1)])进行基数排序</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> p<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span> j<span class="token operator">&lt;&lt;=</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//直接利用sa数组排序第二关键字</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>p<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> i<span class="token operator">=</span>n<span class="token operator">-</span>j<span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> y<span class="token punctuation">[</span>p<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>sa<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">>=</span> j<span class="token punctuation">)</span> y<span class="token punctuation">[</span>p<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> sa<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> j<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//基数排序第一关键字</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>m<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> c<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> c<span class="token punctuation">[</span>x<span class="token punctuation">[</span>y<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>m<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> c<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> c<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span>n<span class="token number">-1</span><span class="token punctuation">;</span> i<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token operator">--</span>i<span class="token punctuation">)</span> sa<span class="token punctuation">[</span><span class="token operator">--</span>c<span class="token punctuation">[</span>x<span class="token punctuation">[</span>y<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> y<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token function">swap</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//根据sa和y数组计算新的x数组</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>p<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> x<span class="token punctuation">[</span>sa<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            x<span class="token punctuation">[</span>sa<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>y<span class="token punctuation">[</span>sa<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">==</span> y<span class="token punctuation">[</span>sa<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> y<span class="token punctuation">[</span>sa<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">+</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> y<span class="token punctuation">[</span>sa<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+</span>j<span class="token punctuation">]</span> <span class="token operator">?</span> p<span class="token number">-1</span> <span class="token operator">:</span> p<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>m<span class="token operator">=</span>p<span class="token punctuation">)</span> <span class="token operator">>=</span> n<span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>代码解释：参数m表示不同字符的个数（会增大），数组s是字符串转换成数字数组。用到三个辅助数组，x数组记录当前长度j下后缀i的排名，y数组记录第二关键字排序的结果，c数组用来计数和定位。</p>
 <ul>
 <li><p>DC3算法 时间复杂度 $O(n)$</p>
@@ -273,33 +297,13 @@
       
       
 
-  <div class="post-copyright">
-    <p class="copyright-item">
-      <span>Author: </span>
-      <span>清逸</span>
-    </p>
-    <p class="copyright-item">
-      <span>Origin: </span>
-      <a href="https://sea96.github.io">https://sea96.github.io</a>
-    </p>
-    <p class="copyright-item">
-      <span>Link: </span>
-      <a href="https://sea96.github.io/2017/05/05/后缀数组/">https://sea96.github.io/2017/05/05/后缀数组/</a>
-    </p>
-
-    <p class="copyright-item lincese">
-      
-      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
-    </p>
-  </div>
-
 
 
       
       
   <div class="post-reward">
     <input type="checkbox" name="reward" id="reward" hidden />
-    <label class="reward-button" for="reward">Reward</label>
+    <label class="reward-button" for="reward">赞赏支持</label>
     <div class="qr-code">
       
       
@@ -309,7 +313,7 @@
       
       
         <label class="qr-code-image" for="reward">
-          <img class="image" src="/image/reward/alipay.png" title="alipay">
+          <img class="image" src="/image/reward/alipay.jpg" title="alipay">
         </label>
       
     </div>
@@ -401,9 +405,6 @@
       
     
     
-    
-      
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
     
   </div>
 

@@ -22,7 +22,7 @@
 
 
 
-  <link rel="alternate" href="/default" title="清逸">
+  <link rel="alternate" href="/atom.xml" title="清逸">
 
 
 
@@ -94,7 +94,7 @@
         <li class="mobile-menu-item">
           
           
-            Home
+            首页
           
         </li>
       </a>
@@ -103,7 +103,7 @@
         <li class="mobile-menu-item">
           
           
-            Archives
+            归档
           
         </li>
       </a>
@@ -112,7 +112,7 @@
         <li class="mobile-menu-item">
           
           
-            Categories
+            分类
           
         </li>
       </a>
@@ -121,7 +121,7 @@
         <li class="mobile-menu-item">
           
           
-            Tags
+            标签
           
         </li>
       </a>
@@ -130,7 +130,7 @@
         <li class="mobile-menu-item">
           
           
-            About
+            关于
           
         </li>
       </a>
@@ -151,7 +151,7 @@
           <a class="menu-item-link" href="/">
             
             
-              Home
+              首页
             
           </a>
         </li>
@@ -160,7 +160,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              Archives
+              归档
             
           </a>
         </li>
@@ -169,7 +169,7 @@
           <a class="menu-item-link" href="/categories/">
             
             
-              Categories
+              分类
             
           </a>
         </li>
@@ -178,7 +178,7 @@
           <a class="menu-item-link" href="/tags/">
             
             
-              Tags
+              标签
             
           </a>
         </li>
@@ -187,7 +187,7 @@
           <a class="menu-item-link" href="/about/">
             
             
-              About
+              关于
             
           </a>
         </li>
@@ -242,7 +242,48 @@
         <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>$k(\leq 10^{18})$个人的生日在$2^n(n \leq 10^{18})$天内，问至少有两个人的生日在同一天的概率。</p>
 <a id="more"></a>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>先求所有人的生日都不同的概率$p$，那么答案就是$1-p$。<br>$$p=\frac {A_{2^n}^{k}}{(2^n)^k}=\frac {\prod_{i=0}^{k-1}(2^n-i)}{2^{kn}}$$<br>也就是说第$i$个人的生日不重复的概率为$\frac {(2^n-i)}{2^n}$。题目要求先约分再取模，根据公式<br>$$GCD(a,b)=GCD(b-a,b),(a&lt;b)$$<br>只要求$GCD((k-1)!,2^{(k-1)n})$，分子分母同除掉它后就可以取模，也就是求$(k-1)!$有多少个2，根据勒让德定理（<a href="https://en.wikipedia.org/wiki/Legendre%27s_formula" target="_blank" rel="external">Legendre’s formula</a>）：<strong>在正数$n!$的素因子标准分解式中，素数$p$的指数记作$L_p(n!)$，则</strong>$$L_p(n!)=\sum_{k=1}\lfloor \frac {n}{p^k} \rfloor$$<br>根据抽屉原理，当$k-1\geq MOD$时，$k-1$个连续整数中必有一个能被$MOD$整除，这就意味着取模之后结果为0，那$k-1$个连续整数的乘积就是0。而当$k-1&lt;MOD$时,因为$MOD$的值不大,所以我们可以暴力循环求出分子，指数很大直接快速幂显然不行，注意到$MOD$是素数，根据费马小定理<br>$$2^{p-1}\equiv 1(mod p)$$<br>可以降幂后用快速幂。<br>时间复杂度：$O(MOD+log_k+log_n)$</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e6</span> + <span class="number">3</span>;</div><div class="line"></div><div class="line"><span class="function">ll <span class="title">pow_mod</span><span class="params">(ll x, ll n)</span> </span>&#123;</div><div class="line">    ll ret = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (; n; n&gt;&gt;=<span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (n &amp; <span class="number">1</span>) ret = ret * x % MOD;</div><div class="line">        x = x * x % MOD;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line"></div><div class="line">ll n, k;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%I64d%I64d"</span>, &amp;n, &amp;k);</div><div class="line">    <span class="keyword">if</span> (n&lt;<span class="number">63</span> &amp;&amp; (<span class="number">1L</span>L&lt;&lt;n) &lt; k) &#123;</div><div class="line">        <span class="built_in">puts</span>(<span class="string">"1 1"</span>);</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    ll B = pow_mod(<span class="number">2L</span>L, n%(MOD<span class="number">-1</span>)*((k%(MOD<span class="number">-1</span>)<span class="number">-1</span>+(MOD<span class="number">-1</span>))%(MOD<span class="number">-1</span>)));</div><div class="line">    ll cnt = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (ll i=k<span class="number">-1</span>; i; i&gt;&gt;=<span class="number">1</span>) cnt += (i&gt;&gt;<span class="number">1</span>);</div><div class="line">    ll igcd = pow_mod(<span class="number">2L</span>L, cnt%(MOD<span class="number">-1</span>)*(MOD<span class="number">-2</span>)%(MOD<span class="number">-1</span>));</div><div class="line">    B = B * igcd % MOD;</div><div class="line">    <span class="keyword">if</span> (k<span class="number">-1</span> &gt;= MOD) &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%I64d %I64d\n"</span>, B, B);</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    ll A = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=k<span class="number">-1</span>; ++i) &#123;</div><div class="line">        A = A * ((pow_mod(<span class="number">2L</span>L, n%(MOD<span class="number">-1</span>))-i+MOD)%MOD) % MOD;</div><div class="line">    &#125;</div><div class="line">    A = A * igcd % MOD;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%I64d %I64d\n"</span>, (B-A+MOD)%MOD, B);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> MOD <span class="token operator">=</span> <span class="token number">1e6</span> <span class="token operator">+</span> <span class="token number">3</span><span class="token punctuation">;</span>
+
+ll <span class="token function">pow_mod</span><span class="token punctuation">(</span>ll x<span class="token punctuation">,</span> ll n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ll ret <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> n<span class="token punctuation">;</span> n<span class="token operator">>>=</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">)</span> ret <span class="token operator">=</span> ret <span class="token operator">*</span> x <span class="token operator">%</span> MOD<span class="token punctuation">;</span>
+        x <span class="token operator">=</span> x <span class="token operator">*</span> x <span class="token operator">%</span> MOD<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+ll n<span class="token punctuation">,</span> k<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%I64d%I64d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">,</span> <span class="token operator">&amp;</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>n<span class="token operator">&lt;</span><span class="token number">63</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token number">1LL</span><span class="token operator">&lt;&lt;</span>n<span class="token punctuation">)</span> <span class="token operator">&lt;</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"1 1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    ll B <span class="token operator">=</span> <span class="token function">pow_mod</span><span class="token punctuation">(</span><span class="token number">2LL</span><span class="token punctuation">,</span> n<span class="token operator">%</span><span class="token punctuation">(</span>MOD<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">(</span>k<span class="token operator">%</span><span class="token punctuation">(</span>MOD<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">+</span><span class="token punctuation">(</span>MOD<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token punctuation">(</span>MOD<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ll cnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>ll i<span class="token operator">=</span>k<span class="token number">-1</span><span class="token punctuation">;</span> i<span class="token punctuation">;</span> i<span class="token operator">>>=</span><span class="token number">1</span><span class="token punctuation">)</span> cnt <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span>i<span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ll igcd <span class="token operator">=</span> <span class="token function">pow_mod</span><span class="token punctuation">(</span><span class="token number">2LL</span><span class="token punctuation">,</span> cnt<span class="token operator">%</span><span class="token punctuation">(</span>MOD<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>MOD<span class="token number">-2</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token punctuation">(</span>MOD<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    B <span class="token operator">=</span> B <span class="token operator">*</span> igcd <span class="token operator">%</span> MOD<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>k<span class="token number">-1</span> <span class="token operator">>=</span> MOD<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%I64d %I64d\n"</span><span class="token punctuation">,</span> B<span class="token punctuation">,</span> B<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    ll A <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span>k<span class="token number">-1</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        A <span class="token operator">=</span> A <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">pow_mod</span><span class="token punctuation">(</span><span class="token number">2LL</span><span class="token punctuation">,</span> n<span class="token operator">%</span><span class="token punctuation">(</span>MOD<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-</span>i<span class="token operator">+</span>MOD<span class="token punctuation">)</span><span class="token operator">%</span>MOD<span class="token punctuation">)</span> <span class="token operator">%</span> MOD<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    A <span class="token operator">=</span> A <span class="token operator">*</span> igcd <span class="token operator">%</span> MOD<span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%I64d %I64d\n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>B<span class="token operator">-</span>A<span class="token operator">+</span>MOD<span class="token punctuation">)</span><span class="token operator">%</span>MOD<span class="token punctuation">,</span> B<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
       
     </div>
 
@@ -250,33 +291,13 @@
       
       
 
-  <div class="post-copyright">
-    <p class="copyright-item">
-      <span>Author: </span>
-      <span>清逸</span>
-    </p>
-    <p class="copyright-item">
-      <span>Origin: </span>
-      <a href="https://sea96.github.io">https://sea96.github.io</a>
-    </p>
-    <p class="copyright-item">
-      <span>Link: </span>
-      <a href="https://sea96.github.io/2017/02/26/Codeforces-711E-ZS-and-The-Birthday-Paradox/">https://sea96.github.io/2017/02/26/Codeforces-711E-ZS-and-The-Birthday-Paradox/</a>
-    </p>
-
-    <p class="copyright-item lincese">
-      
-      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
-    </p>
-  </div>
-
 
 
       
       
   <div class="post-reward">
     <input type="checkbox" name="reward" id="reward" hidden />
-    <label class="reward-button" for="reward">Reward</label>
+    <label class="reward-button" for="reward">赞赏支持</label>
     <div class="qr-code">
       
       
@@ -286,7 +307,7 @@
       
       
         <label class="qr-code-image" for="reward">
-          <img class="image" src="/image/reward/alipay.png" title="alipay">
+          <img class="image" src="/image/reward/alipay.jpg" title="alipay">
         </label>
       
     </div>
@@ -380,9 +401,6 @@
       
     
     
-    
-      
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
     
   </div>
 

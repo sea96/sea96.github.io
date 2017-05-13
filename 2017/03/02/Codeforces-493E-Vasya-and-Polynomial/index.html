@@ -22,7 +22,7 @@
 
 
 
-  <link rel="alternate" href="/default" title="清逸">
+  <link rel="alternate" href="/atom.xml" title="清逸">
 
 
 
@@ -94,7 +94,7 @@
         <li class="mobile-menu-item">
           
           
-            Home
+            首页
           
         </li>
       </a>
@@ -103,7 +103,7 @@
         <li class="mobile-menu-item">
           
           
-            Archives
+            归档
           
         </li>
       </a>
@@ -112,7 +112,7 @@
         <li class="mobile-menu-item">
           
           
-            Categories
+            分类
           
         </li>
       </a>
@@ -121,7 +121,7 @@
         <li class="mobile-menu-item">
           
           
-            Tags
+            标签
           
         </li>
       </a>
@@ -130,7 +130,7 @@
         <li class="mobile-menu-item">
           
           
-            About
+            关于
           
         </li>
       </a>
@@ -151,7 +151,7 @@
           <a class="menu-item-link" href="/">
             
             
-              Home
+              首页
             
           </a>
         </li>
@@ -160,7 +160,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              Archives
+              归档
             
           </a>
         </li>
@@ -169,7 +169,7 @@
           <a class="menu-item-link" href="/categories/">
             
             
-              Categories
+              分类
             
           </a>
         </li>
@@ -178,7 +178,7 @@
           <a class="menu-item-link" href="/tags/">
             
             
-              Tags
+              标签
             
           </a>
         </li>
@@ -187,7 +187,7 @@
           <a class="menu-item-link" href="/about/">
             
             
-              About
+              关于
             
           </a>
         </li>
@@ -245,8 +245,11 @@
 <ul>
 <li>当$t&gt;1$时，所有系数$a_i&lt;a$，$P(P(t)) = P(a) = b$，相当于告诉了$b$在$a$进制的表示，且是唯一的，所以可以先求出所有系数$a_i$，然后验证$P(t)=a$是否成立即可。</li>
 <li>当$t=1$时，如果存在$a_k=a$，那么$a_j=0$$(j \neq k)$，那么$$P(t=1)=a_kt^k=a_k=a$$ $$P(a)=a_ka^k=a^{k+1}=b$$ 当且仅当$a=b=1$时对于任意$k$成立，否则只要验证$b$是$a$的正整数次幂即可。如果任意系数$a_{i} &lt; a$，问题在$t&gt;1$时已经解决。</li>
-<li>特判$P(x)=a_0$的情况。<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line">ll t, a, b;</div><div class="line"></div><div class="line"><span class="comment">//t &gt; 1 || another case</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</div><div class="line">    ll p = <span class="number">0</span>, x = <span class="number">1</span>, r = b;</div><div class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (; r; r/=a) &#123;</div><div class="line">        p += r % a * x;</div><div class="line">        x *= t;</div><div class="line">        cnt++;</div><div class="line">        <span class="keyword">if</span> (cnt &gt; <span class="number">100</span>) <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> (p==a) + (cnt &gt; <span class="number">1</span> &amp;&amp; a==b);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; t &gt;&gt; a &gt;&gt; b;</div><div class="line">    <span class="keyword">if</span> (t == <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (a == <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (b == <span class="number">1</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">"inf"</span> &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">            <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">bool</span> ok = <span class="literal">false</span>;</div><div class="line">            ll p = <span class="number">1</span>;</div><div class="line">            <span class="keyword">while</span> (p &lt;= b/a) &#123;</div><div class="line">                p *= a;</div><div class="line">                <span class="keyword">if</span> (p == b) ok = <span class="literal">true</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (ok) <span class="built_in">cout</span> &lt;&lt; <span class="number">1</span> &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">            <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; solve() &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; solve() &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+<li>特判$P(x)=a_0$的情况。<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2>```cpp<br>#include <bits stdc++.h=""><br>using namespace std;</bits></li>
 </ul>
+<p>typedef long long ll;<br>ll t, a, b;</p>
+<p>//t &gt; 1 || another case<br>int solve() {<br>    ll p = 0, x = 1, r = b;<br>    int cnt = 0;<br>    for (; r; r/=a) {<br>        p += r % a <em> x;<br>        x </em>= t;<br>        cnt++;<br>        if (cnt &gt; 100) break;<br>    }<br>    return (p==a) + (cnt &gt; 1 &amp;&amp; a==b);<br>}</p>
+<p>int main() {<br>    cin &gt;&gt; t &gt;&gt; a &gt;&gt; b;<br>    if (t == 1) {<br>        if (a == 1) {<br>            if (b == 1) cout &lt;&lt; “inf” &lt;&lt; ‘\n’;<br>            else cout &lt;&lt; 0 &lt;&lt; ‘\n’;<br>        } else {<br>            bool ok = false;<br>            ll p = 1;<br>            while (p &lt;= b/a) {<br>                p *= a;<br>                if (p == b) ok = true;<br>            }<br>            if (ok) cout &lt;&lt; 1 &lt;&lt; ‘\n’;<br>            else cout &lt;&lt; solve() &lt;&lt; ‘\n’;<br>        }<br>    } else cout &lt;&lt; solve() &lt;&lt; ‘\n’;<br>    return 0;<br>}<br>```</p>
 
       
     </div>
@@ -255,33 +258,13 @@
       
       
 
-  <div class="post-copyright">
-    <p class="copyright-item">
-      <span>Author: </span>
-      <span>清逸</span>
-    </p>
-    <p class="copyright-item">
-      <span>Origin: </span>
-      <a href="https://sea96.github.io">https://sea96.github.io</a>
-    </p>
-    <p class="copyright-item">
-      <span>Link: </span>
-      <a href="https://sea96.github.io/2017/03/02/Codeforces-493E-Vasya-and-Polynomial/">https://sea96.github.io/2017/03/02/Codeforces-493E-Vasya-and-Polynomial/</a>
-    </p>
-
-    <p class="copyright-item lincese">
-      
-      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
-    </p>
-  </div>
-
 
 
       
       
   <div class="post-reward">
     <input type="checkbox" name="reward" id="reward" hidden />
-    <label class="reward-button" for="reward">Reward</label>
+    <label class="reward-button" for="reward">赞赏支持</label>
     <div class="qr-code">
       
       
@@ -291,7 +274,7 @@
       
       
         <label class="qr-code-image" for="reward">
-          <img class="image" src="/image/reward/alipay.png" title="alipay">
+          <img class="image" src="/image/reward/alipay.jpg" title="alipay">
         </label>
       
     </div>
@@ -383,9 +366,6 @@
       
     
     
-    
-      
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
     
   </div>
 

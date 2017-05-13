@@ -12,7 +12,7 @@
 
 
 
-  <meta name="description" content="Codeforces Round #406 (Div. 2)"/>
+  <meta name="description" content="ABCDE"/>
 
 
 
@@ -22,7 +22,7 @@
 
 
 
-  <link rel="alternate" href="/default" title="清逸">
+  <link rel="alternate" href="/atom.xml" title="清逸">
 
 
 
@@ -34,16 +34,16 @@
 <link rel="canonical" href="https://sea96.github.io/2017/04/11/Codeforces-Round-406-Div-2/"/>
 
 
-<meta name="description" content="A. The Monster给定$a,b,c,d$，问是否存在$k_1,k_2$，使得$b+k_1a=d+k_2c$.暴力枚举其中一个$k$判断是否能整除即可。">
+<meta name="description" content="ABCDE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces Round #406 (Div. 2)">
 <meta property="og:url" content="https://sea96.github.io/2017/04/11/Codeforces-Round-406-Div-2/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="A. The Monster给定$a,b,c,d$，问是否存在$k_1,k_2$，使得$b+k_1a=d+k_2c$.暴力枚举其中一个$k$判断是否能整除即可。">
-<meta property="og:updated_time" content="2017-05-13T05:22:45.759Z">
+<meta property="og:description" content="ABCDE">
+<meta property="og:updated_time" content="2017-05-13T14:26:03.577Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces Round #406 (Div. 2)">
-<meta name="twitter:description" content="A. The Monster给定$a,b,c,d$，问是否存在$k_1,k_2$，使得$b+k_1a=d+k_2c$.暴力枚举其中一个$k$判断是否能整除即可。">
+<meta name="twitter:description" content="ABCDE">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -94,7 +94,7 @@
         <li class="mobile-menu-item">
           
           
-            Home
+            首页
           
         </li>
       </a>
@@ -103,7 +103,7 @@
         <li class="mobile-menu-item">
           
           
-            Archives
+            归档
           
         </li>
       </a>
@@ -112,7 +112,7 @@
         <li class="mobile-menu-item">
           
           
-            Categories
+            分类
           
         </li>
       </a>
@@ -121,7 +121,7 @@
         <li class="mobile-menu-item">
           
           
-            Tags
+            标签
           
         </li>
       </a>
@@ -130,7 +130,7 @@
         <li class="mobile-menu-item">
           
           
-            About
+            关于
           
         </li>
       </a>
@@ -151,7 +151,7 @@
           <a class="menu-item-link" href="/">
             
             
-              Home
+              首页
             
           </a>
         </li>
@@ -160,7 +160,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              Archives
+              归档
             
           </a>
         </li>
@@ -169,7 +169,7 @@
           <a class="menu-item-link" href="/categories/">
             
             
-              Categories
+              分类
             
           </a>
         </li>
@@ -178,7 +178,7 @@
           <a class="menu-item-link" href="/tags/">
             
             
-              Tags
+              标签
             
           </a>
         </li>
@@ -187,7 +187,7 @@
           <a class="menu-item-link" href="/about/">
             
             
-              About
+              关于
             
           </a>
         </li>
@@ -240,7 +240,6 @@
     <div class="post-content">
       
         <h2 id="A-The-Monster"><a href="#A-The-Monster" class="headerlink" title="A. The Monster"></a>A. The Monster</h2><p>给定$a,b,c,d$，问是否存在$k_1,k_2$，使得$b+k_1a=d+k_2c$.<br>暴力枚举其中一个$k$判断是否能整除即可。</p>
-<a id="more"></a>
 <h2 id="B-Not-Afraid"><a href="#B-Not-Afraid" class="headerlink" title="B. Not Afraid"></a>B. Not Afraid</h2><p>两个宇宙，每一个人在两个宇宙里一个是忠诚者，另一个是叛徒。将他们分组，问是否可能存在一个组里的人都是叛徒。<br>如果一个数的正负数都在同一个组里，那么这个组一定有一个是忠诚者，否则可能都是叛徒。</p>
 <h2 id="C-Berzerk"><a href="#C-Berzerk" class="headerlink" title="C. Berzerk"></a>C. Berzerk</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>$n$个点形成环，两个玩家分别有$k_1,k_2$个数字$s_i$，每次都可以选择一个数字$s_i$，顺时针跳到后面第$s_i$个位置，谁先跳到第1位置谁就获胜，问从两个人从每个位置出发的最优结局。</p>
 <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>正方向DFS的话，因为后继不能保证在有限次数后到达终点，那么选择从终点逆推，定义$f[2][i]$表示玩家走到$i$位置的结局是<strong>win</strong> or <strong>Lose</strong>，一个状态判为$Win$的条件是至少存在一个后继是$Lose$；一个状态判为$Lose$的条件是后继都是<strong>Win</strong>。使用记忆化搜索，每个状态只遍历一次，时间复杂度：$O(n)$.<br><a href="http://codeforces.com/contest/787/submission/26255433" target="_blank" rel="external">code</a></p>
@@ -262,33 +261,13 @@
       
       
 
-  <div class="post-copyright">
-    <p class="copyright-item">
-      <span>Author: </span>
-      <span>清逸</span>
-    </p>
-    <p class="copyright-item">
-      <span>Origin: </span>
-      <a href="https://sea96.github.io">https://sea96.github.io</a>
-    </p>
-    <p class="copyright-item">
-      <span>Link: </span>
-      <a href="https://sea96.github.io/2017/04/11/Codeforces-Round-406-Div-2/">https://sea96.github.io/2017/04/11/Codeforces-Round-406-Div-2/</a>
-    </p>
-
-    <p class="copyright-item lincese">
-      
-      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
-    </p>
-  </div>
-
 
 
       
       
   <div class="post-reward">
     <input type="checkbox" name="reward" id="reward" hidden />
-    <label class="reward-button" for="reward">Reward</label>
+    <label class="reward-button" for="reward">赞赏支持</label>
     <div class="qr-code">
       
       
@@ -298,7 +277,7 @@
       
       
         <label class="qr-code-image" for="reward">
-          <img class="image" src="/image/reward/alipay.png" title="alipay">
+          <img class="image" src="/image/reward/alipay.jpg" title="alipay">
         </label>
       
     </div>
@@ -398,9 +377,6 @@
       
     
     
-    
-      
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
     
   </div>
 
