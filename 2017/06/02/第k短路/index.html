@@ -12,12 +12,12 @@
 
 
 
-  <meta name="description" content="工欲善其事必先利其器"/>
+  <meta name="description" content="求有向图中 $S$ 到 $T$ 的可重复的第 $k$ 短路的长度。"/>
 
 
 
 
-  <meta name="keywords" content="工具," />
+  <meta name="keywords" content="图论," />
 
 
 
@@ -31,21 +31,19 @@
 
 
 
-<link rel="canonical" href="https://sea96.github.io/2017/05/13/开发常用工具/"/>
+<link rel="canonical" href="https://sea96.github.io/2017/06/02/第k短路/"/>
 
 
-<meta name="description" content="工欲善其事必先利其器">
+<meta name="description" content="求有向图中 $S$ 到 $T$ 的可重复的第 $k$ 短路的长度。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开发常用工具">
-<meta property="og:url" content="https://sea96.github.io/2017/05/13/开发常用工具/index.html">
+<meta property="og:title" content="第k短路">
+<meta property="og:url" content="https://sea96.github.io/2017/06/02/第k短路/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="工欲善其事必先利其器">
-<meta property="og:image" content="http://i1.piimg.com/588926/128fc11b9a837cbf.jpg">
-<meta property="og:updated_time" content="2017-05-13T14:58:19.007Z">
+<meta property="og:description" content="求有向图中 $S$ 到 $T$ 的可重复的第 $k$ 短路的长度。">
+<meta property="og:updated_time" content="2017-06-02T12:27:53.980Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开发常用工具">
-<meta name="twitter:description" content="工欲善其事必先利其器">
-<meta name="twitter:image" content="http://i1.piimg.com/588926/128fc11b9a837cbf.jpg">
+<meta name="twitter:title" content="第k短路">
+<meta name="twitter:description" content="求有向图中 $S$ 到 $T$ 的可重复的第 $k$ 短路的长度。">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -74,7 +72,7 @@
 
 
 
-    <title> 开发常用工具 · 清逸 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <title> 第k短路 · 清逸 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -218,13 +216,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          开发常用工具
+          第k短路
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          May 13, 2017
+          Jun 2, 2017
         </span>
       </div>
     </header>
@@ -234,33 +232,28 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#网络浏览器"><span class="toc-text">网络浏览器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#翻墙软件"><span class="toc-text">翻墙软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编程软件"><span class="toc-text">编程软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片"><span class="toc-text">图片</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第k短路"><span class="toc-text">第k短路</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p><img src="http://i1.piimg.com/588926/128fc11b9a837cbf.jpg" alt=""></p>
-<h2 id="网络浏览器"><a href="#网络浏览器" class="headerlink" title="网络浏览器"></a>网络浏览器</h2><ul>
-<li><a href="http://www.google.cn/chrome/browser/desktop/index.html" target="_blank" rel="external">Google Chrome</a> 最好用的浏览器</li>
-</ul>
-<h2 id="翻墙软件"><a href="#翻墙软件" class="headerlink" title="翻墙软件"></a>翻墙软件</h2><ul>
-<li><a href="http://s3.amazonaws.com/57wj-4j1q-wa7e/zh/download.html" target="_blank" rel="external">赛风</a> 免费翻墙软件</li>
-<li><a href="https://www.19216811.la/dnwl/2393.html" target="_blank" rel="external">蓝灯</a> 免费版流量受限（老版本强制更新？）</li>
-</ul>
-<h2 id="编程软件"><a href="#编程软件" class="headerlink" title="编程软件"></a>编程软件</h2><ul>
-<li><a href="http://www.codeblocks.org/downloads/26" target="_blank" rel="external">Code::Blocks</a> 开放源码的全功能的跨平台C/C++集成开发环境</li>
-<li><a href="https://www.eclipse.org/downloads/" target="_blank" rel="external">Eclipse</a> 开放源代码的、基于Java的可扩展开发平台</li>
-<li><a href="http://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text</a> 神级代码编辑器</li>
-<li><a href="http://www.vim.org/download.php" target="_blank" rel="external">gVim</a> 编辑器之神</li>
-<li><a href="https://www.typora.io/" target="_blank" rel="external">Typora</a> 极致简洁的Markdown编辑器</li>
-</ul>
-<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><ul>
-<li><a href="http://www.ssyer.com/" target="_blank" rel="external">别样图</a> 无版权免费大尺寸图片共享平台</li>
-<li><a href="http://jiantuku.com/#/" target="_blank" rel="external">极简图床</a> 不限流量，支持粘贴上传、拖放上传</li>
-<li><a href="https://www.faceyourmanga.com/editmangatar.php" target="_blank" rel="external">FaceYourManga</a> DIY头像</li>
-</ul>
+        <h2 id="第k短路"><a href="#第k短路" class="headerlink" title="第k短路"></a>第k短路</h2><p>A star 算法：通过一个估价函数 $f(n)=g(n)+h(n)$ 来估计图中的当前点 $n$ 到终点的距离，并由此决定它的搜索方向。<br>首先在反图上使用Spfa或Dijkstra求出所有点到终点的最短路径。<br>估价函数：当前走过的距离 + 该点到终点的最短路长度。<br>用堆（优先队列）维护，每次取出估价函数最小的一个点扩展。<br>第 $k$ 次从堆中取出点 $T$，就是找到了 $T$ 的第 $k$ 短路。</p>
+<pre class="line-numbers language-C++"><code class="language-C++">struct Node {
+  int f, g, v;  //f,g函数，v节点
+  bool operator < (const Node &rhs) const {
+        if (f == rhs.f) return !(g < rhs.g);
+        else return !(f < rhs.f);
+   }
+};
+priority_queue<Node> pque;
+void Astar() {  //只列出重要语句
+    auto it = pque.top();
+    if (it.v == T && ++cnt == k) return it.g;  //此时的g为S到T的第k短距离
+    pque.push(Node{it.g+d[v], it.g+w, v});
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
@@ -298,7 +291,7 @@
         
           <div class="post-tags">
             
-              <a href="/tags/工具/">工具</a>
+              <a href="/tags/图论/">图论</a>
             
           </div>
         
@@ -306,15 +299,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2017/06/02/2-SAT/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">2-SAT</span>
-        <span class="prev-text nav-mobile">Prev</span>
-      </a>
     
-    
-      <a class="next" href="/2017/05/13/快速傅里叶变换/">
-        <span class="next-text nav-default">快速傅里叶变换</span>
+      <a class="next" href="/2017/06/02/2-SAT/">
+        <span class="next-text nav-default">2-SAT</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
@@ -416,9 +403,9 @@
   
   <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'https://sea96.github.io/2017/05/13/开发常用工具/';
-        this.page.identifier = '2017/05/13/开发常用工具/';
-        this.page.title = '开发常用工具';
+        this.page.url = 'https://sea96.github.io/2017/06/02/第k短路/';
+        this.page.identifier = '2017/06/02/第k短路/';
+        this.page.title = '第k短路';
     };
     (function() {
     var d = document, s = d.createElement('script');

@@ -12,12 +12,12 @@
 
 
 
-  <meta name="description" content="工欲善其事必先利其器"/>
+  <meta name="description" content="有 $n$ 个布尔变量 $x_i$，有 $m$ 个需要满足的条件"/>
 
 
 
 
-  <meta name="keywords" content="工具," />
+  <meta name="keywords" content="图论," />
 
 
 
@@ -31,21 +31,19 @@
 
 
 
-<link rel="canonical" href="https://sea96.github.io/2017/05/13/开发常用工具/"/>
+<link rel="canonical" href="https://sea96.github.io/2017/06/02/2-SAT/"/>
 
 
-<meta name="description" content="工欲善其事必先利其器">
+<meta name="description" content="有 $n$ 个布尔变量 $x_i$，有 $m$ 个需要满足的条件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开发常用工具">
-<meta property="og:url" content="https://sea96.github.io/2017/05/13/开发常用工具/index.html">
+<meta property="og:title" content="2-SAT">
+<meta property="og:url" content="https://sea96.github.io/2017/06/02/2-SAT/index.html">
 <meta property="og:site_name" content="清逸">
-<meta property="og:description" content="工欲善其事必先利其器">
-<meta property="og:image" content="http://i1.piimg.com/588926/128fc11b9a837cbf.jpg">
-<meta property="og:updated_time" content="2017-05-13T14:58:19.007Z">
+<meta property="og:description" content="有 $n$ 个布尔变量 $x_i$，有 $m$ 个需要满足的条件">
+<meta property="og:updated_time" content="2017-06-02T12:06:44.851Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开发常用工具">
-<meta name="twitter:description" content="工欲善其事必先利其器">
-<meta name="twitter:image" content="http://i1.piimg.com/588926/128fc11b9a837cbf.jpg">
+<meta name="twitter:title" content="2-SAT">
+<meta name="twitter:description" content="有 $n$ 个布尔变量 $x_i$，有 $m$ 个需要满足的条件">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
@@ -74,7 +72,7 @@
 
 
 
-    <title> 开发常用工具 · 清逸 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <title> 2-SAT · 清逸 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -218,13 +216,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          开发常用工具
+          2-SAT
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          May 13, 2017
+          Jun 2, 2017
         </span>
       </div>
     </header>
@@ -234,33 +232,41 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#网络浏览器"><span class="toc-text">网络浏览器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#翻墙软件"><span class="toc-text">翻墙软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编程软件"><span class="toc-text">编程软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片"><span class="toc-text">图片</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法一"><span class="toc-text">算法一</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p><img src="http://i1.piimg.com/588926/128fc11b9a837cbf.jpg" alt=""></p>
-<h2 id="网络浏览器"><a href="#网络浏览器" class="headerlink" title="网络浏览器"></a>网络浏览器</h2><ul>
-<li><a href="http://www.google.cn/chrome/browser/desktop/index.html" target="_blank" rel="external">Google Chrome</a> 最好用的浏览器</li>
-</ul>
-<h2 id="翻墙软件"><a href="#翻墙软件" class="headerlink" title="翻墙软件"></a>翻墙软件</h2><ul>
-<li><a href="http://s3.amazonaws.com/57wj-4j1q-wa7e/zh/download.html" target="_blank" rel="external">赛风</a> 免费翻墙软件</li>
-<li><a href="https://www.19216811.la/dnwl/2393.html" target="_blank" rel="external">蓝灯</a> 免费版流量受限（老版本强制更新？）</li>
-</ul>
-<h2 id="编程软件"><a href="#编程软件" class="headerlink" title="编程软件"></a>编程软件</h2><ul>
-<li><a href="http://www.codeblocks.org/downloads/26" target="_blank" rel="external">Code::Blocks</a> 开放源码的全功能的跨平台C/C++集成开发环境</li>
-<li><a href="https://www.eclipse.org/downloads/" target="_blank" rel="external">Eclipse</a> 开放源代码的、基于Java的可扩展开发平台</li>
-<li><a href="http://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text</a> 神级代码编辑器</li>
-<li><a href="http://www.vim.org/download.php" target="_blank" rel="external">gVim</a> 编辑器之神</li>
-<li><a href="https://www.typora.io/" target="_blank" rel="external">Typora</a> 极致简洁的Markdown编辑器</li>
-</ul>
-<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><ul>
-<li><a href="http://www.ssyer.com/" target="_blank" rel="external">别样图</a> 无版权免费大尺寸图片共享平台</li>
-<li><a href="http://jiantuku.com/#/" target="_blank" rel="external">极简图床</a> 不限流量，支持粘贴上传、拖放上传</li>
-<li><a href="https://www.faceyourmanga.com/editmangatar.php" target="_blank" rel="external">FaceYourManga</a> DIY头像</li>
-</ul>
+        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>有 $n$ 个布尔变量 $x_i$，有 $m$ 个需要满足的条件，每个条件的形式是“ $x_i$ 为真/假或者 $x_j$ 为真/假”，问每一个变量的赋值。</p>
+<h2 id="算法一"><a href="#算法一" class="headerlink" title="算法一"></a>算法一</h2><p>构造一张有向图G，每个变量拆成两个节点 $2i$ 和 $2i+1$，分别表示 $x_i$ 为假和 $x_i$ 为真。对于“ $x_i$ 为假或者 $x_j$ 为假”的条件，连一条有向边$2i+1$-&gt;$2j$（如果标记了 $x_i$ 为真，那么 $x_j$ 必须为假）。同理，还需要连一条有向边 $2j+1$-&gt;$2i$。然后对于每个没有赋值的变量，假定 $x_i$ 是假的，沿着有向边去标记节点。如果引起矛盾则改成 $x_i$ 是真的，重新标记。如果当前变量赋哪个值都会引起矛盾，证明这个2-SAT问题无解。</p>
+<pre class="line-numbers language-C++"><code class="language-C++">//x*2+xVal=true or y*2+yVal=true
+void add_edge(int x, int xVal, int y, int yVal) {
+    x = x * 2 + xVal;
+    y = y * 2 + yVal;
+    edge[x^1].push_back(y);
+    edge[y^1].push_back(x);
+}
+bool DFS(int x) {
+    if (mark[x^1]) return false;
+    if (mark[x]) return true;
+    mark[x] = true;
+    sta[top++] = x;
+    for (int y: edge[x]) if (!DFS(y)) return false;
+    return true;
+}
+bool judge() {
+    for (int i=0; i<n*2; i+=2) if (!mark[i] && !mark[i+1]) {
+        top = 0;
+        if (!DFS(i)) {
+            while (top > 0) mark[sta[--top]] = false;
+            if (!DFS(i+1)) return false;
+        }
+    }
+    return true;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
@@ -298,7 +304,7 @@
         
           <div class="post-tags">
             
-              <a href="/tags/工具/">工具</a>
+              <a href="/tags/图论/">图论</a>
             
           </div>
         
@@ -306,15 +312,15 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2017/06/02/2-SAT/">
+      <a class="prev" href="/2017/06/02/第k短路/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">2-SAT</span>
+        <span class="prev-text nav-default">第k短路</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
     
     
-      <a class="next" href="/2017/05/13/快速傅里叶变换/">
-        <span class="next-text nav-default">快速傅里叶变换</span>
+      <a class="next" href="/2017/05/13/开发常用工具/">
+        <span class="next-text nav-default">开发常用工具</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
@@ -416,9 +422,9 @@
   
   <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'https://sea96.github.io/2017/05/13/开发常用工具/';
-        this.page.identifier = '2017/05/13/开发常用工具/';
-        this.page.title = '开发常用工具';
+        this.page.url = 'https://sea96.github.io/2017/06/02/2-SAT/';
+        this.page.identifier = '2017/06/02/2-SAT/';
+        this.page.title = '2-SAT';
     };
     (function() {
     var d = document, s = d.createElement('script');
