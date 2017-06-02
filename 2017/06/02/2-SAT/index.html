@@ -40,7 +40,7 @@
 <meta property="og:url" content="https://sea96.github.io/2017/06/02/2-SAT/index.html">
 <meta property="og:site_name" content="清逸">
 <meta property="og:description" content="有 $n$ 个布尔变量 $x_i$，有 $m$ 个需要满足的条件">
-<meta property="og:updated_time" content="2017-06-02T12:06:44.851Z">
+<meta property="og:updated_time" content="2017-06-02T12:35:01.426Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2-SAT">
 <meta name="twitter:description" content="有 $n$ 个布尔变量 $x_i$，有 $m$ 个需要满足的条件">
@@ -241,31 +241,31 @@
       
         <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>有 $n$ 个布尔变量 $x_i$，有 $m$ 个需要满足的条件，每个条件的形式是“ $x_i$ 为真/假或者 $x_j$ 为真/假”，问每一个变量的赋值。</p>
 <h2 id="算法一"><a href="#算法一" class="headerlink" title="算法一"></a>算法一</h2><p>构造一张有向图G，每个变量拆成两个节点 $2i$ 和 $2i+1$，分别表示 $x_i$ 为假和 $x_i$ 为真。对于“ $x_i$ 为假或者 $x_j$ 为假”的条件，连一条有向边$2i+1$-&gt;$2j$（如果标记了 $x_i$ 为真，那么 $x_j$ 必须为假）。同理，还需要连一条有向边 $2j+1$-&gt;$2i$。然后对于每个没有赋值的变量，假定 $x_i$ 是假的，沿着有向边去标记节点。如果引起矛盾则改成 $x_i$ 是真的，重新标记。如果当前变量赋哪个值都会引起矛盾，证明这个2-SAT问题无解。</p>
-<pre class="line-numbers language-C++"><code class="language-C++">//x*2+xVal=true or y*2+yVal=true
-void add_edge(int x, int xVal, int y, int yVal) {
-    x = x * 2 + xVal;
-    y = y * 2 + yVal;
-    edge[x^1].push_back(y);
-    edge[y^1].push_back(x);
-}
-bool DFS(int x) {
-    if (mark[x^1]) return false;
-    if (mark[x]) return true;
-    mark[x] = true;
-    sta[top++] = x;
-    for (int y: edge[x]) if (!DFS(y)) return false;
-    return true;
-}
-bool judge() {
-    for (int i=0; i<n*2; i+=2) if (!mark[i] && !mark[i+1]) {
-        top = 0;
-        if (!DFS(i)) {
-            while (top > 0) mark[sta[--top]] = false;
-            if (!DFS(i+1)) return false;
-        }
-    }
-    return true;
-}
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">add_edge</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> xVal<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">,</span> <span class="token keyword">int</span> yVal<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//x*2+xVal=true or y*2+yVal=true</span>
+    x <span class="token operator">=</span> x <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">+</span> xVal<span class="token punctuation">;</span>
+    y <span class="token operator">=</span> y <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">+</span> yVal<span class="token punctuation">;</span>
+    edge<span class="token punctuation">[</span>x<span class="token operator">^</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    edge<span class="token punctuation">[</span>y<span class="token operator">^</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">bool</span> <span class="token function">DFS</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>mark<span class="token punctuation">[</span>x<span class="token operator">^</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>mark<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    mark<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    sta<span class="token punctuation">[</span>top<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> y<span class="token operator">:</span> edge<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">DFS</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">bool</span> <span class="token function">judge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">+</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>mark<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>mark<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        top <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">DFS</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>top <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> mark<span class="token punctuation">[</span>sta<span class="token punctuation">[</span><span class="token operator">--</span>top<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">DFS</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
@@ -281,7 +281,7 @@ bool judge() {
       
   <div class="post-reward">
     <input type="checkbox" name="reward" id="reward" hidden />
-    <label class="reward-button" for="reward">Reward</label>
+    <label class="reward-button" for="reward">赞赏支持</label>
     <div class="qr-code">
       
       
